@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; background: #fafafa; }
+        .hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: #666; max-width: 600px; margin: 0 auto 2rem; }
+        .cta { display: inline-block; padding: 1rem 2rem; background: #1a1a2e; color: white; text-decoration: none; border-radius: 8px; font-size: 1.1rem; }
+        .cta:hover { background: #2a2a4e; }
+        footer { text-align: center; padding: 2rem; color: #999; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div>
+            <h1>{{BUSINESS_NAME}}</h1>
+            <p>{{BUSINESS_DESCRIPTION}}</p>
+            <a href="mailto:{{BUSINESS_SLUG}}@arclane.cloud" class="cta">Get in Touch</a>
+        </div>
+    </section>
+    <footer>&copy; 2026 {{BUSINESS_NAME}}. Powered by Arclane.</footer>
+</body>
+</html>

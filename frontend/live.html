@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arclane — Live</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --border: #222230;
+            --text: #e8e8ed;
+            --text-muted: #888894;
+            --accent: #4a6cf7;
+            --success: #34d399;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        header h1 { font-size: 1.25rem; }
+        .dot { color: var(--accent); }
+        .live-badge { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--success); font-size: 0.9rem; font-weight: 500; }
+        .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .stats-bar { display: flex; gap: 2rem; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+        .stat { text-align: center; }
+        .stat .value { font-size: 1.75rem; font-weight: 700; }
+        .stat .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .feed { max-width: 700px; margin: 0 auto; padding: 1.5rem 2rem; }
+        .entry { padding: 1rem; border-bottom: 1px solid var(--border); animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+        .entry .biz { color: var(--accent); font-weight: 500; font-size: 0.85rem; }
+        .entry .action { margin-top: 0.25rem; }
+        .entry .detail { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem; }
+        .entry .time { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem; }
+        .empty { text-align: center; padding: 4rem; color: var(--text-muted); }
+        .cta-bar { text-align: center; padding: 3rem; }
+        .cta-bar a { display: inline-block; padding: 0.9rem 2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>arclane<span class="dot">.</span>cloud</h1>
+        <span class="live-badge"><span class="live-dot"></span> Live</span>
+    </header>
+
+    <div class="stats-bar" id="stats-bar">
+        <div class="stat"><div class="value" id="stat-businesses">—</div><div class="label">Businesses</div></div>
+        <div class="stat"><div class="value" id="stat-cycles">—</div><div class="label">Cycles</div></div>
+        <div class="stat"><div class="value" id="stat-content">—</div><div class="label">Content Produced</div></div>
+        <div class="stat"><div class="value" id="stat-actions">—</div><div class="label">Total Actions</div></div>
+    </div>
+
+    <div class="feed" id="feed"></div>
+
+    <div class="cta-bar">
+        <a href="/">Launch your own AI-powered business</a>
+    </div>
+
+    <script>
+        const feed = document.getElementById('feed');
+
+        // Load stats
+        async function loadStats() {
+            try {
+                const resp = await fetch('/api/live/stats');
+                const data = await resp.json();
+                document.getElementById('stat-businesses').textContent = data.businesses;
+                document.getElementById('stat-cycles').textContent = data.cycles_completed;
+                document.getElementById('stat-content').textContent = data.content_produced;
+                document.getElementById('stat-actions').textContent = data.total_actions;
+            } catch (e) { /* stats are optional */ }
+        }
+
+        // Load initial feed
+        async function loadFeed() {
+            try {
+                const resp = await fetch('/api/live?limit=30');
+                const items = await resp.json();
+                if (items.length === 0) {
+                    feed.innerHTML = '<div class="empty">Waiting for activity...</div>';
+                    return;
+                }
+                feed.innerHTML = items.map(renderEntry).join('');
+            } catch (e) {
+                feed.innerHTML = '<div class="empty">Connecting...</div>';
+            }
+        }
+
+        function renderEntry(item) {
+            const detail = item.detail ? `<div class="detail">${esc(item.detail).slice(0, 200)}</div>` : '';
+            return `<div class="entry">
+                <div class="biz">${esc(item.business_name)}</div>
+                <div class="action">${esc(item.action)}</div>
+                ${detail}
+                <div class="time">${timeAgo(item.created_at)}</div>
+            </div>`;
+        }
+
+        // SSE stream
+        function connectStream() {
+            const source = new EventSource('/api/live/stream');
+            source.addEventListener('activity', (e) => {
+                const item = JSON.parse(e.data);
+                const el = document.createElement('div');
+                el.innerHTML = renderEntry(item);
+                feed.prepend(el.firstElementChild);
+                // Keep feed manageable
+                while (feed.children.length > 100) feed.removeChild(feed.lastChild);
+                loadStats();
+            });
+            source.onerror = () => {
+                source.close();
+                setTimeout(connectStream, 5000);
+            };
+        }
+
+        function esc(str) {
+            const d = document.createElement('div');
+            d.textContent = str || '';
+            return d.innerHTML;
+        }
+
+        function timeAgo(iso) {
+            const diff = Date.now() - new Date(iso).getTime();
+            const mins = Math.floor(diff / 60000);
+            if (mins < 1) return 'just now';
+            if (mins < 60) return `${mins}m ago`;
+            const hrs = Math.floor(mins / 60);
+            if (hrs < 24) return `${hrs}h ago`;
+            return `${Math.floor(hrs / 24)}d ago`;
+        }
+
+        loadStats();
+        loadFeed();
+        connectStream();
+        setInterval(loadStats, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+    admin localhost:2019
+}
+
+# Main Arclane site + dashboard
+arclane.cloud {
+    reverse_proxy arclane:8012
+}
+
+# Wildcard for tenant subdomains
+*.arclane.cloud {
+    reverse_proxy arclane:8012
+}

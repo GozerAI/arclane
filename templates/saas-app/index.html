@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}}</title>
+    <meta name="description" content="{{BUSINESS_DESCRIPTION}}">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; background: #fafafa; line-height: 1.6; }
+        header { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        header h1 { font-size: 1.5rem; }
+        nav a { margin-left: 1.5rem; text-decoration: none; color: #555; font-size: 0.95rem; }
+        .hero { padding: 6rem 2rem 4rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .hero h2 { font-size: 2.75rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        .cta { display: inline-block; padding: 0.9rem 2rem; background: #1a1a2e; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .feature { padding: 1.5rem; background: white; border-radius: 8px; border: 1px solid #eee; }
+        .feature h4 { margin-bottom: 0.5rem; }
+        .feature p { color: #666; font-size: 0.95rem; }
+        .pricing { text-align: center; padding: 4rem 2rem; background: white; }
+        .pricing h3 { font-size: 2rem; margin-bottom: 2rem; }
+        .price-card { display: inline-block; padding: 2rem 3rem; border: 2px solid #1a1a2e; border-radius: 12px; }
+        .price-card .amount { font-size: 2.5rem; font-weight: 700; }
+        .price-card .period { color: #666; }
+        .price-card ul { list-style: none; text-align: left; margin: 1.5rem 0; }
+        .price-card li { padding: 0.3rem 0; }
+        .price-card li::before { content: "✓ "; color: #4a6cf7; font-weight: 700; }
+        footer { text-align: center; padding: 3rem 2rem; color: #999; font-size: 0.85rem; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{BUSINESS_NAME}}</h1>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="/login">Login</a>
+            <a href="/signup" class="cta" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>{{BUSINESS_DESCRIPTION}}</h2>
+        <p>The simplest way to get started. No setup required.</p>
+        <a href="/signup" class="cta">Start Free Trial</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature">
+            <h4>Dashboard</h4>
+            <p>Everything you need in one place. Real-time insights at a glance.</p>
+        </div>
+        <div class="feature">
+            <h4>Automation</h4>
+            <p>Set it and forget it. AI handles the repetitive work.</p>
+        </div>
+        <div class="feature">
+            <h4>Analytics</h4>
+            <p>Track what matters. Make decisions backed by data.</p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h3>Simple pricing</h3>
+        <div class="price-card">
+            <div class="amount">$49</div>
+            <div class="period">/month</div>
+            <ul>
+                <li>Full dashboard access</li>
+                <li>AI automation</li>
+                <li>Analytics & reports</li>
+                <li>Email support</li>
+            </ul>
+            <a href="/signup" class="cta">Start Free Trial</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 {{BUSINESS_NAME}}. Powered by Arclane.</p>
+    </footer>
+</body>
+</html>

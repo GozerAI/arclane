@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arclane</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Login -->
+        <div id="login-view" class="view">
+            <div class="login-container">
+                <h1>arclane<span class="dot">.</span>cloud</h1>
+                <p class="tagline">AI that runs your business while you sleep</p>
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <p class="alt-action"><a href="#" id="show-forgot">Forgot password?</a></p>
+                <p class="alt-action">New here? <a href="#" id="show-create">Create a business</a></p>
+            </div>
+        </div>
+
+        <!-- Forgot Password -->
+        <div id="forgot-view" class="view hidden">
+            <div class="login-container">
+                <h1>arclane<span class="dot">.</span>cloud</h1>
+                <p class="tagline">Reset your password</p>
+                <form id="forgot-form">
+                    <input type="email" id="forgot-email" placeholder="Your email address" required>
+                    <button type="submit" class="btn-primary">Send Reset Link</button>
+                </form>
+                <p id="forgot-success" class="forgot-success hidden">Check your inbox — a reset link is on its way.</p>
+                <p class="alt-action"><a href="#" id="show-login-from-forgot">Back to sign in</a></p>
+            </div>
+        </div>
+
+        <!-- Create Business -->
+        <div id="create-view" class="view hidden">
+            <div class="login-container">
+                <h1>arclane<span class="dot">.</span>cloud</h1>
+                <p class="tagline">Describe your business in plain language</p>
+                <form id="create-form">
+                    <input type="text" id="biz-name" placeholder="Business name" required>
+                    <input type="email" id="biz-email" placeholder="Your email" required>
+                    <textarea id="biz-description" placeholder="Describe what your business does..." rows="4" required></textarea>
+                    <select id="biz-template">
+                        <option value="content-site">Content Site (Blog + Newsletter)</option>
+                        <option value="saas-app">SaaS Application</option>
+                        <option value="landing-page">Landing Page</option>
+                    </select>
+                    <button type="submit" class="btn-primary">Launch Business</button>
+                </form>
+                <p class="alt-action"><a href="#" id="show-login">Back to login</a></p>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-view" class="view hidden">
+            <header>
+                <div class="header-left">
+                    <h1>arclane<span class="dot">.</span>cloud</h1>
+                    <span id="biz-slug" class="slug"></span>
+                    <span id="credit-gauge" class="credit-gauge hidden">
+                        <span id="credit-dot" class="credit-dot"></span>
+                        <span id="credit-count"></span>
+                    </span>
+                </div>
+                <nav>
+                    <a href="#" class="nav-link active" data-page="feed">Feed</a>
+                    <a href="#" class="nav-link" data-page="content">Content</a>
+                    <a href="#" class="nav-link" data-page="metrics">Metrics</a>
+                    <a href="#" class="nav-link" data-page="billing">Billing</a>
+                    <a href="#" class="nav-link" data-page="settings">Settings</a>
+                    <a href="/live" class="nav-link nav-live" target="_blank">Live ↗</a>
+                </nav>
+            </header>
+
+            <!-- Low-credit banner (shown across all pages when credits <= 2) -->
+            <div id="low-credit-banner" class="low-credit-banner hidden">
+                Credits running low — <a href="#" class="low-credit-link" data-page="billing">upgrade your plan</a> for more cycles.
+            </div>
+
+            <!-- Feed Page -->
+            <main id="page-feed" class="page">
+                <div class="page-header">
+                    <h2>Activity Feed</h2>
+                    <button id="run-task-btn" class="btn-primary btn-small">Run Task</button>
+                </div>
+                <div id="task-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h3>Run a Task</h3>
+                        <textarea id="task-input" placeholder="What should your AI work on?" rows="3"></textarea>
+                        <div class="modal-actions">
+                            <button id="task-cancel" class="btn-secondary">Cancel</button>
+                            <button id="task-submit" class="btn-primary">Run</button>
+                        </div>
+                        <p id="credits-display" class="credits"></p>
+                    </div>
+                </div>
+                <div id="feed-list" class="card-list"></div>
+            </main>
+
+            <!-- Content Page -->
+            <main id="page-content" class="page hidden">
+                <div class="page-header">
+                    <h2>Content</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="">All</button>
+                        <button class="filter-btn" data-filter="blog">Blog</button>
+                        <button class="filter-btn" data-filter="social">Social</button>
+                        <button class="filter-btn" data-filter="newsletter">Newsletter</button>
+                    </div>
+                </div>
+                <div id="content-list" class="card-list"></div>
+            </main>
+
+            <!-- Metrics Page -->
+            <main id="page-metrics" class="page hidden">
+                <div class="page-header"><h2>Metrics</h2></div>
+                <div id="metrics-grid" class="metrics-grid"></div>
+                <div id="metrics-chart-wrap" class="metrics-chart-wrap hidden">
+                    <canvas id="metrics-chart"></canvas>
+                </div>
+            </main>
+
+            <!-- Billing Page -->
+            <main id="page-billing" class="page hidden">
+                <div class="page-header"><h2>Billing</h2></div>
+                <div id="billing-container" class="settings-container"></div>
+            </main>
+
+            <!-- Settings Page -->
+            <main id="page-settings" class="page hidden">
+                <div class="page-header"><h2>Settings</h2></div>
+                <div id="settings-form-container" class="settings-container"></div>
+            </main>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

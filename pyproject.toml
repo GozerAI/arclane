@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arclane"
+version = "0.1.0"
+description = "Autonomous business engine powered by AI agents"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "httpx>=0.28.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "sqlalchemy[asyncio]>=2.0.0",
+    "aiosqlite>=0.20.0",
+    "apscheduler>=3.10.0",
+    "sse-starlette>=2.0.0",
+    "slowapi>=0.1.9",
+    "pyjwt>=2.8.0",
+    "alembic>=1.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+    "pytest-asyncio>=0.25.0",
+    "pytest-cov>=6.0.0",
+    "httpx",
+]
+docker = [
+    "docker>=7.0.0",
+]
+monitoring = [
+    "sentry-sdk[fastapi]>=2.0.0",
+]
+optimizer = [
+    "prompt-optimizer>=0.1.0",
+]
+telemetry = [
+    "gozerai-telemetry @ git+https://github.com/chrisarseno/gozerai-telemetry.git",
+]
+
+[project.scripts]
+arclane = "arclane.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arclane"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

@@ -32,7 +32,7 @@ def _check_optimizer() -> bool:
 _DEFAULT_DIR = Path(__file__).parent.parent.parent.parent / "workflows"
 
 
-# Map agent codes to task areas
+# Map engine agent codes to Arclane task areas
 _AGENT_AREA_MAP = {
     "cso": "market_research",
     "cmo": "content",
@@ -188,7 +188,7 @@ class WorkflowService:
         """Load and execute a .ail workflow file.
 
         Uses an echo adapter that logs what each agent would do.
-        For real execution, connect to the orchestration service.
+        For real execution, use the engine.
 
         Raises:
             RuntimeError: If prompt-optimizer is not installed.
@@ -214,17 +214,17 @@ class WorkflowService:
         return await executor.execute(node, ctx)
 
     def workflow_to_tasks(self, name: str, business_description: str = "") -> list[dict]:
-        """Convert a .ail workflow's steps into task dicts.
+        """Convert a .ail workflow's steps into engine task dicts.
 
         Each task has: area, action, description — matching the format
-        expected by the bridge endpoint.
+        expected by the engine bridge endpoint.
         """
         source = self.load_workflow(name)
         steps = self.dry_run(source)
         return self._steps_to_tasks(steps, business_description)
 
     def _steps_to_tasks(self, steps: list[dict], description: str) -> list[dict]:
-        """Flatten dry-run steps into task dicts."""
+        """Flatten dry-run steps into engine task dicts."""
         tasks: list[dict] = []
         for step in steps:
             if step.get("type") == "directive":
@@ -238,7 +238,7 @@ class WorkflowService:
         return tasks
 
     def _directive_to_task(self, step: dict, description: str) -> dict:
-        """Convert a single directive step to a task dict."""
+        """Convert a single directive step to a engine task dict."""
         agent = step.get("agent", "").lower()
         action = step.get("action", "").lower()
         target = step.get("target", "")

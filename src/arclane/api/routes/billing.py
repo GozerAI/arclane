@@ -34,12 +34,10 @@ router = APIRouter()
 
 # --- Plans ---
 
-# Prices are configured server-side via the billing provider.
-# These are placeholder values used for credit allocation only.
 PLANS = {
-    "starter": {"price": 0,  # See gozerai.com/pricing "credits": 5, "name": "Starter"},
-    "pro": {"price": 0,  # See gozerai.com/pricing "credits": 20, "name": "Pro"},
-    "enterprise": {"price": 0,  # See gozerai.com/pricing "credits": 100, "name": "Enterprise"},
+    "starter": {"price": 4900, "credits": 5, "name": "Starter"},
+    "pro": {"price": 9900, "credits": 20, "name": "Pro"},
+    "enterprise": {"price": 19900, "credits": 100, "name": "Enterprise"},
 }
 
 

@@ -167,13 +167,13 @@ async def health_detailed():
 
     checks = {"database": await check_db_health()}
 
-    # Check external service reachability
+    # Check Engine reachability
     try:
         async with httpx.AsyncClient(timeout=5.0) as client:
-            resp = await client.get(f"{settings.external_service_url}/health")
-            checks["external_service"] = resp.status_code == 200
+            resp = await client.get(f"{settings.engine_base_url}/health")
+            checks["engine"] = resp.status_code == 200
     except Exception:
-        checks["external_service"] = False
+        checks["engine"] = False
 
     # Check Zuultimate reachability
     try:

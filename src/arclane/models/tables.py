@@ -24,6 +24,7 @@ class Business(Base):
     name: Mapped[str] = mapped_column(String(255))
     description: Mapped[str] = mapped_column(Text)
     owner_email: Mapped[str] = mapped_column(String(255), index=True)
+    password_hash: Mapped[str | None] = mapped_column(String(512))
 
     # Zuultimate/Vinzy references
     zuultimate_tenant_id: Mapped[str | None] = mapped_column(String(255))

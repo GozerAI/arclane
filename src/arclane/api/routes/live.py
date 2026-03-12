@@ -1,6 +1,6 @@
 """Public live feed — shows real-time activity across all businesses.
 
-Like Polsia's /live page but powered by AI agents.
+Like Polsia's /live page but powered by the AI engine.
 No auth required — this is a marketing/transparency asset.
 """
 

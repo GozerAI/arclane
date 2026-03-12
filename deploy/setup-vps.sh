@@ -40,7 +40,7 @@ fi
 # 4. Clone repo
 echo "[4/7] Cloning Arclane..."
 if [ ! -d "$APP_DIR/repo" ]; then
-    sudo -u "$APP_USER" git clone https://github.com/GozerAI/arclane.git "$APP_DIR/repo"
+    sudo -u "$APP_USER" git clone https://github.com/chrisarseno/arclane.git "$APP_DIR/repo"
 else
     cd "$APP_DIR/repo" && sudo -u "$APP_USER" git pull
 fi

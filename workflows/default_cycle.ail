@@ -1,0 +1,12 @@
+# Default Arclane business cycle
+# Phase 1: Parallel analysis
+PAR {
+    @CSO ANALYZE strategy {context=business_cycle} -> summary;
+    @CMO ANALYZE marketing {context=business_cycle} -> summary;
+    @CTO ASSESS infrastructure -> summary;
+    @CDO GATHER metrics {period=current} -> report
+}
+
+# Phase 2: Synthesize and decide
+@CFO EVALUATE $prev {scope=full_cycle} -> report
+@CEO DECIDE $prev -> {actions: list, priorities: list, summary: str}

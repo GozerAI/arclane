@@ -7,6 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from arclane.api.app import limiter
+from arclane.api.auth import get_current_user_email
 from arclane.core.database import get_session
 from arclane.core.config import settings
 from arclane.core.logging import get_logger
@@ -32,6 +33,14 @@ def _slugify(name: str) -> str:
     return slug[:63]
 
 
+def _require_auth(request: Request) -> str:
+    """Require authentication and return the user's email."""
+    email = get_current_user_email(request)
+    if not email:
+        raise HTTPException(status_code=401, detail="Authentication required")
+    return email
+
+
 @router.post("", response_model=BusinessResponse, status_code=201)
 @limiter.limit("5/minute")
 async def create_business(
@@ -39,6 +48,7 @@ async def create_business(
     payload: BusinessCreate,
     background_tasks: BackgroundTasks,
     session: AsyncSession = Depends(get_session),
+    current_user_email: str = Depends(_require_auth),
 ):
     slug = _slugify(payload.name)
 
@@ -52,11 +62,12 @@ async def create_business(
     if existing.scalar_one_or_none():
         raise HTTPException(status_code=409, detail="A business with this name already exists")
 
+    # Use the authenticated user's email, not the request body
     business = Business(
         slug=slug,
         name=payload.name,
         description=payload.description,
-        owner_email=payload.owner_email,
+        owner_email=current_user_email,
         template=payload.template,
     )
     session.add(business)
@@ -106,12 +117,12 @@ async def create_business(
 
 @router.get("", response_model=list[BusinessResponse])
 async def list_businesses(
-    owner_email: str | None = None,
+    request: Request,
     session: AsyncSession = Depends(get_session),
+    current_user_email: str = Depends(_require_auth),
 ):
-    if not owner_email:
-        raise HTTPException(status_code=400, detail="owner_email parameter required")
-    query = select(Business).where(Business.owner_email == owner_email).order_by(Business.created_at.desc())
+    # Only return businesses owned by the authenticated user
+    query = select(Business).where(Business.owner_email == current_user_email).order_by(Business.created_at.desc())
     result = await session.execute(query)
     businesses = result.scalars().all()
     return [

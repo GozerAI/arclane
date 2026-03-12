@@ -167,7 +167,7 @@ async def health_detailed():
 
     checks = {"database": await check_db_health()}
 
-    # Check C-Suite reachability
+    # Check external service reachability
     try:
         async with httpx.AsyncClient(timeout=5.0) as client:
             resp = await client.get(f"{settings.external_service_url}/health")

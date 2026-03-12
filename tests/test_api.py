@@ -26,7 +26,7 @@ async def client():
 
     app.dependency_overrides[get_session] = override_session
 
-    # Mock the background cycle runner so it doesn't call C-Suite
+    # Mock the background cycle runner so it doesn't call external services
     from arclane.api.routes import cycles as cycles_module
     mock_run = AsyncMock()
     with patch.object(cycles_module, "_run_cycle", mock_run):

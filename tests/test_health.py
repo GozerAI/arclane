@@ -48,7 +48,7 @@ async def test_detailed_health_db_ok(client):
     assert resp.status_code == 200
     data = resp.json()
     assert data["checks"]["database"] is True
-    assert "csuite" in data["checks"]
+    assert "external_service" in data["checks"]
     assert "zuultimate" in data["checks"]
 
 

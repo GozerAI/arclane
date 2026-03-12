@@ -58,7 +58,7 @@ async def dry_run_workflow(name: str):
 
 @router.post("/{name}/tasks")
 async def workflow_tasks(name: str, description: str = ""):
-    """Convert a workflow into C-Suite task format (for preview)."""
+    """Convert a workflow into task format (for preview)."""
     if not _service.optimizer_available:
         raise HTTPException(status_code=503, detail="AIL not installed")
 

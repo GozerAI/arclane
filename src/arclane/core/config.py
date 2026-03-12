@@ -21,15 +21,15 @@ class ArclaneSettings(BaseSettings):
 
     # Domain
     domain: str = "arclane.cloud"
-    caddy_admin_url: str = "http://localhost:2019"
+    caddy_admin_url: str = "http://localhost:2019"  # Caddy reverse proxy admin
 
     # Upstream services
-    external_service_url: str = "http://localhost:8007"
-    zuultimate_base_url: str = "http://localhost:8000"
-    vinzy_base_url: str = "http://localhost:8001"
+    external_service_url: str = "http://localhost:8080"
+    zuultimate_base_url: str = "http://localhost:8000"  # Auth service
+    vinzy_base_url: str = "http://localhost:8001"  # License service
     trendscope_base_url: str = "http://localhost:8002"
-    kh_base_url: str = "http://localhost:8011"
-    nexus_base_url: str = "http://localhost:8008"
+    kh_base_url: str = "http://localhost:8003"
+    nexus_base_url: str = "http://localhost:8004"
     zuul_service_token: str = ""
     webhook_signing_secret: str = ""
 

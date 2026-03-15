@@ -43,7 +43,7 @@ optimizer = [
     "prompt-optimizer>=0.1.0",
 ]
 telemetry = [
-    "gozerai-telemetry @ git+https://github.com/chrisarseno/gozerai-telemetry.git",
+    "gozerai-telemetry @ git+https://github.com/GozerAI/gozerai-telemetry.git",
 ]
 
 [project.scripts]

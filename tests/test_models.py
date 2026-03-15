@@ -19,9 +19,9 @@ async def test_create_business(db_session):
     result = await db_session.execute(select(Business).where(Business.slug == "test-biz"))
     loaded = result.scalar_one()
     assert loaded.name == "Test Business"
-    assert loaded.plan == "starter"
-    assert loaded.credits_remaining == 5
-    assert loaded.credits_bonus == 10
+    assert loaded.plan == "preview"
+    assert loaded.credits_remaining == 3
+    assert loaded.credits_bonus == 0
 
 
 async def test_create_cycle(db_session):

@@ -63,7 +63,9 @@ async def _provision(args):
         await session.commit()
         await session.refresh(business)
 
-    await provision_business(business)
+        await provision_business(business, session=session)
+        await session.commit()
+
     print(f"Business provisioned: {business.slug}.arclane.cloud")
 
 

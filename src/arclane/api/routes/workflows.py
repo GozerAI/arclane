@@ -1,10 +1,17 @@
 """Workflow routes — list, view, validate, and dry-run .ail workflows."""
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 
+from arclane.api.auth import get_current_user_email
 from arclane.services.workflow_service import WorkflowService
 
-router = APIRouter()
+
+def _require_auth(request: Request) -> str | None:
+    """Dependency that enforces auth on workflow endpoints."""
+    return get_current_user_email(request)
+
+
+router = APIRouter(dependencies=[Depends(_require_auth)])
 
 _service = WorkflowService()
 
@@ -58,7 +65,7 @@ async def dry_run_workflow(name: str):
 
 @router.post("/{name}/tasks")
 async def workflow_tasks(name: str, description: str = ""):
-    """Convert a workflow into engine task format (for preview)."""
+    """Convert a workflow into C-Suite task format (for preview)."""
     if not _service.optimizer_available:
         raise HTTPException(status_code=503, detail="AIL not installed")
 

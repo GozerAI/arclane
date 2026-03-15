@@ -23,6 +23,8 @@ class Business(Base):
     slug: Mapped[str] = mapped_column(String(63), unique=True, index=True)
     name: Mapped[str] = mapped_column(String(255))
     description: Mapped[str] = mapped_column(Text)
+    website_url: Mapped[str | None] = mapped_column(String(500))
+    website_summary: Mapped[str | None] = mapped_column(Text)
     owner_email: Mapped[str] = mapped_column(String(255), index=True)
     password_hash: Mapped[str | None] = mapped_column(String(512))
 
@@ -31,9 +33,9 @@ class Business(Base):
     vinzy_license_key: Mapped[str | None] = mapped_column(String(255))
 
     # Plan & credits
-    plan: Mapped[str] = mapped_column(String(50), default="starter")
-    credits_remaining: Mapped[int] = mapped_column(Integer, default=5)
-    credits_bonus: Mapped[int] = mapped_column(Integer, default=10)
+    plan: Mapped[str] = mapped_column(String(50), default="preview")
+    credits_remaining: Mapped[int] = mapped_column(Integer, default=3)
+    credits_bonus: Mapped[int] = mapped_column(Integer, default=0)
 
     # Provisioning state
     subdomain_provisioned: Mapped[bool] = mapped_column(Boolean, default=False)
@@ -83,7 +85,7 @@ class Activity(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), index=True)
-    cycle_id: Mapped[int | None] = mapped_column(ForeignKey("cycles.id"))
+    cycle_id: Mapped[int | None] = mapped_column(ForeignKey("cycles.id"), index=True)
     agent: Mapped[str] = mapped_column(String(50))  # which executive acted (hidden label)
     action: Mapped[str] = mapped_column(String(100))  # user-friendly action name
     detail: Mapped[str | None] = mapped_column(Text)
@@ -100,11 +102,11 @@ class Content(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), index=True)
-    content_type: Mapped[str] = mapped_column(String(50))  # blog|social|newsletter|changelog|podcast
+    content_type: Mapped[str] = mapped_column(String(50), index=True)  # blog|social|newsletter|changelog|podcast
     title: Mapped[str | None] = mapped_column(String(500))
     body: Mapped[str] = mapped_column(Text)
     platform: Mapped[str | None] = mapped_column(String(50))  # twitter|linkedin|bluesky|instagram
-    status: Mapped[str] = mapped_column(String(50), default="draft")  # draft|published|scheduled
+    status: Mapped[str] = mapped_column(String(50), default="draft", index=True)  # draft|published|scheduled
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     metadata_json: Mapped[dict | None] = mapped_column(JSON)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)
@@ -119,7 +121,7 @@ class Metric(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), index=True)
-    name: Mapped[str] = mapped_column(String(100))  # traffic|leads|revenue|social_followers
+    name: Mapped[str] = mapped_column(String(100), index=True)  # traffic|leads|revenue|social_followers
     value: Mapped[float] = mapped_column()
     metadata_json: Mapped[dict | None] = mapped_column(JSON)
     recorded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow)

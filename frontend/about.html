@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Arclane</title>
+    <meta name="description" content="Arclane is built for founders and small teams who need execution, not more tools. Automate the operational grind so you can focus on your customers.">
+    <style>
+        :root {
+            --bg: #07111c; --bg-soft: rgba(14, 24, 38, 0.9); --border: rgba(128, 159, 196, 0.18);
+            --text: #edf4ff; --muted: #9db2cb; --accent: #4bb2ff; --success: #38d39f;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text); line-height: 1.6;
+            background: radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+        }
+        a { color: inherit; text-decoration: none; }
+        .shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; }
+        .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: var(--muted); padding: 0.65rem 0.95rem; border-radius: 999px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-cta, .btn-primary, .btn-secondary {
+            border-radius: 999px; padding: 0.9rem 1.25rem; display: inline-flex; align-items: center;
+            justify-content: center; font-weight: 700; transition: transform 120ms ease;
+        }
+        .nav-cta, .btn-primary { background: linear-gradient(135deg, var(--accent), #8fe0ff); color: #07111c; }
+        .btn-secondary { border: 1px solid var(--border); background: rgba(13, 25, 40, 0.72); color: var(--text); }
+        .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+        .page-header { padding: 3rem 0 1.5rem; }
+        .page-header h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
+        .page-header p { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 42rem; }
+        .content { max-width: 720px; padding: 1rem 0 2rem; }
+        .content h2 { font-size: 1.6rem; letter-spacing: -0.03em; margin-top: 2rem; }
+        .content p { margin-top: 0.8rem; color: var(--muted); font-size: 1.05rem; }
+        .content p:first-of-type { color: var(--text); }
+        .section-card {
+            padding: 1.35rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+        .section-card h3 { font-size: 1.1rem; }
+        .section-card p { margin-top: 0.5rem; color: var(--muted); }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .cta { padding: 1.5rem 0 3rem; }
+        .cta-box {
+            padding: 2rem; border-radius: 28px; border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(17, 34, 55, 0.96), rgba(8, 20, 31, 0.96));
+            text-align: center;
+        }
+        .cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .cta-box p { margin: 0.8rem auto 1.3rem; max-width: 36rem; color: var(--muted); }
+        .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        footer { padding: 1.2rem 0 2.4rem; color: var(--muted); text-align: center; font-size: 0.9rem; }
+        .footer-links { margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 980px) { .grid-3 { grid-template-columns: 1fr; } }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 1rem, 1180px); }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .section-card, .cta-box { padding: 1.35rem; border-radius: 22px; }
+            .nav-links { width: 100%; }
+            .btn-primary, .btn-secondary, .nav-cta { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="/" class="logo">arclane<span>.</span>cloud</a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about" class="active">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <p class="eyebrow">About</p>
+            <h1>Built for founders who'd rather ship than shuffle</h1>
+            <p>Arclane exists because running a business shouldn't mean drowning in operational busywork.</p>
+        </header>
+
+        <div class="content">
+            <p>
+                When you're building something new, every hour matters. But too much of that time
+                gets eaten by things that aren't your product — writing blog posts, researching
+                competitors, planning strategy, managing content, keeping the wheels turning.
+            </p>
+
+            <p>
+                Arclane automates the operational side of running a business. You describe what your
+                business does and who it serves. Arclane takes it from there — creating content,
+                researching your market, planning strategy, and delivering real, usable work to your
+                dashboard every day.
+            </p>
+
+            <h2>What we believe</h2>
+
+            <p>
+                Small teams shouldn't need to hire a marketing department, a research analyst, and a
+                content writer before they can compete. The right automation should make a team of one
+                feel like a team of ten.
+            </p>
+
+            <p>
+                We also believe that AI tools should show their work, not hide behind a black box.
+                That's why everything Arclane does is visible in your activity feed — you can see
+                what's running, what's complete, and what it produced. No mystery, no hand-waving.
+            </p>
+
+            <h2>How we're different</h2>
+
+            <p>
+                Most business tools give you dashboards to stare at. Arclane gives you finished work
+                to review. We're not another analytics platform or project management tool. We're the
+                team that does the work while you focus on your customers.
+            </p>
+        </div>
+
+        <div class="grid-3">
+            <article class="section-card">
+                <h3>Transparent</h3>
+                <p>Every action is logged. Every result is visible. You always know what Arclane is doing and why.</p>
+            </article>
+            <article class="section-card">
+                <h3>Autonomous</h3>
+                <p>Set it up once and it keeps running. No babysitting, no manual triggers, no constant check-ins.</p>
+            </article>
+            <article class="section-card">
+                <h3>Practical</h3>
+                <p>We focus on output that matters — content you can publish, research you can act on, strategy you can follow.</p>
+            </article>
+        </div>
+
+        <section class="cta">
+            <div class="cta-box">
+                <p class="eyebrow">See it in action</p>
+                <h2>Try Arclane with your business</h2>
+                <p>3 free credits, no card required. Describe your business and see what autonomous execution looks like.</p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                    <a href="/features" class="btn-secondary">See All Features</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

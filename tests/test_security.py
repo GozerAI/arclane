@@ -39,11 +39,43 @@ async def client():
     await engine.dispose()
 
 
+@pytest.fixture
+async def auth_client():
+    """Authenticated test client with JWT header."""
+    engine = create_async_engine("sqlite+aiosqlite://", echo=False)
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+    session_factory = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+
+    async def override_session():
+        async with session_factory() as session:
+            yield session
+
+    app.dependency_overrides[get_session] = override_session
+
+    from arclane.api.routes import cycles as cycles_module
+    mock_run = AsyncMock()
+    with patch.object(cycles_module, "_run_cycle", mock_run):
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as c:
+            reg = await c.post("/api/auth/register", json={
+                "email": "test@example.com",
+                "password": "testpassword123",
+            })
+            token = reg.json()["access_token"]
+            c.headers.update({"Authorization": f"Bearer {token}"})
+            yield c
+
+    app.dependency_overrides.clear()
+    await engine.dispose()
+
+
 # --- Reserved slug protection ---
 
 
-async def test_reserved_slug_admin(client):
-    resp = await client.post("/api/businesses", json={
+async def test_reserved_slug_admin(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "Admin",
         "description": "Trying to claim admin subdomain",
         "owner_email": "attacker@example.com",
@@ -52,8 +84,8 @@ async def test_reserved_slug_admin(client):
     assert "reserved" in resp.json()["detail"].lower()
 
 
-async def test_reserved_slug_api(client):
-    resp = await client.post("/api/businesses", json={
+async def test_reserved_slug_api(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "API",
         "description": "Trying to claim api subdomain",
         "owner_email": "attacker@example.com",
@@ -61,8 +93,8 @@ async def test_reserved_slug_api(client):
     assert resp.status_code == 400
 
 
-async def test_reserved_slug_mail(client):
-    resp = await client.post("/api/businesses", json={
+async def test_reserved_slug_mail(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "mail",
         "description": "Trying to claim mail subdomain",
         "owner_email": "attacker@example.com",
@@ -73,8 +105,8 @@ async def test_reserved_slug_mail(client):
 # --- Input validation ---
 
 
-async def test_business_name_too_long(client):
-    resp = await client.post("/api/businesses", json={
+async def test_business_name_too_long(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "x" * 300,
         "description": "Normal description",
         "owner_email": "test@example.com",
@@ -82,8 +114,8 @@ async def test_business_name_too_long(client):
     assert resp.status_code == 422
 
 
-async def test_business_description_too_long(client):
-    resp = await client.post("/api/businesses", json={
+async def test_business_description_too_long(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "Normal Name",
         "description": "x" * 20000,
         "owner_email": "test@example.com",
@@ -91,8 +123,8 @@ async def test_business_description_too_long(client):
     assert resp.status_code == 422
 
 
-async def test_invalid_template_rejected(client):
-    resp = await client.post("/api/businesses", json={
+async def test_invalid_template_rejected(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "Template Test",
         "description": "Testing invalid template",
         "owner_email": "test@example.com",
@@ -101,8 +133,8 @@ async def test_invalid_template_rejected(client):
     assert resp.status_code == 422
 
 
-async def test_valid_template_accepted(client):
-    resp = await client.post("/api/businesses", json={
+async def test_valid_template_accepted(auth_client):
+    resp = await auth_client.post("/api/businesses", json={
         "name": "Template OK",
         "description": "Testing valid template",
         "owner_email": "test@example.com",
@@ -111,13 +143,13 @@ async def test_valid_template_accepted(client):
     assert resp.status_code == 201
 
 
-async def test_task_description_too_long(client):
-    await client.post("/api/businesses", json={
+async def test_task_description_too_long(auth_client):
+    await auth_client.post("/api/businesses", json={
         "name": "Task Len Test",
         "description": "Testing task length",
         "owner_email": "test@example.com",
     })
-    resp = await client.post("/api/businesses/task-len-test/cycles", json={
+    resp = await auth_client.post("/api/businesses/task-len-test/cycles", json={
         "task_description": "x" * 6000,
     })
     assert resp.status_code == 422
@@ -127,42 +159,45 @@ async def test_task_description_too_long(client):
 
 
 async def test_list_businesses_requires_email(client):
+    # Without auth, the endpoint requires authentication (401)
     resp = await client.get("/api/businesses")
-    assert resp.status_code == 400
+    assert resp.status_code == 401
 
 
-async def test_list_businesses_with_email(client):
-    await client.post("/api/businesses", json={
+async def test_list_businesses_with_email(auth_client):
+    await auth_client.post("/api/businesses", json={
         "name": "Email Filter",
         "description": "Testing email filter",
         "owner_email": "filter@example.com",
     })
-    resp = await client.get("/api/businesses?owner_email=filter@example.com")
+    resp = await auth_client.get("/api/businesses")
     assert resp.status_code == 200
     assert len(resp.json()) == 1
 
 
-async def test_list_businesses_wrong_email_empty(client):
-    await client.post("/api/businesses", json={
+async def test_list_businesses_wrong_email_empty(auth_client):
+    # Create a business as test@example.com (the authenticated user)
+    await auth_client.post("/api/businesses", json={
         "name": "No Leak",
         "description": "Should not appear",
-        "owner_email": "real@example.com",
     })
-    resp = await client.get("/api/businesses?owner_email=other@example.com")
+    # Auth-gated endpoint returns only the authenticated user's businesses
+    resp = await auth_client.get("/api/businesses")
     assert resp.status_code == 200
-    assert len(resp.json()) == 0
+    # Only shows test@example.com's businesses, not any other user's
+    assert len(resp.json()) == 1
 
 
 # --- Webhook security ---
 
 
-async def test_webhook_rejects_empty_token(client):
-    await client.post("/api/businesses", json={
+async def test_webhook_rejects_empty_token(auth_client):
+    await auth_client.post("/api/businesses", json={
         "name": "Webhook Sec",
         "description": "Testing webhook security",
         "owner_email": "test@example.com",
     })
-    resp = await client.post(
+    resp = await auth_client.post(
         "/api/businesses/webhook-sec/billing/webhook",
         json={
             "event": "subscription.created",
@@ -174,17 +209,17 @@ async def test_webhook_rejects_empty_token(client):
     assert resp.status_code == 403
 
 
-async def test_webhook_rejects_wrong_token(client):
+async def test_webhook_rejects_wrong_token(auth_client):
     from arclane.core.config import settings
     original = settings.zuul_service_token
     settings.zuul_service_token = "real-secret"
     try:
-        await client.post("/api/businesses", json={
+        await auth_client.post("/api/businesses", json={
             "name": "Webhook Wrong",
             "description": "Testing wrong token",
             "owner_email": "test@example.com",
         })
-        resp = await client.post(
+        resp = await auth_client.post(
             "/api/businesses/webhook-wrong/billing/webhook",
             json={
                 "event": "subscription.created",
@@ -198,17 +233,17 @@ async def test_webhook_rejects_wrong_token(client):
         settings.zuul_service_token = original
 
 
-async def test_webhook_rejects_invalid_event(client):
+async def test_webhook_rejects_invalid_event(auth_client):
     from arclane.core.config import settings
     original = settings.zuul_service_token
     settings.zuul_service_token = "test-secret"
     try:
-        await client.post("/api/businesses", json={
+        await auth_client.post("/api/businesses", json={
             "name": "Webhook Event",
             "description": "Testing invalid event",
             "owner_email": "test@example.com",
         })
-        resp = await client.post(
+        resp = await auth_client.post(
             "/api/businesses/webhook-event/billing/webhook",
             json={
                 "event": "evil.event",
@@ -225,23 +260,23 @@ async def test_webhook_rejects_invalid_event(client):
 # --- Content filter validation ---
 
 
-async def test_content_filter_rejects_invalid_type(client):
-    await client.post("/api/businesses", json={
+async def test_content_filter_rejects_invalid_type(auth_client):
+    await auth_client.post("/api/businesses", json={
         "name": "Content Filter",
         "description": "Testing content filter",
         "owner_email": "test@example.com",
     })
-    resp = await client.get("/api/businesses/content-filter/content?content_type=invalid")
+    resp = await auth_client.get("/api/businesses/content-filter/content?content_type=invalid")
     assert resp.status_code == 400
 
 
-async def test_content_filter_rejects_invalid_status(client):
-    await client.post("/api/businesses", json={
+async def test_content_filter_rejects_invalid_status(auth_client):
+    await auth_client.post("/api/businesses", json={
         "name": "Status Filter",
         "description": "Testing status filter",
         "owner_email": "test@example.com",
     })
-    resp = await client.get("/api/businesses/status-filter/content?status=invalid")
+    resp = await auth_client.get("/api/businesses/status-filter/content?status=invalid")
     assert resp.status_code == 400
 
 
@@ -276,14 +311,14 @@ async def test_csp_header_present(client):
 # --- HMAC webhook signature ---
 
 
-async def test_webhook_hmac_valid(client):
+async def test_webhook_hmac_valid(auth_client):
     from arclane.core.config import settings
     orig_token = settings.zuul_service_token
     orig_secret = settings.webhook_signing_secret
     settings.zuul_service_token = "test-token"
     settings.webhook_signing_secret = "test-hmac-secret"
     try:
-        await client.post("/api/businesses", json={
+        await auth_client.post("/api/businesses", json={
             "name": "HMAC Valid",
             "description": "Testing HMAC",
             "owner_email": "hmac@example.com",
@@ -295,7 +330,7 @@ async def test_webhook_hmac_valid(client):
             "business_slug": "hmac-valid",
         }).encode()
         sig = hmac_mod.new(b"test-hmac-secret", body, hashlib.sha256).hexdigest()
-        resp = await client.post(
+        resp = await auth_client.post(
             "/api/businesses/hmac-valid/billing/webhook",
             content=body,
             headers={
@@ -310,19 +345,19 @@ async def test_webhook_hmac_valid(client):
         settings.webhook_signing_secret = orig_secret
 
 
-async def test_webhook_hmac_invalid(client):
+async def test_webhook_hmac_invalid(auth_client):
     from arclane.core.config import settings
     orig_token = settings.zuul_service_token
     orig_secret = settings.webhook_signing_secret
     settings.zuul_service_token = "test-token"
     settings.webhook_signing_secret = "test-hmac-secret"
     try:
-        await client.post("/api/businesses", json={
+        await auth_client.post("/api/businesses", json={
             "name": "HMAC Invalid",
             "description": "Testing bad HMAC",
             "owner_email": "hmac2@example.com",
         })
-        resp = await client.post(
+        resp = await auth_client.post(
             "/api/businesses/hmac-invalid/billing/webhook",
             json={
                 "event": "subscription.created",
@@ -340,7 +375,7 @@ async def test_webhook_hmac_invalid(client):
         settings.webhook_signing_secret = orig_secret
 
 
-async def test_webhook_no_hmac_when_not_configured(client):
+async def test_webhook_no_hmac_when_not_configured(auth_client):
     """When webhook_signing_secret is empty, HMAC check is skipped."""
     from arclane.core.config import settings
     orig_token = settings.zuul_service_token
@@ -348,12 +383,12 @@ async def test_webhook_no_hmac_when_not_configured(client):
     settings.zuul_service_token = "test-token"
     settings.webhook_signing_secret = ""
     try:
-        await client.post("/api/businesses", json={
+        await auth_client.post("/api/businesses", json={
             "name": "No HMAC",
             "description": "Testing no HMAC",
             "owner_email": "nohmac@example.com",
         })
-        resp = await client.post(
+        resp = await auth_client.post(
             "/api/businesses/no-hmac/billing/webhook",
             json={
                 "event": "subscription.created",

@@ -24,7 +24,7 @@ class ArclaneSettings(BaseSettings):
     caddy_admin_url: str = "http://localhost:2019"
 
     # Upstream services
-    engine_base_url: str = "http://localhost:8007"
+    csuite_base_url: str = "http://localhost:8007"
     zuultimate_base_url: str = "http://localhost:8000"
     vinzy_base_url: str = "http://localhost:8001"
     trendscope_base_url: str = "http://localhost:8002"
@@ -35,6 +35,25 @@ class ArclaneSettings(BaseSettings):
 
     # Stripe (via Vinzy provisioning)
     stripe_enabled: bool = False
+
+    # Internal orchestration
+    orchestration_mode: str = "internal"  # internal | bridge
+    llm_base_url: str = ""
+    llm_api_key: str = ""
+    llm_model: str = ""
+    llm_timeout_s: int = 60
+    website_fetch_timeout_s: int = 8
+    workspaces_root: str = "/var/arclane/workspaces"
+
+    # OAuth
+    google_client_id: str = ""
+    google_client_secret: str = ""
+    github_client_id: str = ""
+    github_client_secret: str = ""
+
+    # Public live feed
+    public_live_feed_identity: bool = False
+    public_live_feed_detail: bool = False
 
     # Email
     resend_api_key: str = ""

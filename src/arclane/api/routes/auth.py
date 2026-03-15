@@ -19,6 +19,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 import httpx
 
 from arclane.api.app import limiter
+from arclane.api.auth import get_current_user_email
 from arclane.core.config import settings
 from arclane.core.database import get_session
 from arclane.core.logging import get_logger
@@ -56,6 +57,12 @@ class LoginRequest(BaseModel):
     password: str = Field(..., min_length=1)
 
 
+class RegisterRequest(BaseModel):
+    email: EmailStr
+    password: str = Field(..., min_length=8)
+    name: str | None = None
+
+
 class TokenResponse(BaseModel):
     access_token: str
     email: str
@@ -80,6 +87,11 @@ def _create_token(email: str) -> str:
     return jwt.encode(payload, settings.secret_key, algorithm="HS256")
 
 
+def _set_browser_session(request: Request, email: str) -> None:
+    request.session.clear()
+    request.session["user_email"] = email
+
+
 @router.post("/login", response_model=TokenResponse)
 @limiter.limit("10/minute")
 async def login(
@@ -102,6 +114,7 @@ async def login(
             )
         if resp.status_code == 200:
             token = _create_token(payload.email)
+            _set_browser_session(request, payload.email)
             return TokenResponse(access_token=token, email=payload.email)
         raise HTTPException(status_code=401, detail="Invalid credentials")
     except httpx.RequestError:
@@ -126,25 +139,73 @@ async def login(
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
     token = _create_token(payload.email)
+    _set_browser_session(request, payload.email)
     log.info("Login successful for %s (local auth)", payload.email)
+    return TokenResponse(access_token=token, email=payload.email)
+
+
+@router.post("/register", response_model=TokenResponse, status_code=201)
+@limiter.limit("5/minute")
+async def register(
+    request: Request,
+    payload: RegisterRequest,
+    session: AsyncSession = Depends(get_session),
+):
+    """Register a new user account.
+
+    Creates a credential record (as a Business stub) and returns a JWT.
+    The user can then create their first business via the intake endpoint.
+    """
+    # Check for duplicate email
+    result = await session.execute(
+        select(Business).where(Business.owner_email == payload.email).limit(1)
+    )
+    if result.scalar_one_or_none():
+        raise HTTPException(status_code=409, detail="An account with this email already exists")
+
+    # Store credentials as a Business row with a placeholder slug derived from email
+    # The actual business name/description is collected in the intake step
+    import re
+    slug_base = re.sub(r"[^a-z0-9]+", "-", payload.email.split("@")[0].lower()).strip("-")[:40]
+    slug = f"_user-{slug_base}"
+
+    # Ensure slug uniqueness (very unlikely collision, but guard it)
+    existing_slug = await session.execute(
+        select(Business).where(Business.slug == slug).limit(1)
+    )
+    if existing_slug.scalar_one_or_none():
+        import time
+        slug = f"_user-{slug_base}-{int(time.time()) % 10000}"
+
+    user_stub = Business(
+        slug=slug,
+        name=payload.name or payload.email.split("@")[0],
+        description="",
+        owner_email=payload.email,
+        password_hash=_hash_password(payload.password),
+    )
+    session.add(user_stub)
+    await session.commit()
+
+    token = _create_token(payload.email)
+    _set_browser_session(request, payload.email)
+    log.info("New account registered for %s", payload.email)
     return TokenResponse(access_token=token, email=payload.email)
 
 
 @router.get("/validate")
 async def validate(request: Request):
     """Validate a JWT token."""
-    auth_header = request.headers.get("Authorization", "")
-    if not auth_header.startswith("Bearer "):
+    email = get_current_user_email(request)
+    if not email:
         raise HTTPException(status_code=401, detail="Missing authorization")
+    return {"valid": True, "email": email}
 
-    token = auth_header[7:]
-    try:
-        payload = jwt.decode(token, settings.secret_key, algorithms=["HS256"])
-        return {"valid": True, "email": payload.get("email")}
-    except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token expired")
-    except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Invalid token")
+
+@router.post("/logout", status_code=204)
+async def logout(request: Request):
+    """Clear the browser session."""
+    request.session.clear()
 
 
 @router.post("/forgot-password")
@@ -202,8 +263,8 @@ async def reset_password(
     )
     business = result.scalar_one_or_none()
     if not business:
-        # Don't reveal whether the email exists
-        raise HTTPException(status_code=400, detail="Invalid reset token")
+        # Don't reveal whether the email exists — silently succeed
+        return {"message": "Password updated"}
 
     business.password_hash = _hash_password(payload.new_password)
     await session.commit()

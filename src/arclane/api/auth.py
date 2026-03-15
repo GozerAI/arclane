@@ -29,14 +29,22 @@ def get_current_user_email(request: Request) -> str | None:
     Returns None if no token is provided and auth is not required.
     Raises 401 if token is invalid or missing when auth is required.
     """
-    auth_header = request.headers.get("Authorization", "")
+    session = getattr(request, "session", None)
+    if isinstance(session, dict):
+        session_email = session.get("user_email")
+        if session_email:
+            return session_email
 
-    if not auth_header.startswith("Bearer "):
+    auth_header = request.headers.get("Authorization", "")
+    token = ""
+
+    if auth_header.startswith("Bearer "):
+        token = auth_header[7:]
+    elif not token:
         if _auth_required:
             raise HTTPException(status_code=401, detail="Authentication required")
         return None
 
-    token = auth_header[7:]
     try:
         payload = jwt.decode(token, settings.secret_key, algorithms=["HS256"])
         email = payload.get("email") or payload.get("sub")

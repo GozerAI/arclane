@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Arclane</title>
+    <meta name="description" content="Simple, transparent pricing. Start free with 3 credits, then choose the plan that fits your business.">
+    <style>
+        :root {
+            --bg: #07111c; --bg-soft: rgba(14, 24, 38, 0.9); --bg-card: rgba(10, 19, 31, 0.86);
+            --border: rgba(128, 159, 196, 0.18); --border-strong: rgba(127, 171, 226, 0.34);
+            --text: #edf4ff; --muted: #9db2cb; --accent: #4bb2ff; --accent-strong: #1d87ff;
+            --success: #38d39f; --warning: #ffca5a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text); line-height: 1.6;
+            background: radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+        }
+        a { color: inherit; text-decoration: none; }
+        .shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; }
+        .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: var(--muted); padding: 0.65rem 0.95rem; border-radius: 999px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-cta, .btn-primary, .btn-secondary {
+            border-radius: 999px; padding: 0.9rem 1.25rem; display: inline-flex; align-items: center;
+            justify-content: center; font-weight: 700; transition: transform 120ms ease;
+        }
+        .nav-cta, .btn-primary { background: linear-gradient(135deg, var(--accent), #8fe0ff); color: #07111c; }
+        .btn-secondary { border: 1px solid var(--border); background: rgba(13, 25, 40, 0.72); color: var(--text); }
+        .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+        .page-header { padding: 3rem 0 1.5rem; text-align: center; }
+        .page-header h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
+        .page-header p { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 42rem; margin-left: auto; margin-right: auto; }
+        .section { padding: 1.5rem 0 0; }
+        .section-heading { margin-bottom: 1rem; }
+        .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .section-heading p { color: var(--muted); margin-top: 0.5rem; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+        .pricing-card {
+            padding: 1.5rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+        .pricing-card.featured {
+            border-color: var(--border-strong);
+            background: radial-gradient(circle at top right, rgba(75, 178, 255, 0.12), transparent 32%), rgba(10, 19, 31, 0.92);
+        }
+        .pricing-card h3 { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; font-size: 1.2rem; }
+        .badge {
+            display: inline-flex; align-items: center; padding: 0.22rem 0.55rem; border-radius: 999px;
+            background: rgba(75, 178, 255, 0.14); color: var(--accent); font-size: 0.68rem;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .price { margin-top: 0.9rem; font-size: 2.6rem; font-weight: 800; letter-spacing: -0.04em; }
+        .price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+        .pricing-note { margin-top: 0.75rem; color: var(--muted); }
+        .pricing-card ul { list-style: none; margin-top: 0.7rem; }
+        .pricing-card li { margin-top: 0.5rem; color: var(--muted); }
+        .pricing-card li::before { content: "+"; color: var(--success); font-weight: 800; margin-right: 0.45rem; }
+        .pricing-card .btn-primary, .pricing-card .btn-secondary { width: 100%; margin-top: 1.2rem; }
+        .highlight {
+            margin-top: 1rem; padding: 1rem 1.1rem; border-radius: 20px;
+            background: rgba(12, 22, 36, 0.82); border: 1px solid var(--border);
+        }
+        .highlight strong { color: var(--accent); }
+        .section-card {
+            padding: 1.35rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+        .section-card h3 { font-size: 1.1rem; }
+        .section-card p { margin-top: 0.5rem; color: var(--muted); }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .faq { padding: 2rem 0 0; }
+        .faq-item { padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 1.05rem; }
+        .faq-item p { margin-top: 0.4rem; color: var(--muted); }
+        .cta { padding: 1.5rem 0 3rem; }
+        .cta-box {
+            padding: 2rem; border-radius: 28px; border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(17, 34, 55, 0.96), rgba(8, 20, 31, 0.96));
+            text-align: center;
+        }
+        .cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .cta-box p { margin: 0.8rem auto 1.3rem; max-width: 36rem; color: var(--muted); }
+        .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        footer { padding: 1.2rem 0 2.4rem; color: var(--muted); text-align: center; font-size: 0.9rem; }
+        .footer-links { margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 980px) { .pricing-grid, .grid-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 1rem, 1180px); }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .pricing-card, .section-card, .cta-box { padding: 1.35rem; border-radius: 22px; }
+            .nav-links { width: 100%; }
+            .btn-primary, .btn-secondary, .nav-cta { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="/" class="logo">arclane<span>.</span>cloud</a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/pricing" class="active">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <p class="eyebrow">Pricing</p>
+            <h1>Simple plans that scale with you</h1>
+            <p>Start free with 3 credits, no card required. Upgrade when you need more capacity.</p>
+        </header>
+
+        <div class="highlight" style="text-align: center;">
+            <strong>Free preview:</strong> Sign up and get 3 credits to try Arclane with your real business. No credit card required.
+        </div>
+
+        <section class="section">
+            <div class="pricing-grid">
+                <article class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$49<span>/mo</span></div>
+                    <p class="pricing-note">Great for trying Arclane with a real business.</p>
+                    <ul>
+                        <li>10 credits per month</li>
+                        <li>1 business</li>
+                        <li>Content creation</li>
+                        <li>Market research</li>
+                        <li>Strategy recommendations</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="/dashboard#create" class="btn-secondary">Get Started</a>
+                </article>
+                <article class="pricing-card featured">
+                    <h3>Pro <span class="badge">Most popular</span></h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <p class="pricing-note">For businesses ready for daily execution.</p>
+                    <ul>
+                        <li>20 cycles per month</li>
+                        <li>1 business</li>
+                        <li>Everything in Starter</li>
+                        <li>Priority execution</li>
+                        <li>Advanced analytics</li>
+                    </ul>
+                    <a href="/dashboard#create" class="btn-primary">Get Started</a>
+                </article>
+                <article class="pricing-card">
+                    <h3>Growth</h3>
+                    <div class="price">$249<span>/mo</span></div>
+                    <p class="pricing-note">For operators managing multiple businesses.</p>
+                    <ul>
+                        <li>75 credits per month</li>
+                        <li>3 businesses</li>
+                        <li>Everything in Pro</li>
+                        <li>Portfolio dashboard</li>
+                    </ul>
+                    <a href="/dashboard#create" class="btn-secondary">Get Started</a>
+                </article>
+                <article class="pricing-card">
+                    <h3>Scale</h3>
+                    <div class="price">$499<span>/mo</span></div>
+                    <p class="pricing-note">For teams running a portfolio of businesses.</p>
+                    <ul>
+                        <li>150 credits per month</li>
+                        <li>5 businesses</li>
+                        <li>Everything in Growth</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <a href="/dashboard#create" class="btn-secondary">Get Started</a>
+                </article>
+            </div>
+            <div class="highlight">
+                <strong>Need more credits?</strong> One-time credit packs are available from your dashboard if you need extra capacity without changing your plan.
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>All plans include</h2>
+            </div>
+            <div class="grid-2">
+                <article class="section-card">
+                    <h3>Automatic provisioning</h3>
+                    <p>Your subdomain, inbox, and workspace are set up automatically when you create a business.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Live activity feed</h3>
+                    <p>Watch your execution cycles in real time. See what's running, what's complete, and what's next.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Content library</h3>
+                    <p>All generated content organized by type. Review, edit, and publish from one place.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Secure by default</h3>
+                    <p>Your data is encrypted, your account is protected, and your business information stays private.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="section-heading">
+                <h2>Frequently asked questions</h2>
+            </div>
+            <div class="faq-item">
+                <h3>What is a credit?</h3>
+                <p>A credit is one execution cycle. Each cycle performs a complete round of work for your business — content creation, market research, strategy analysis, and more. One credit = one full cycle of autonomous work.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does the free preview work?</h3>
+                <p>Sign up with just your email and get 3 credits immediately. No credit card required. Use them to see real results from Arclane before committing to a paid plan.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I switch plans?</h3>
+                <p>Yes. You can upgrade or downgrade at any time from your dashboard. Changes take effect on your next billing cycle.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What happens when I run out of credits?</h3>
+                <p>Your business data and content are always available. You just won't be able to run new execution cycles until your credits renew or you purchase a credit pack.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How does the Starter trial work?</h3>
+                <p>The Starter plan includes a 3-day trial period. We collect your card details upfront, but you won't be charged until the trial ends. Cancel anytime during the trial at no cost.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I manage multiple businesses?</h3>
+                <p>Yes. The Growth plan supports up to 3 businesses and Scale supports up to 5. Each business gets its own subdomain, content library, and execution cycles.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-box">
+                <p class="eyebrow">No risk to start</p>
+                <h2>Try Arclane free</h2>
+                <p>3 credits, no card required. See what autonomous execution looks like for your business.</p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

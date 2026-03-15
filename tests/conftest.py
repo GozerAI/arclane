@@ -1,5 +1,7 @@
 """Test configuration."""
 
+from unittest.mock import AsyncMock, patch
+
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
@@ -24,3 +26,13 @@ async def db_session():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
     await engine.dispose()
+
+
+@pytest.fixture(autouse=True)
+def mock_background_provisioning():
+    """Keep tests off real provisioning and email side effects."""
+    with (
+        patch("arclane.api.routes.intake._provision_business_background", AsyncMock()),
+        patch("arclane.api.routes.intake.send_welcome_email", AsyncMock()),
+    ):
+        yield

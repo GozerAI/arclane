@@ -38,6 +38,40 @@ async def client():
     await engine.dispose()
 
 
+@pytest.fixture
+async def auth_client():
+    """Authenticated test client with JWT header."""
+    engine = create_async_engine("sqlite+aiosqlite://", echo=False)
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+    session_factory = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+
+    async def override_session():
+        async with session_factory() as session:
+            yield session
+
+    app.dependency_overrides[get_session] = override_session
+
+    from arclane.api.routes import cycles as cycles_module
+    mock_run = AsyncMock()
+    with patch.object(cycles_module, "_run_cycle", mock_run):
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as c:
+            reg = await c.post("/api/auth/register", json={
+                "email": "test@example.com",
+                "password": "testpassword123",
+            })
+            token = reg.json()["access_token"]
+            c.headers.update({"Authorization": f"Bearer {token}"})
+            yield c, session_factory
+
+    app.dependency_overrides.clear()
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+    await engine.dispose()
+
+
 async def test_live_feed_empty(client):
     c, _ = client
     resp = await c.get("/api/live")
@@ -98,8 +132,47 @@ async def test_live_stats_with_data(client):
     assert data["businesses"] == 1
 
 
-async def test_billing_status(client):
-    c, _ = client
+async def test_live_feed_redacts_identity_in_production(client):
+    c, session_factory = client
+
+    async with session_factory() as session:
+        biz = Business(
+            slug="private-test", name="Private Test",
+            description="Testing production redaction", owner_email="test@example.com",
+        )
+        session.add(biz)
+        await session.commit()
+
+        activity = Activity(
+            business_id=biz.id, agent="ops",
+            action="Provisioning complete", detail="Workspace deployed on internal port 9012.",
+        )
+        session.add(activity)
+        await session.commit()
+
+    from arclane.core.config import settings
+    original_env = settings.env
+    original_identity = settings.public_live_feed_identity
+    original_detail = settings.public_live_feed_detail
+    settings.env = "production"
+    settings.public_live_feed_identity = False
+    settings.public_live_feed_detail = False
+    try:
+        resp = await c.get("/api/live")
+    finally:
+        settings.env = original_env
+        settings.public_live_feed_identity = original_identity
+        settings.public_live_feed_detail = original_detail
+
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data[0]["business_name"] == "Arclane tenant"
+    assert data[0]["business_slug"] == ""
+    assert data[0]["detail"] is None
+
+
+async def test_billing_status(auth_client):
+    c, _ = auth_client
 
     await c.post("/api/businesses", json={
         "name": "Billing Test",
@@ -110,12 +183,12 @@ async def test_billing_status(client):
     resp = await c.get("/api/businesses/billing-test/billing/status")
     assert resp.status_code == 200
     data = resp.json()
-    assert data["plan"] == "starter"
+    assert data["plan"] == "preview"
     assert data["active"] is True
 
 
-async def test_billing_webhook_subscription_created(client):
-    c, _ = client
+async def test_billing_webhook_subscription_created(auth_client):
+    c, _ = auth_client
 
     await c.post("/api/businesses", json={
         "name": "Webhook Test",
@@ -146,11 +219,11 @@ async def test_billing_webhook_subscription_created(client):
     resp = await c.get("/api/businesses/webhook-test/billing/status")
     data = resp.json()
     assert data["plan"] == "pro"
-    assert data["credits_remaining"] == 29  # 20 plan credits + 10 first-month bonus - 1 initial cycle
+    assert data["credits_remaining"] == 20
 
 
-async def test_billing_webhook_invalid_token(client):
-    c, _ = client
+async def test_billing_webhook_invalid_token(auth_client):
+    c, _ = auth_client
 
     await c.post("/api/businesses", json={
         "name": "Token Test",

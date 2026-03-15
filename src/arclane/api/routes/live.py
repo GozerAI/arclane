@@ -1,6 +1,5 @@
 """Public live feed — shows real-time activity across all businesses.
 
-Like Polsia's /live page but powered by the AI engine.
 No auth required — this is a marketing/transparency asset.
 """
 
@@ -12,6 +11,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sse_starlette.sse import EventSourceResponse
 
 from arclane.api.app import limiter
+from arclane.core.config import settings
 from arclane.core.database import async_session, get_session
 from arclane.core.logging import get_logger
 from arclane.models.schemas import ActivityEntry
@@ -24,6 +24,25 @@ router = APIRouter()
 class LiveEntry(ActivityEntry):
     business_name: str
     business_slug: str
+
+
+def _identity_visible() -> bool:
+    return settings.env != "production" or settings.public_live_feed_identity
+
+
+def _detail_visible() -> bool:
+    return settings.env != "production" or settings.public_live_feed_detail
+
+
+def _public_live_entry(act: Activity, biz_name: str, biz_slug: str) -> LiveEntry:
+    return LiveEntry(
+        id=act.id,
+        action=act.action,
+        detail=act.detail if _detail_visible() else None,
+        created_at=act.created_at,
+        business_name=biz_name if _identity_visible() else "Arclane tenant",
+        business_slug=biz_slug if _identity_visible() else "",
+    )
 
 
 @router.get("")
@@ -42,14 +61,7 @@ async def get_live_feed(
     )
     rows = result.all()
     return [
-        LiveEntry(
-            id=act.id,
-            action=act.action,
-            detail=act.detail,
-            created_at=act.created_at,
-            business_name=biz_name,
-            business_slug=biz_slug,
-        )
+        _public_live_entry(act, biz_name, biz_slug)
         for act, biz_name, biz_slug in rows
     ]
 
@@ -74,14 +86,7 @@ async def stream_live_feed():
 
             for act, biz_name, biz_slug in rows:
                 last_id = act.id
-                entry = LiveEntry(
-                    id=act.id,
-                    action=act.action,
-                    detail=act.detail,
-                    created_at=act.created_at,
-                    business_name=biz_name,
-                    business_slug=biz_slug,
-                )
+                entry = _public_live_entry(act, biz_name, biz_slug)
                 yield {
                     "event": "activity",
                     "data": entry.model_dump_json(),

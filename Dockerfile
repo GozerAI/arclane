@@ -7,13 +7,15 @@ RUN useradd -r -m -u 1000 arclane
 WORKDIR /app
 
 COPY pyproject.toml .
+COPY alembic.ini .
+COPY migrations/ migrations/
 COPY src/ src/
 COPY frontend/ frontend/
 COPY templates/ templates/
 
 RUN pip install --no-cache-dir .
 
-RUN chown -R arclane:arclane /app
+RUN mkdir -p /app/data && chown -R arclane:arclane /app
 
 USER arclane
 

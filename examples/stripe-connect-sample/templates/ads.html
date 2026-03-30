@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Ad Budget{% endblock %}
+
+{% block content %}
+<a href="/accounts/{{ account_id }}" class="back-link">&larr; Account dashboard</a>
+
+<h1>Advertising Budget</h1>
+<p class="subtitle">Fund your ad wallet to run campaigns on Meta, Google, LinkedIn, and Twitter/X. A {{ ad_fee_percent }}% platform fee applies to each top-up.</p>
+
+<!-- Wallet Balance -->
+<div class="section">
+    <div class="section-title">Wallet</div>
+    <div class="card" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+        <div>
+            <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;">Available Balance</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--success);">${{ "%.2f"|format(wallet.balance_cents / 100) }}</div>
+        </div>
+        <div>
+            <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;">Total Funded</div>
+            <div style="font-size: 1.2rem; font-weight: 600;">${{ "%.2f"|format(wallet.total_funded_cents / 100) }}</div>
+        </div>
+        <div>
+            <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;">Total Spent</div>
+            <div style="font-size: 1.2rem; font-weight: 600;">${{ "%.2f"|format(wallet.total_spent_cents / 100) }}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Fund Ad Budget -->
+<div class="section">
+    <div class="section-title">Top Up Budget</div>
+    <div class="card">
+        <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem;">
+            Enter an amount to fund your ad wallet. A {{ ad_fee_percent }}% platform fee is deducted — the rest goes directly toward your ad campaigns.
+        </p>
+        <form method="post" action="/accounts/{{ account_id }}/ads/fund">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="amount">Amount (USD)</label>
+                    <input type="number" id="amount" name="amount" step="1" min="5" placeholder="100" required>
+                </div>
+                <div class="form-group" style="display: flex; align-items: flex-end;">
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Fund Ad Budget</button>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem;">
+                Minimum $5.00. Example: $100 top-up = ${{ "%.2f"|format(100 * (1 - ad_fee_percent / 100)) }} available for ads + ${{ "%.2f"|format(100 * ad_fee_percent / 100) }} platform fee.
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Transaction History -->
+<div class="section">
+    <div class="section-title">Transaction History</div>
+    {% if transactions %}
+    <div class="card" style="padding: 0;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <th style="text-align: left; padding: 0.75rem 1rem; color: var(--muted); font-size: 0.8rem; font-weight: 500;">Date</th>
+                    <th style="text-align: left; padding: 0.75rem 0.5rem; color: var(--muted); font-size: 0.8rem; font-weight: 500;">Type</th>
+                    <th style="text-align: right; padding: 0.75rem 0.5rem; color: var(--muted); font-size: 0.8rem; font-weight: 500;">Amount</th>
+                    <th style="text-align: right; padding: 0.75rem 1rem; color: var(--muted); font-size: 0.8rem; font-weight: 500;">Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tx in transactions %}
+                <tr style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 0.65rem 1rem; font-size: 0.85rem;">{{ tx.created_at[:16] }}</td>
+                    <td style="padding: 0.65rem 0.5rem;">
+                        {% if tx.type == 'topup' %}
+                        <span class="badge badge-success">Top-up</span>
+                        {% else %}
+                        <span class="badge badge-warning">Ad Spend</span>
+                        {% endif %}
+                    </td>
+                    <td style="padding: 0.65rem 0.5rem; text-align: right; font-weight: 600;
+                        {% if tx.type == 'topup' %}color: var(--success);{% else %}color: var(--warning);{% endif %}">
+                        {% if tx.type == 'topup' %}+{% else %}-{% endif %}${{ "%.2f"|format(tx.amount_cents / 100) }}
+                    </td>
+                    <td style="padding: 0.65rem 1rem; text-align: right; color: var(--muted); font-size: 0.85rem;">
+                        {% if tx.platform_fee_cents %}${{ "%.2f"|format(tx.platform_fee_cents / 100) }}{% else %}&mdash;{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="card empty">
+        <p>No transactions yet. Fund your ad budget above to get started.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

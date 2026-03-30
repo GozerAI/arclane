@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="facebook-domain-verification" content="r1lgg515vhpld7w0nljc3017kfnjol" />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arclane - AI startup incubator and business accelerator</title>
+    <meta
+        name="description"
+        content="A 90-day AI incubator that takes a business from idea to traction. Daily execution cycles deliver research, content, strategy, and a live business surface."
+    >
+    <meta property="og:title" content="Arclane - AI startup incubator and business accelerator">
+    <meta
+        property="og:description"
+        content="A structured 90-day program that builds your business through daily execution cycles — research, content, competitive intelligence, and a live web presence."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arclane.cloud">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arclane - AI startup incubator and business accelerator">
+    <meta
+        name="twitter:description"
+        content="Give Arclane an idea or a website. It builds the launch package, research, messaging, and public business surface that move a company forward."
+    >
+    <link rel="canonical" href="https://arclane.cloud/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Arclane",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://arclane.cloud",
+        "description": "A 90-day AI incubator that takes a business from idea to traction. Daily execution cycles deliver research, content, strategy, and a live business surface.",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Preview",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Day 1 free — first cycle with 4 deliverables, no card required"
+            },
+            {
+                "@type": "Offer",
+                "name": "Starter",
+                "price": "49",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M",
+                "description": "10 working days per month, 1 business"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro",
+                "price": "99",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M",
+                "description": "20 working days per month, 1 business, advanced analytics"
+            },
+            {
+                "@type": "Offer",
+                "name": "Growth",
+                "price": "249",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M",
+                "description": "75 working days per month, 3 businesses, portfolio dashboard"
+            },
+            {
+                "@type": "Offer",
+                "name": "Scale",
+                "price": "499",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M",
+                "description": "150 working days per month, 5 businesses, dedicated support"
+            }
+        ],
+        "provider": {
+            "@type": "Organization",
+            "name": "1450 Enterprises",
+            "url": "https://arclane.cloud"
+        }
+    }
+    </script>
+    <!-- Meta Pixel -->
+    <script src="/static/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <style>
+        :root {
+            --bg: #07111c;
+            --bg-soft: rgba(14, 24, 38, 0.9);
+            --bg-card: rgba(10, 19, 31, 0.86);
+            --border: rgba(128, 159, 196, 0.18);
+            --border-strong: rgba(127, 171, 226, 0.34);
+            --text: #edf4ff;
+            --muted: #9db2cb;
+            --accent: #4bb2ff;
+            --accent-strong: #1d87ff;
+            --success: #38d39f;
+            --warning: #ffca5a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .shell {
+            width: min(1180px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.03em;
+        }
+
+        .logo span,
+        .eyebrow,
+        .highlight strong {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            padding: 0.65rem 0.95rem;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: rgba(18, 35, 56, 0.7);
+        }
+
+        .nav-cta,
+        .btn-primary,
+        .btn-secondary {
+            border-radius: 999px;
+            padding: 0.9rem 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+        }
+
+        .nav-cta,
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #8fe0ff);
+            color: #07111c;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(13, 25, 40, 0.72);
+            color: var(--text);
+        }
+
+        .nav-cta:hover,
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            padding: 3rem 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.25rem;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .section-card,
+        .pricing-card,
+        .signal-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        .hero-copy {
+            padding: 3rem;
+            background:
+                radial-gradient(circle at top left, rgba(75, 178, 255, 0.18), transparent 28%),
+                linear-gradient(140deg, rgba(17, 34, 55, 0.95), rgba(8, 20, 31, 0.92));
+        }
+
+        .eyebrow {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin-top: 0.7rem;
+            font-size: clamp(2.8rem, 6vw, 5.2rem);
+            line-height: 0.94;
+            letter-spacing: -0.05em;
+        }
+
+        .hero p {
+            margin-top: 1rem;
+            max-width: 40rem;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .hero-sub {
+            margin-top: 1rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .hero-panel {
+            padding: 1.4rem;
+            display: grid;
+            gap: 0.9rem;
+            background:
+                linear-gradient(180deg, rgba(18, 33, 51, 0.96), rgba(9, 18, 29, 0.96));
+        }
+
+        .signal-card {
+            padding: 1rem;
+            border-radius: 20px;
+            background: rgba(8, 15, 24, 0.76);
+        }
+
+        .signal-card .label {
+            color: var(--muted);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .signal-card strong {
+            display: block;
+            margin-top: 0.45rem;
+            font-size: 1rem;
+        }
+
+        .signal-card p {
+            margin-top: 0.4rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .section {
+            padding: 1rem 0 0;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            letter-spacing: -0.04em;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 34rem;
+        }
+
+        .grid-3,
+        .grid-2 {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-card {
+            padding: 1.35rem;
+        }
+
+        .step-number {
+            display: inline-flex;
+            width: 2rem;
+            height: 2rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: rgba(75, 178, 255, 0.16);
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .section-card h3 {
+            margin-top: 0.85rem;
+            font-size: 1.1rem;
+        }
+
+        .section-card p,
+        .section-card li,
+        .pricing-card li {
+            margin-top: 0.5rem;
+            color: var(--muted);
+        }
+
+        .section-card ul,
+        .pricing-card ul {
+            list-style: none;
+            margin-top: 0.7rem;
+        }
+
+        .section-card li::before,
+        .pricing-card li::before {
+            content: "+";
+            color: var(--success);
+            font-weight: 800;
+            margin-right: 0.45rem;
+        }
+
+        .highlight {
+            margin-top: 1rem;
+            padding: 1rem 1.1rem;
+            border-radius: 20px;
+            background: rgba(12, 22, 36, 0.82);
+            border: 1px solid var(--border);
+        }
+
+        .pricing {
+            padding: 1.5rem 0 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .pricing-card {
+            padding: 1.5rem;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--border-strong);
+            background:
+                radial-gradient(circle at top right, rgba(75, 178, 255, 0.12), transparent 32%),
+                rgba(10, 19, 31, 0.92);
+        }
+
+        .pricing-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 1.2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.22rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(75, 178, 255, 0.14);
+            color: var(--accent);
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .price {
+            margin-top: 0.9rem;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .pricing-note {
+            margin-top: 0.75rem;
+            color: var(--muted);
+        }
+
+        .cta {
+            padding: 1.5rem 0 3rem;
+        }
+
+        .cta-box {
+            padding: 2rem;
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(135deg, rgba(17, 34, 55, 0.96), rgba(8, 20, 31, 0.96));
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.04em;
+        }
+
+        .cta-box p {
+            margin: 0.8rem auto 1.3rem;
+            max-width: 36rem;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 1.2rem 0 2.4rem;
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .grid-3,
+            .grid-2,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .shell {
+                width: min(100% - 1rem, 1180px);
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-copy,
+            .hero-panel,
+            .section-card,
+            .pricing-card,
+            .cta-box {
+                padding: 1.35rem;
+                border-radius: 22px;
+            }
+
+            .hero-actions,
+            .nav-links {
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .nav-cta {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <div class="logo">arclane<span>.</span>cloud</div>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/faq">FAQ</a>
+                <a href="/about">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">AI startup incubator</p>
+                <h1>90 days from idea to traction. One cycle at a time.</h1>
+                <p>
+                    Arclane is a structured incubator program that builds your business through
+                    daily execution cycles — research, content, competitive intelligence, strategy,
+                    and a live web presence. Four phases, daily milestones, real deliverables.
+                </p>
+                <div class="hero-actions">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                    <a href="/live" class="btn-secondary">Watch Live Activity</a>
+                </div>
+                <p class="hero-sub">Day 1 is free — no card, no commitment. Choose a plan to keep building.</p>
+            </div>
+            <div class="hero-panel">
+                <div class="signal-card">
+                    <span class="label">Day 1</span>
+                    <strong>Strategy brief, market research, landing page, and launch tweet — all in one cycle</strong>
+                    <p>Your first day delivers four concrete assets, not a blank dashboard.</p>
+                </div>
+                <div class="signal-card">
+                    <span class="label">90-Day Program</span>
+                    <strong>Foundation, Validation, Growth, Scale-Ready — four phases with daily milestones</strong>
+                    <p>Each phase has graduation criteria so progress is structured, not random.</p>
+                </div>
+                <div class="signal-card">
+                    <span class="label">Beyond Day 90</span>
+                    <strong>Adaptive optimizer keeps building based on health scores and market signals</strong>
+                    <p>After graduation, Arclane shifts to growth maintenance and opportunity detection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="how">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">How it works</p>
+                    <h2>Up and running in three steps</h2>
+                </div>
+                <p>
+                    No calls. No long setup. Choose whether you're starting something new
+                    or improving an existing business, then Arclane starts the ramp.
+                </p>
+            </div>
+            <div class="grid-3">
+                <article class="section-card">
+                    <span class="step-number">1</span>
+                    <h3>Choose your path</h3>
+                    <p>Start from a business idea or from an existing website. Add a little context about what you want to accomplish.</p>
+                </article>
+                <article class="section-card">
+                    <span class="step-number">2</span>
+                    <h3>Arclane builds the package</h3>
+                    <p>Your first cycles generate research, positioning, launch materials, and the operating queue that guides the next stage.</p>
+                </article>
+                <article class="section-card">
+                    <span class="step-number">3</span>
+                    <h3>Review and accelerate</h3>
+                    <p>Watch progress in the dashboard, review finished outputs, and add deeper work when the next step is worth paying to bring forward.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="product">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">What you get</p>
+                    <h2>Real work, delivered to your dashboard</h2>
+                </div>
+                <p>
+                    Arclane is designed to show the work being done, not bury it under
+                    software overhead. You see the queue, the outputs, and what is moving next.
+                </p>
+            </div>
+            <div class="grid-2">
+                <article class="section-card">
+                    <h3>Health scoring and advisory</h3>
+                    <p>A five-dimension health model tracks market fit, content, revenue, operations, and momentum — with weekly digests and milestone celebrations.</p>
+                    <ul>
+                        <li>Health trends over time with actionable recommendations</li>
+                        <li>Competitive monitoring powered by real market signals</li>
+                        <li>Revenue tracking with ROI attribution per content piece</li>
+                    </ul>
+                </article>
+                <article class="section-card">
+                    <h3>Content engine with repurposing</h3>
+                    <p>Every cycle produces content you can publish. Repurpose any piece into 8 formats — threads, carousels, summaries, email variants, and more.</p>
+                    <ul>
+                        <li>Content library organized by type, phase, and milestone</li>
+                        <li>Performance analytics on views, clicks, and conversions</li>
+                        <li>Benchmarking against cohort peers at your stage</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Pricing</p>
+                    <h2>Plans built around execution capacity</h2>
+                </div>
+                <p>
+                    Day 1 is free. Choose a plan to keep building — 48-hour trial on every plan, cancel anytime.
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <article class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$49<span>/mo</span></div>
+                    <p class="pricing-note">A short paid trial for founders who want to see the ramp with a real business.</p>
+                    <ul>
+                        <li>10 working days per month</li>
+                        <li>1 business</li>
+                        <li>Core launch outputs</li>
+                        <li>Website or idea intake</li>
+                        <li>Provisioning kickoff</li>
+                    </ul>
+                </article>
+                <article class="pricing-card featured">
+                    <h3>Pro <span class="badge">Most popular</span></h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <p class="pricing-note">The core plan for one founder building one business with steady daily progress.</p>
+                    <ul>
+                        <li>20 cycles per month</li>
+                        <li>1 business</li>
+                        <li>Everything in Starter</li>
+                        <li>Priority execution</li>
+                        <li>Advanced analytics</li>
+                        <li>Competitive monitoring</li>
+                    </ul>
+                </article>
+                <article class="pricing-card">
+                    <h3>Growth</h3>
+                    <div class="price">$249<span>/mo</span></div>
+                    <p class="pricing-note">For operators running several ramps at once and needing more execution room.</p>
+                    <ul>
+                        <li>75 working days per month</li>
+                        <li>3 businesses</li>
+                        <li>Everything in Pro</li>
+                        <li>Portfolio dashboard</li>
+                    </ul>
+                </article>
+                <article class="pricing-card">
+                    <h3>Scale</h3>
+                    <div class="price">$499<span>/mo</span></div>
+                    <p class="pricing-note">For firms, operators, and incubator-style portfolios managing multiple business builds.</p>
+                    <ul>
+                        <li>150 working days per month</li>
+                        <li>5 businesses</li>
+                        <li>Everything in Growth</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="highlight" style="margin-top: 1rem;">
+                <strong>Need to move faster?</strong> Add-ons and one-time day pack purchases are available from the dashboard when deeper work or extra capacity becomes worth pulling forward.
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-box">
+                <p class="eyebrow">Ready to start?</p>
+                <h2>Start the ramp</h2>
+                <p>
+                    Create a business from an idea or a website in under a minute. Arclane starts with the first cycle, then keeps building from there.
+                </p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                    <a href="/features" class="btn-secondary">See All Features</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

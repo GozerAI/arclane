@@ -1,0 +1,38 @@
+{
+  "business_name": "Run Nerd",
+  "business_type": "existing",
+  "description": "I run Nerd Fitness, a fitness blog and coaching business for self-described nerds. We have great content but our conversion from reader to paying coaching client is weak. I want to sharpen our offer, get more email signups, and launch a content strategy that drives coaching revenue.",
+  "website_url": "https://www.nerdfitness.com",
+  "template": "content-site",
+  "total_time_s": 188.8,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 37.8,
+      "output_words": 679,
+      "output_chars": 4121
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 62.9,
+      "output_words": 1189,
+      "output_chars": 7955
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 45.0,
+      "output_words": 829,
+      "output_chars": 4882
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 43.2,
+      "output_words": 152,
+      "output_chars": 981
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+    admin localhost:2019
+}
+
+# Main Arclane site + dashboard
+arclane.cloud {
+    reverse_proxy arclane:8012 {
+        header_up Host {http.request.host}
+        header_up X-Real-IP {http.request.remote}
+        header_up X-Forwarded-For {http.request.remote}
+        header_up X-Forwarded-Proto {http.request.scheme}
+    }
+
+    # Security headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'"
+    }
+
+    # Rate limiting
+    rate_limit {
+        zone arclane_main {
+            key {remote_host}
+            events 100
+            window 1m
+        }
+    }
+
+    # Request size limit (prevent DoS via large uploads)
+    request_body {
+        max_size 50MB
+    }
+
+    # Logging
+    log {
+        output file /var/log/caddy/arclane.log
+        format json
+        level INFO
+    }
+}
+
+# Wildcard for tenant subdomains
+*.arclane.cloud {
+    reverse_proxy arclane:8012 {
+        header_up Host {http.request.host}
+        header_up X-Real-IP {http.request.remote}
+        header_up X-Forwarded-For {http.request.remote}
+        header_up X-Forwarded-Proto {http.request.scheme}
+    }
+
+    # Security headers (same as main)
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'"
+    }
+
+    rate_limit {
+        zone arclane_tenants {
+            key {remote_host}
+            events 100
+            window 1m
+        }
+    }
+
+    request_body {
+        max_size 50MB
+    }
+
+    log {
+        output file /var/log/caddy/arclane-tenants.log
+        format json
+        level INFO
+    }
+}

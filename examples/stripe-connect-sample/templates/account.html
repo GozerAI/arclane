@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}{{ account.display_name }}{% endblock %}
+
+{% block content %}
+<a href="/" class="back-link">&larr; All accounts</a>
+
+<h1>{{ account.display_name }}</h1>
+<p class="subtitle">{{ account.email }} &middot; <code style="color: var(--muted); font-size: 0.8rem;">{{ stripe_account_id }}</code></p>
+
+<!-- Onboarding Status -->
+<div class="section">
+    <div class="section-title">Onboarding Status</div>
+    <div class="card">
+        <div class="status-row">
+            <span class="status-label">Onboarding</span>
+            {% if onboarding_complete %}
+                <span class="badge badge-success">Complete</span>
+            {% else %}
+                <span class="badge badge-warning">Incomplete</span>
+            {% endif %}
+        </div>
+        <div class="status-row">
+            <span class="status-label">Card Payments</span>
+            {% if ready_to_process %}
+                <span class="badge badge-success">Active</span>
+            {% else %}
+                <span class="badge badge-muted">Pending</span>
+            {% endif %}
+        </div>
+        <div class="actions">
+            {% if not onboarding_complete %}
+            <form method="post" action="/accounts/{{ stripe_account_id }}/onboarding">
+                <button type="submit" class="btn btn-primary">Onboard to Collect Payments</button>
+            </form>
+            {% else %}
+            <form method="post" action="/accounts/{{ stripe_account_id }}/onboarding">
+                <button type="submit" class="btn btn-outline btn-sm">Update Onboarding Info</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Products & Storefront -->
+<div class="section">
+    <div class="section-title">Products & Storefront</div>
+    <div class="card">
+        {% if ready_to_process %}
+        <p style="margin-bottom: 1rem;">Your account can accept payments. Manage products and view your public storefront.</p>
+        <div class="actions">
+            <a href="/accounts/{{ stripe_account_id }}/products" class="btn btn-primary">Manage Products</a>
+            <a href="/storefront/{{ stripe_account_id }}" class="btn btn-outline">View Storefront</a>
+        </div>
+        {% else %}
+        <p style="color: var(--muted);">Complete onboarding above to start creating products and accepting payments.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Advertising Budget -->
+<div class="section">
+    <div class="section-title">Advertising Budget</div>
+    <div class="card">
+        {% if ready_to_process %}
+        <p style="margin-bottom: 1rem;">Fund your ad wallet to run campaigns on Meta, Google, LinkedIn, and Twitter/X. A 7.5% platform fee applies.</p>
+        <div class="actions">
+            <a href="/accounts/{{ stripe_account_id }}/ads" class="btn btn-primary">Manage Ad Budget</a>
+        </div>
+        {% else %}
+        <p style="color: var(--muted);">Complete onboarding to fund and manage your advertising budget.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Platform Subscription -->
+<div class="section">
+    <div class="section-title">Platform Subscription</div>
+    <div class="card">
+        {% if subscription and subscription.status == 'active' %}
+        <div class="status-row">
+            <span class="status-label">Status</span>
+            <span class="badge badge-success">Active</span>
+        </div>
+        {% if subscription.stripe_subscription_id %}
+        <div class="status-row">
+            <span class="status-label">Subscription ID</span>
+            <code style="color: var(--muted); font-size: 0.8rem;">{{ subscription.stripe_subscription_id }}</code>
+        </div>
+        {% endif %}
+        <div class="actions">
+            <form method="post" action="/accounts/{{ stripe_account_id }}/billing-portal">
+                <button type="submit" class="btn btn-outline">Manage Subscription</button>
+            </form>
+        </div>
+        {% elif subscription and subscription.status == 'canceled' %}
+        <div class="status-row">
+            <span class="status-label">Status</span>
+            <span class="badge badge-error">Canceled</span>
+        </div>
+        <div class="actions">
+            {% if platform_price_id %}
+            <form method="post" action="/accounts/{{ stripe_account_id }}/subscribe">
+                <button type="submit" class="btn btn-primary">Re-subscribe</button>
+            </form>
+            {% endif %}
+        </div>
+        {% else %}
+        <p style="color: var(--muted); margin-bottom: 1rem;">Subscribe to the platform to unlock premium features.</p>
+        <div class="actions">
+            {% if platform_price_id %}
+            <form method="post" action="/accounts/{{ stripe_account_id }}/subscribe">
+                <button type="submit" class="btn btn-success">Subscribe</button>
+            </form>
+            {% else %}
+            <p style="color: var(--warning); font-size: 0.85rem;">
+                PLATFORM_PRICE_ID not configured. Set it in .env to enable subscriptions.
+            </p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

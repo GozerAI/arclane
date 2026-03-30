@@ -1,0 +1,248 @@
+======================================================================
+  ARCLANE CYCLE TEST — EXISTING BUSINESS
+  Name: Are Building
+  Template: saas-app
+  Website: https://www.cal.com
+  Description: We are building an open-source scheduling tool competing with Cal.com. Need help...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~263 user words
+  Generating... done (40.6s, ~588 words)
+
+  ## Strategic Operating Brief â€” Are Building
+  **Day 1 of 90 | Foundation Phase**
+  
+  ---
+  
+  ### Mission
+  Give developers a scheduling infrastructure they actually own â€” open-source, self-hostable, and built to convert to paid when they're ready to stop maintaining it themselves.
+  
+  ---
+  
+  ### Core Offer
+  A drop-in scheduling engine developers can self-host in under 10 minutes, extend with a real API, and upgrade to a managed cloud tier when the maintenance cost exceeds the subscription cost. The product ships with: embeddable booking widgets, calendar integrations (Google, Outlook, iCal), webhook-driven workflows, and a team scheduling layer â€” all with a clean TypeScript/REST API surface.
+  
+  The paid tier removes infrastructure ops: managed hosting, SLA, support, and team admin controls.
+  
+  ---
+  
+  ### Target Customer
+  **The pragmatic backend engineer at a 5â€“50 person SaaS company** who owns the scheduling feature but doesn't want to build it from scratch and doesn't want to pay Calendly $16/seat/month for 30 engineers. They've already starred Cal.com on GitHub. They have opinions about vendor lock-in. They will spend 3 hours evaluating self-hosted options before they spend $200/month. They're the person who will also champion the internal switch to your paid tier when they get tired of managing their own deployment.
+  
+  ---
+  
+  ### Wedge: Why Are Building vs. Cal.com
+  
+  Cal.com has drifted. In 2024â€“2025 they raised $25M, added an enterprise sales layer, and their codebase has grown to a point where self-hosting requires real DevOps attention. Their community is large but contributions are slow to merge. Their paid tier starts competing with their open-source tier in confusing ways.
+  
+  Are Building's wedge is **developer experience at the project level**, not the product level:
+  - Codebase that a single developer can fully understand in a day
+  - PRs merged in under 72 hours â€” community contributions land visibly fast
+  - Docs that are written by engineers for engineers (no marketing copy)
+  - A pricing model with a clear, honest line: self-host free forever, or pay us to run it
+  
+  Cal.com's tagline is "The open-source Calendly." Are Building's should be: **"Scheduling infrastructure you don't have to babysit."** That's the job to be done for the target customer.
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **1. Nail the 10-minute self-host story.**
+  The first thing every developer does before starring or sharing is try to run it locally. If your `docker compose up` path takes longer than 10 minutes or produces errors, you lose them before they're ever a lead. This is your Day 1 North Star. Every other marketing effort is wasted until this is airtight.
+  
+  **2. Publish a brutally honest comparison page.**
+  Not a vague "why us" page â€” a specific, technical comparison with Cal.com (and Calendly). What features are in, what's deliberately out, what the self-host maintenance burden actually looks like, and what the paid tier costs vs. their paid tier. Developers will trust you more for the honesty and it will drive SEO from people actively evaluating Cal.com alternatives.
+  
+  **3. Open the contribution loop before launch.**
+  Post the roadmap publicly on GitHub before you have users. Label 10â€“15 issues as `good first issue` with clear scope. Announce in relevant communities (Hacker News, r/selfhosted, indie hacker forums) that you're building in public and want contributors. Community is your distribution â€” but only if you build the on-ramp before the product is polished, not after.
+  
+  ---
+  
+  ### What This Brief Unlocks
+  Tomorrow: landing page copy (the comparison page brief and hero message both come from this).
+  This week: community strategy and GitHub setup.
+  Next milestone: pricing model design (OSS-to-paid conversion funnel).
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~272 user words
+  Generating... done (55.0s, ~1166 words)
+
+  # Market Research Report â€” Are Building
+  **Scheduling Tools: Open-Source & Developer-Focused**
+  *Phase 1 Â· Day 1 of 90 Â· Foundation*
+  
+  ---
+  
+  ## Market Map
+  
+  The scheduling tool market splits into two camps: **consumer-grade** (Calendly, Acuity) that prioritize ease of use over flexibility, and **developer-native** (Cal.com) that prioritize self-hosting and API access. Are Building enters the second camp â€” but that camp is less crowded and more monetizable than it looks, because Cal.com has left specific gaps open.
+  
+  ---
+  
+  ## Competitor Profiles
+  
+  ### 1. Cal.com
+  **Offer:** Open-source scheduling infrastructure. Self-hostable or hosted. API-first, integrations with 200+ apps.
+  **Pricing:** Free (self-hosted) Â· $15/user/mo (Teams) Â· $149/mo (Platform/API)
+  **Messaging strength:** "The open-source Calendly alternative" â€” they own that positioning and have network effects from GitHub stars (30k+).
+  **Messaging weakness:** Feels corporate now. Their docs are sprawling, onboarding is slow, and the self-hosted path has documented deployment pain. Their GitHub Issues are full of complaints about setup complexity and slow maintainer response.
+  **Differentiation opportunity:** Cal.com won the awareness battle but is losing the DX (developer experience) battle. Founders who try to self-host often hit walls with environment variables, database migrations, and OAuth setup. That frustration is the opening.
+  
+  ---
+  
+  ### 2. Calendly
+  **Offer:** Hosted scheduling SaaS, no self-hosting. Workflow automations, CRM integrations, round-robin routing.
+  **Pricing:** Free (1 event type) Â· $10/seat/mo (Standard) Â· $16/seat/mo (Teams) Â· $20/seat/mo (Enterprise)
+  **Messaging strength:** Brand recognition. "Send me your Calendly" is a verb now.
+  **Messaging weakness:** Zero developer flexibility. No self-hosting, no white-labeling at reasonable cost, no open API for embed customization. Lock-in is total.
+  **Differentiation opportunity:** Any team that outgrows Calendly and needs to embed scheduling in their product immediately runs into a wall. Are Building can own the "your next step after Calendly" message for developer teams.
+  
+  ---
+  
+  ### 3. SavvyCal
+  **Offer:** Hosted scheduling tool with a focus on polished UX and overlay scheduling (lets invitees pick from their own calendar overlap).
+  **Pricing:** $12/mo (basic) Â· $20/mo (premium)
+  **Messaging strength:** Design and UX quality. Strong following among indie makers and solopreneurs.
+  **Messaging weakness:** Closed source, no API embed path, no self-hosting. No developer angle at all.
+  **Differentiation opportunity:** SavvyCal attracts the "I want something prettier than Calendly" buyer â€” not developers. It won't compete for Are Building's core audience, but it signals there's demand for better UX. Are Building can be SavvyCal-quality UX on top of a developer-first core.
+  
+  ---
+  
+  ### 4. Acuity Scheduling (Squarespace)
+  **Offer:** Appointment scheduling with intake forms, packages, payments (Stripe/PayPal). Targets service businesses.
+  **Pricing:** $20/mo (Emerging) Â· $34/mo (Growing) Â· $61/mo (Powerhouse)
+  **Messaging strength:** Deep payment and intake form workflows. Owned by Squarespace so trusted by small businesses.
+  **Messaging weakness:** No developer surface. No API. No open source. Actively hostile to custom integration.
+  **Differentiation opportunity:** Acuity is where Are Building's future paid features could win: payments, intake, packages â€” but with a dev-native embed path. Acuity users who want to integrate scheduling into a product or app hit a dead end.
+  
+  ---
+  
+  ### 5. Tidycal (AppSumo)
+  **Offer:** Lifetime-deal scheduling tool, one-time $29 payment. Bare-bones but functional.
+  **Pricing:** $19 one-time (basic) Â· $29 one-time (business)
+  **Messaging strength:** Price. No recurring cost, popular in bootstrap/indie community.
+  **Messaging weakness:** No open source, no API depth, no self-hosting, no real roadmap transparency. Built for quick-purchase, not long-term trust.
+  **Differentiation opportunity:** Tidycal attracts price-sensitive buyers who don't know about Cal.com's free tier. Are Building can capture the same budget-conscious audience with a credible open-source alternative that doesn't hit a lifetime-deal ceiling.
+  
+  ---
+  
+  ## The #1 Buyer Objection â€” and How to Counter It
+  
+  **Objection:** *"Cal.com already exists and it's free. Why would I use anything else?"*
+  
+  This is the make-or-break question. Cal.com has first-mover advantage and a legitimate open-source credential. Anyone evaluating Are Building will land here.
+  
+  **Counter:** Cal.com is infrastructure. Are Building is the scheduling tool developers actually want to use.
+  
+  The distinction matters. Cal.com built for breadth â€” 200+ integrations, enterprise sales, a hosted tier that competes with Calendly. That's forced tradeoffs: the self-hosted path is hard to maintain, the codebase is large and slow to contribute to, and feature requests from the developer community go months without response.
+  
+  Are Building wins by being opinionated and faster to ship. The counter isn't "we're better than Cal.com" â€” it's: "If you've tried to self-host Cal.com and hit a wall, or if you want to embed scheduling into your product without a 3-week integration, Are Building ships that in a day."
+  
+  Proof points that will make this counter credible:
+  - A sub-10-minute self-hosted setup (document and demo it publicly)
+  - An embed snippet that works in 3 lines of code
+  - A public roadmap driven by GitHub votes â€” not enterprise priorities
+  
+  ---
+  
+  ## 3 Concrete Opportunities to Exploit
+  
+  ### Opportunity 1: Own "embedded scheduling" as a category
+  Cal.com positions as a scheduling *app*. Are Building can position as scheduling *infrastructure for your product*. The embed use case â€” "add a booking widget to your SaaS, your marketplace, your internal tool" â€” is underserved. Neither Calendly nor Cal.com makes this easy without significant engineering. Are Building should ship a single-script embed that works on any stack and make that the lead demo. This is the wedge that converts developers who never needed a standalone scheduling app but need scheduling *functionality*.
+  
+  ### Opportunity 2: Community-driven conversion flywheel
+  Cal.com's GitHub is busy but not warm. Their Discord is large but unfocused. Are Building can build a tight, high-signal developer community (Discord + GitHub Discussions) where the core team is visibly active. The conversion path from OSS to paid is almost always trust-based â€” developers pay when they trust the maintainers will be there. A weekly changelog, fast issue response, and a public roadmap voted on by contributors converts the community directly into paid seats. Target: first 500 GitHub stars as a public milestone tied to a paid feature unlock.
+  
+  ### Opportunity 3: Monetize the gap between "free self-hosted" and "enterprise"
+  Cal.com's pricing jumps from free (self-hosted) to $149/month (Platform tier with API). That's a $149 cliff with nothing in between for the solo developer or small team who wants hosted convenience plus developer features. Are Building's pricing should land at $19â€“29/mo for a "hosted + full API + unlimited event types" tier â€” enough to convert the developer who doesn't want to maintain their own deployment but can't justify $149. This is the highest-leverage pricing move available: fill the gap Cal.com deliberately left open.
+  
+  ---
+  
+  ## What to Build First
+  
+  Before anything else, the story needs a proof point. The market research says the opening is **embedded scheduling + fast self-host**. That means the first public-facing work should be:
+  
+  1. A landing page with a working 3-line embed demo (no signup required to see it)
+  2. A self-hosted quick-start that's documented to completion in under 10 minutes
+  3. A GitHub repo with a real issue tracker and a pinned roadmap
+  
+  These three things make the differentiation argument visible, not just stated.
+  
+  ---
+  
+  *Next cycle: Strategy brief â€” offer definition, ICP, and pricing model structure.*
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~290 user words
+  Generating... done (42.4s, ~7 words)
+
+  [ERROR: 'NoneType' object has no attribute 'strip']
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~254 user words
+  Generating... done (24.7s, ~116 words)
+
+  **Are Building Launch Announcement**
+  
+  Scheduling shouldn't be a walled garden. Are Building is open-source scheduling built by developers, for developers. Full control. Full transparency. No vendor lock-in. Ship fast. arebuilding.dev
+  
+  ---
+  
+  **Why this works:**
+  - **Hook** ("walled garden") immediately positions you as the anti-Cal.com without naming them
+  - **Value props** (control, transparency, no lock-in) hit the core pain points for developers evaluating scheduling tools
+  - **Closer** ("Ship fast") reinforces the developer-friendly promise
+  - **Publishable now** â€” no placeholders, actual business name and domain
+  
+  **Character count:** 201/280
+  
+  This tweet is tight enough to retweet, strong enough to anchor your launch conversation, and positions Are Building as the pragmatic developer choice in a market dominated by platform-first thinking.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 162.8s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     40.6s    588 words
+  Market research report                   sonnet     55.0s   1166 words
+  Landing page / homepage draft            sonnet     42.4s      7 words
+  Launch announcement                      haiku      24.7s    116 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773719278.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)
+Exception in thread Thread-5 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Python314\Lib\threading.py", line 1081, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\threading.py", line 1023, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\subprocess.py", line 1613, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "C:\Python314\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x90 in position 2762: character maps to <undefined>

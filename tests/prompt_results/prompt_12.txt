@@ -1,0 +1,307 @@
+======================================================================
+  ARCLANE CYCLE TEST — NEW BUSINESS
+  Name: Parenting Blog
+  Template: content-site
+  Description: A parenting blog focused on screen time management for kids aged 5-12. Evidence-...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~232 user words
+  Generating... done (33.5s, ~697 words)
+
+  ## Strategic Operating Brief â€” Parenting Blog
+  **Day 1 of 90 | Foundation Phase**
+  
+  ---
+  
+  ### Mission
+  
+  Help parents of 5â€“12 year olds build a healthy relationship with screens â€” without guilt, guesswork, or endless battles.
+  
+  ---
+  
+  ### Core Offer
+  
+  A membership community ($X/month â€” to be validated in Phase 2) that gives parents:
+  
+  - **Evidence-based screen time guidelines** translated into plain English (no pediatric jargon)
+  - **Curated app recommendations** by age group, rated on educational value and compulsive-design risk
+  - **Weekly challenges** structured as 7-day family experiments (e.g., "phone-free dinners for 7 days"), with a community thread for accountability and results
+  - **A searchable content library** of articles covering specific situations: homework and devices, bedtime scrolling, gaming addiction signals, co-viewing vs. passive viewing
+  
+  This is not a parenting philosophy blog. It is a practical operating system for screen time in the home.
+  
+  ---
+  
+  ### Target Customer
+  
+  **Persona: The Conflicted Middle**
+  
+  Sarah, 36, two kids aged 7 and 10. She is not anti-technology â€” she uses screens herself, her kids' schools use tablets, and she knows complete restriction is unrealistic. But she's noticed her 10-year-old getting irritable when cut off from YouTube and her 7-year-old defaulting to the iPad every time they're bored.
+  
+  She has Googled "how much screen time is too much" and gotten contradictory answers. She bought a parenting book on the topic and didn't finish it. She follows a few parenting accounts on Instagram but finds them either preachy or vague.
+  
+  She wants someone to just tell her what to actually do this week â€” with her specific kids, at their specific ages â€” and show her it's working for other families like hers.
+  
+  She will pay for that.
+  
+  ---
+  
+  ### Wedge
+  
+  **Why Parenting Blog vs. the alternatives:**
+  
+  - **vs. free articles (NYT, What to Expect, etc.):** Those produce anxiety. Parenting Blog produces a Tuesday night plan.
+  - **vs. parenting books:** Books are complete but passive. The weekly challenge format creates a live feedback loop â€” parents see results within days, not chapters.
+  - **vs. generic parenting membership communities:** They cover everything and therefore own nothing. Parenting Blog's single-topic focus (screen time, ages 5â€“12) makes it the obvious destination for this specific problem. Specificity is the product.
+  - **vs. pediatrician advice:** "Limit screens to 2 hours" is not actionable guidance. Parenting Blog translates research into household-level decisions.
+  
+  The wedge is **specificity + action**. Parents searching for screen time help will find a community built entirely for that problem, not a general parenting resource with a screen time section.
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **Priority 1 â€” Nail the landing page message before writing a single article.**
+  The headline must name the problem exactly as Sarah would describe it, not as a researcher would. Test: "Stop the screen time battles â€” and feel good about how your kids use devices" vs. something more clinical. This comes before content because the message shapes everything downstream.
+  
+  **Priority 2 â€” Publish 5 foundational articles that rank for high-intent searches.**
+  Target searches like "how much screen time for a 7 year old," "best educational apps for 10 year olds," and "how to limit screen time without meltdowns." These are the SEO entry points that will still be driving traffic in 18 months. Quality over volume â€” each piece must be the most useful result on that query.
+  
+  **Priority 3 â€” Launch the weekly challenge as a free email sequence before the paid community opens.**
+  The challenge format is the core product mechanic. Running it free for the first 4 weeks via email serves three purposes: it proves the format works, it builds an email list of warm prospects, and it gives you real testimonials ("we actually did it and it worked") before the membership ask.
+  
+  ---
+  
+  **What this brief locks in for the rest of the program:**
+  All content, pricing, and community structure decisions should run through the Conflicted Middle persona and the specificity-plus-action wedge. If a piece of content wouldn't help Sarah decide what to do this week with her 7 and 10 year old, it doesn't ship in Phase 1.
+  
+  Next: Market research to identify the 3â€“5 direct competitors, map their weaknesses, and confirm pricing tolerance.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~241 user words
+  Generating... done (54.9s, ~1039 words)
+
+  # Market Research Report: Parenting Blog
+  **Screen Time Management for Kids 5-12 | Foundation Phase, Day 1**
+  
+  ---
+  
+  ## Competitive Landscape
+  
+  ### 1. Common Sense Media
+  **Offer:** Free reviews of apps, games, movies, and TV shows plus screen time guides. Revenue from donations, licensing, and brand partnerships.
+  **Pricing:** Free (with donation prompts). No paid membership.
+  **Messaging strength:** Institutional authority. AAP-cited, school-district trusted, enormous SEO footprint.
+  **Messaging weakness:** Cold and encyclopedic. Reads like a nonprofit filing, not a parent talking to a parent. Zero community or accountability layer. Advice is broad and generic â€” "2 hours per day" with no implementation help.
+  **Differentiation opportunity:** They tell parents *what* the rules should be. They never help parents actually enforce them, build buy-in with kids, or troubleshoot the fight that happens at 7pm on a Tuesday.
+  
+  ---
+  
+  ### 2. Screenagers (Delaney Ruston / Tilt Learning)
+  **Offer:** Documentary films, a school screening program, and a weekly newsletter called "Tech Talk Tuesdays." Sells educator/school kits.
+  **Pricing:** Films ~$15-25 for home streaming. School programs vary. Newsletter free.
+  **Messaging strength:** Strong on teen risk narrative â€” anxiety, social media harm, dopamine. Well-produced. School credibility.
+  **Messaging weakness:** Almost entirely focused on **teens**, not 5-12 year olds. The framing is fear-based and reactive. No app recommendations, no structured challenges, no community for parents doing the work together.
+  **Differentiation opportunity:** There is a clear gap at the younger age bracket. Parents of 5-12 year olds are trying to build healthy habits *before* the teen crisis hits. This business owns that window.
+  
+  ---
+  
+  ### 3. 1000 Hours Outside (Ginny Yurich)
+  **Offer:** Book, podcast, social media community, and a tracking app centered on getting kids 1,000 hours outdoors per year as a counterweight to screens.
+  **Pricing:** Book ~$18. App free with optional paid tier (~$4.99/month). Large free community on Facebook/Instagram.
+  **Messaging strength:** Extremely shareable, positive, and aspirational. The "1000 hours" goal is concrete and sticky. Massive organic reach.
+  **Messaging weakness:** Philosophically anti-screen but offers no practical screen management tools. Parents who can't go all-in on outdoor time feel excluded. No evidence base cited â€” it's inspirational, not instructional.
+  **Differentiation opportunity:** Parents who follow 1000 Hours Outside still have screens in their house. They need a practical toolkit, not just inspiration. This business can be the "what to do with the hours that *aren't* outside."
+  
+  ---
+  
+  ### 4. Aha! Parenting (Dr. Laura Markham)
+  **Offer:** Evidence-based parenting blog and book series covering emotional regulation, discipline, and connection. Some screen time content buried in the archive.
+  **Pricing:** Free blog. Books ~$16-18 on Amazon. No paid membership.
+  **Messaging strength:** Licensed psychologist author. Warm tone. Strong on emotional science and parent-child connection.
+  **Messaging weakness:** Screen time is not their focus â€” it's one topic among hundreds. No structured program, no app recommendations, no community accountability. Content is generic across ages 0-18.
+  **Differentiation opportunity:** Dr. Markham has the credibility but not the focus. A blog that applies the same evidence-based lens *exclusively* to screen time for the 5-12 bracket will outrank her on that specific intent.
+  
+  ---
+  
+  ### 5. Wait Until 8th (Delaying Smartphones Movement)
+  **Offer:** Free pledge campaign encouraging parents to delay smartphone ownership until 8th grade. Newsletter and talking-point resources.
+  **Pricing:** Free. Donor supported.
+  **Messaging strength:** Simple, shareable ask. School community organizing angle. Strong earned media coverage.
+  **Messaging weakness:** One-dimensional â€” only addresses smartphones, not tablets, YouTube, Minecraft, or the broader 5-12 screen ecosystem. Offers nothing after the pledge. No ongoing support, no implementation tools, no community membership.
+  **Differentiation opportunity:** Parents who take the Wait Until 8th pledge still have a house full of screens. They are actively looking for what to *do* after they've made the decision. This business is the obvious next step.
+  
+  ---
+  
+  ## The #1 Buyer Objection
+  
+  **"I already know my kids have too much screen time. What I don't have is time to implement anything."**
+  
+  This is the core friction. Parents in this segment are not uninformed â€” they've read the AAP guidelines, they've felt the guilt. The block is execution, not education. Any program that leads with more information will stall. Any program that leads with a specific, time-bounded action (a weekly challenge, a 10-minute conversation script, a single app to install tonight) will convert.
+  
+  **Counter:** Position every piece of content and every membership deliverable as "done in under 15 minutes." The weekly challenge should be completable in a single evening. The app recommendations should come with a setup guide, not just a link. Proof points: "This week's challenge takes 12 minutes. 847 families completed it last week."
+  
+  ---
+  
+  ## 3 Concrete Opportunities to Exploit
+  
+  **1. Own the 5-12 age bracket explicitly.**
+  Every major competitor either ignores this window entirely (Screenagers targets teens) or is so broad as to be useless (Common Sense Media covers birth to 18). The 5-12 window is where screen habits are formed, where kids are old enough to have independent device use but young enough for parents to shape it. Claim this bracket in the name, the URL, the tagline, and every piece of content. "For parents of kids 5-12" should appear above the fold on the landing page and in the first line of every post.
+  
+  **2. Turn the weekly challenge into the product.**
+  Competitors produce content. This business can produce accountability. A weekly, email-delivered screen time challenge â€” specific, time-bound, and completable â€” is something none of the competitors offer. The challenge is also the membership hook: free subscribers get the challenge description, paid members get the implementation guide, the conversation scripts, and the community thread where other parents share what actually happened. This is a flywheel: the challenge creates engagement, engagement creates stories, stories create social proof.
+  
+  **3. Be the practical layer between the rule and the dinner table.**
+  The gap in the entire market is *implementation*. Common Sense Media tells you the rule. Screenagers tells you the stakes. 1000 Hours Outside tells you the vision. Nobody is sitting down with a parent and saying: "Here's how to tell your 7-year-old that Minecraft ends at 5pm without a 45-minute meltdown, and here's the exact script." App recommendations plus evidence-based scripts plus community support â€” that three-part package is not available anywhere in the market at this price point.
+  
+  ---
+  
+  *Report prepared for Parenting Blog, Foundation Phase â€” Day 1 of 90.*
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~259 user words
+  Generating... done (35.7s, ~656 words)
+
+  # Parenting Blog â€” Landing Page Copy
+  
+  ---
+  
+  ## 1. Hero
+  
+  **Headline:**
+  Raise Kids Who Actually Put Down Their Screens
+  
+  **Subheadline:**
+  Evidence-based screen time strategies for parents of kids aged 5â€“12. No guilt, no power struggles â€” just practical tools that work in the real world.
+  
+  **CTA Button:**
+  Join Free + Get This Week's Challenge
+  
+  ---
+  
+  ## 2. Problem Section
+  
+  **Section heading:** Sound familiar?
+  
+  It's 7pm and you've asked four times. The tablet is still on. Your kid is mid-meltdown because you turned it off anyway, and now dinner is ruined and you feel like the bad guy â€” again.
+  
+  You've read the headlines. You know too much screen time is a problem. But knowing that doesn't tell you *how much is too much*, which apps are actually fine, or what to do when your kid loses it the moment you set a limit.
+  
+  Most parenting advice is either preachy ("just take it away") or so vague it's useless. You need something that works on a Tuesday evening when you're tired and outnumbered.
+  
+  ---
+  
+  ## 3. Solution â€” 3 Proof Points
+  
+  **Section heading:** Here's what actually helps.
+  
+  - **Evidence-based guidance you can act on today.** Every recommendation is grounded in current research â€” not panic headlines. We translate the science into clear rules and routines you can implement this week.
+  
+  - **App reviews you can trust.** We test and rate the apps your kids are already using (YouTube, Roblox, TikTok, Minecraft) so you know what to allow, what to limit, and what to replace â€” without banning everything and becoming the enemy.
+  
+  - **A community that keeps you consistent.** Weekly challenges give you one small, specific thing to try each week. Members share what worked, what flopped, and how to adjust. You're not figuring this out alone.
+  
+  ---
+  
+  ## 4. Social Proof Section
+  
+  **Section heading:** Parents like you are making it work.
+  
+  *(Framework for when testimonials are collected â€” use these prompts to gather real quotes:)*
+  
+  > "Before joining, I had no system. Now we have a screen time routine that my 8-year-old actually respects â€” most of the time."
+  > â€” Parent of a 3rd grader
+  
+  > "I stopped fighting about screens the week I tried the Sunday Setup challenge. Game changer."
+  > â€” Mom of two, ages 6 and 10
+  
+  > "The app reviews alone are worth it. I had no idea [popular app] had chat features my daughter was already using."
+  > â€” Dad, Charlotte NC
+  
+  **Supporting trust signals (use immediately, no testimonials needed):**
+  - Built on peer-reviewed research from the American Academy of Pediatrics and Common Sense Media
+  - [X] families already using weekly challenges
+  - New challenge every Monday â€” free to join, no commitment
+  
+  ---
+  
+  ## 5. Objection Handling
+  
+  **Section heading:** You might be thinkingâ€¦
+  
+  **"My kids will never go along with limits."**
+  They don't have to agree â€” they have to know the rule exists. We give you the exact scripts and transition routines that reduce meltdowns without negotiation.
+  
+  **"I don't want to ban screens, I just want balance."**
+  Good â€” we don't either. Balance looks different for every family. We help you find yours with a framework, not a one-size rule.
+  
+  **"I've tried apps and systems before and nothing stuck."**
+  Most systems fail because they're too complicated to maintain on a hard day. Our weekly challenges are single actions, not overhauls. One thing, one week. You'll know by Friday if it's working.
+  
+  ---
+  
+  ## 6. Final CTA
+  
+  **Section heading:** Start this week. One challenge at a time.
+  
+  Join free and get immediate access to this week's screen time challenge â€” a single, specific action you can take before the weekend.
+  
+  No long program to commit to. No expensive course. Just practical, research-backed strategies delivered weekly to parents who are ready to stop dreading screen time.
+  
+  **CTA Button:** Get This Week's Challenge â€” It's Free
+  
+  *Unsubscribe anytime. We respect your inbox as much as you respect your kids' attention.*
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~223 user words
+  Generating... done (22.7s, ~102 words)
+
+  **Launch Announcement for Parenting Blog**
+  
+  Screen time battles? Parenting Blog ends them. Evidence-based strategies, trusted app reviews, and a parent community with weekly challenges. Navigate screens with confidence. Start here â†’ [link]
+  
+  ---
+  
+  **Why this works:**
+  - **Hook**: Opens with their daily pain point (immediate recognition)
+  - **Value stack**: Three concrete things (strategies, reviews, community) â€” not vague benefits
+  - **Specificity**: "Weekly challenges" makes the offer tangible
+  - **Confidence**: "Navigate with confidence" gives permission and outcome
+  - **CTA**: Direct and action-oriented ("Start here")
+  - **Tone**: Parent-to-parent, no jargon, publishable today
+  
+  Post it as-is. The link routes to your signup or landing page.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 146.8s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     33.5s    697 words
+  Market research report                   sonnet     54.9s   1039 words
+  Landing page / homepage draft            sonnet     35.7s    656 words
+  Launch announcement                      haiku      22.7s    102 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773720064.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

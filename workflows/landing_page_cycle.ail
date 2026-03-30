@@ -1,0 +1,13 @@
+# Landing page business cycle — conversion, traffic, lead gen focus
+# Phase 1: Performance analysis
+PAR {
+    @CDO GATHER analytics {source=conversion, period=current} -> report;
+    @CMO ANALYZE traffic {focus=acquisition_channels} -> summary;
+    @CSO ANALYZE competitors {focus=landing_pages} -> summary
+}
+
+# Phase 2: Optimization
+@CMO RECOMMEND improvements {context=$prev, focus=conversion_rate} -> {changes: list, priority: str}
+
+# Phase 3: Content refresh
+@CMO CREATE content {types=landing_copy, context=$prev} -> {headline: str, body: str, cta: str}

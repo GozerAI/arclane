@@ -1,0 +1,314 @@
+======================================================================
+  ARCLANE CYCLE TEST — NEW BUSINESS
+  Name: Subscription Snack
+  Template: landing-page
+  Description: A subscription snack box curated for remote workers. Brain food, energy snacks, ...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~236 user words
+  Generating... done (34.8s, ~579 words)
+
+  # Subscription Snack â€” Strategic Operating Brief
+  **Day 1 / Foundation Phase**
+  
+  ---
+  
+  ## Mission
+  
+  Subscription Snack keeps remote workers fueled and focused by delivering the right food to their door before they realize they need it.
+  
+  ---
+  
+  ## Core Offer
+  
+  A monthly box of 12â€“15 hand-picked items â€” a mix of brain-boosting snacks (nuts, dark chocolate, seeds), sustained-energy bites (protein bars, jerky, trail mixes), and focus drinks (nootropic shots, functional teas, sparkling waters) â€” chosen specifically for the rhythms of a remote workday: morning ramp-up, mid-afternoon slump, and late-session push.
+  
+  **$39/month** or **$108/quarter** (~8% off, billed upfront). Ships within 3 business days of subscription start. No meal prep, no grocery runs, no vending machine.
+  
+  ---
+  
+  ## Target Customer
+  
+  **Alex, 29â€“42, remote knowledge worker** â€” designer, engineer, writer, product manager, or consultant. Works from home full-time. Has a real job and a real schedule, not a "hustle" lifestyle. Cares about cognitive performance but doesn't have time to research nootropics or hunt down specialty groceries. Already pays for productivity tools (Notion, Superhuman, a standing desk). Spends $6â€“10 on coffee daily without thinking about it. The problem isn't awareness â€” it's friction: buying good snacks requires effort Alex consistently deprioritizes.
+  
+  ---
+  
+  ## Wedge â€” Why Subscription Snack vs. Alternatives
+  
+  The competition falls into two categories:
+  
+  - **Generic boxes** (SnackNation, Graze, Mouth): not built around work performance, treats the pantry not the workday, leans sugary and novelty-driven.
+  - **Buying it yourself**: Amazon, Thrive Market, Whole Foods. High friction, inconsistent follow-through, no curation for cognitive performance.
+  
+  Subscription Snack wins on **specificity**. This box is designed around a use case â€” remote work performance â€” not a general snacking appetite. Every item justifies its slot: is it useful at 9am? At 2pm? During a 3-hour deep work block? That constraint is the product. No competitor is making that claim with conviction.
+  
+  Secondary wedge: **$39 is a no-brainer price**. It's less than one UberEats delivery. The quarterly option locks in commitment and improves LTV without requiring a discount war.
+  
+  ---
+  
+  ## Top 3 Launch Priorities
+  
+  **1. Lock the box curation before anything else.**
+  The landing page, ads, and word-of-mouth all depend on being able to describe exactly what's in the box with specificity and confidence. Before writing copy, before running any ad: finalize the first month's 12â€“15 items with supplier sources and landed cost. Target <$18 COGS on the $39 price point. This is the product â€” get it right first.
+  
+  **2. Stand up the landing page with a waitlist capture today.**
+  Don't wait for perfect. A headline, the specific use case ("snacks built for your workday, not your pantry"), a product photo or mockup, and an email field. The goal is to start collecting real email addresses from real remote workers before the first box ships. Every week of delay is a week of list-building lost.
+  
+  **3. Identify and directly message 25 remote workers in the next 7 days.**
+  No ads yet. Find them in Slack communities (Remote, Designer Hangout, Indie Hackers), Reddit (r/remotework, r/productivity), or LinkedIn. Send a direct, honest message: "I'm launching a snack box for remote workers and want to know if this is something you'd actually pay for. Here's the pitch â€” [link]. Would love your honest reaction." Aim for 5 paid pre-orders or 20 waitlist signups as the Day 21 milestone. That number is your Phase 1 go/no-go signal.
+  
+  ---
+  
+  **Next output:** Market research â€” who else is in this space, what they charge, and where the gaps are.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~245 user words
+  Generating... done (57.6s, ~1179 words)
+
+  # Market Research Report: Subscription Snack
+  **Phase 1 â€” Foundation | Day 1 of 90**
+  
+  ---
+  
+  ## The Market in One Sentence
+  
+  The subscription snack box category is crowded with generic "discovery" boxes and B2B office bulk plays â€” almost nobody is selling functional performance nutrition to the remote worker as an individual.
+  
+  ---
+  
+  ## Competitor Profiles
+  
+  ### 1. SnackNation
+  **Offer:** Curated snack boxes for offices and remote teams. Their "remote" product is a diluted version of their B2B office box â€” same snacks, just shipped to homes.
+  **Pricing:** $40â€“$60/month depending on box size. Remote worker box sits around $40/month.
+  **Messaging strength:** Strong brand recognition, "healthy snacking" positioning, corporate trust signals.
+  **Messaging weakness:** They're selling to HR managers buying for teams, not to the individual remote worker making a personal purchase decision. Their copy reads like a workplace benefits pitch, not a performance pitch.
+  **Opportunity:** Their remote box is an afterthought. You can own the individual buyer they're ignoring.
+  
+  ---
+  
+  ### 2. NatureBox
+  **Offer:** Build-your-own snack subscription. Large catalog, member pricing, monthly delivery.
+  **Pricing:** ~$30â€“$40/month depending on selections.
+  **Messaging strength:** High perceived variety and control ("you choose exactly what you want").
+  **Messaging weakness:** Zero functional framing. Nothing connects the snacks to productivity, focus, or cognitive performance. It's a pantry refill service, not a performance tool. Their homepage looks like a grocery store, not a lifestyle brand.
+  **Opportunity:** The build-your-own model creates decision fatigue. A curated, opinionated box with a clear "why" is the opposite â€” and easier to sell.
+  
+  ---
+  
+  ### 3. Graze
+  **Offer:** UK-origin healthy snack subscription, ships in the US. Pre-selected or customizable boxes of smaller portion snacks.
+  **Pricing:** ~$13â€“$14/month (but boxes are small â€” 6â€“8 items).
+  **Messaging strength:** Clean design, "better-for-you" health positioning, low price point lowers trial friction.
+  **Messaging weakness:** Low price means low perceived value. Their volume doesn't support a full day of snacking. Zero connection to work, productivity, or remote lifestyle. Very generic "eat healthier" angle.
+  **Opportunity:** Graze is priced like a sample box, not a lifestyle subscription. Subscription Snack at $39 can position as the serious, full-coverage version for people who take their focus seriously.
+  
+  ---
+  
+  ### 4. Urthbox
+  **Offer:** Organic and natural snack subscription, 4 box sizes from mini to super.
+  **Pricing:** $20â€“$50/month depending on size. Mid-tier is ~$36/month.
+  **Messaging strength:** Strong "clean ingredients" and organic trust signals. Appeals to health-conscious buyers.
+  **Messaging weakness:** The value prop is entirely ingredient-focused â€” what's NOT in the food â€” rather than what the food does FOR you. No performance angle. No remote worker identity. Their buyer is a health-anxious parent, not a professional optimizing their workday.
+  **Opportunity:** Urthbox and Subscription Snack could share a buyer, but Subscription Snack's functional framing ("brain food, focus drinks") pulls the purchase into a different emotional category: professional investment, not health guilt.
+  
+  ---
+  
+  ### 5. Munchpak
+  **Offer:** International snack discovery box. Snacks from around the world, novelty-focused.
+  **Pricing:** $13â€“$35/month.
+  **Messaging strength:** High novelty appeal, strong social sharing behavior, good for gifting.
+  **Messaging weakness:** Entirely entertainment-driven. No functional value. A Munchpak buyer is snacking for fun, not to sustain a productive workday. The overlap with Subscription Snack's buyer is low.
+  **Opportunity:** Low threat, but worth monitoring â€” if they ever pivot to a "world's best focus foods" angle they'd have the infrastructure to compete. They haven't and likely won't.
+  
+  ---
+  
+  ## Positioning Gaps
+  
+  The clearest gap in the market:
+  
+  **Nobody is selling snack subscriptions to remote workers as a productivity tool, priced at the individual level.**
+  
+  SnackNation owns the corporate HR buyer. Graze and NatureBox own the "eat healthier" casual buyer. Munchpak owns novelty seekers. Nobody is standing in the position of: *"You're a remote worker who takes your cognitive output seriously. Your snacks should match that."*
+  
+  The functional language â€” brain food, energy, focus drinks â€” is unused in this category. Competitors describe ingredients. Nobody describes outcomes. That language gap is Subscription Snack's to claim.
+  
+  Secondary gap: **quarterly billing as a trust signal.** Most competitors push monthly auto-renew aggressively with small print. Offering a transparent quarterly option with a clear price break signals honesty and appeals to buyers burned by subscription traps. Lead with it â€” don't bury it.
+  
+  ---
+  
+  ## The #1 Buyer Objection
+  
+  **"I don't want to get locked into another subscription I forget to cancel."**
+  
+  Subscription fatigue is real. Remote workers are already paying for Spotify, Netflix, Notion, Slack, Figma, and three SaaS tools they half-use. Adding another recurring charge requires overcoming active skepticism.
+  
+  **How to counter it:**
+  
+  Don't fight the objection â€” acknowledge it and make the cancel friction visibly low. Your copy should say something like: *"Pause or cancel anytime in two clicks. No email required."* Then make sure that's actually true. The quarterly option helps here too â€” it reframes the purchase as a one-time commitment ("try 3 months, see if it works") rather than an indefinite drain.
+  
+  The deeper counter is value density: make the $39 feel obviously worth it in the first box. If someone opens the box and thinks "this is $60 worth of stuff I'd actually buy myself," the objection dissolves. Lead with that â€” show the retail value comparison in your marketing ("$60+ in retail value, curated for remote workers, $39/month").
+  
+  ---
+  
+  ## 3 Concrete Opportunities to Exploit
+  
+  ### 1. Own the "remote worker performance" positioning before anyone else does
+  SnackNation is asleep on this. Their remote product is a B2B afterthought. You have a narrow window to plant a flag in this specific identity â€” remote worker, cognitive performance, functional nutrition â€” before a well-funded player wakes up and does it properly. Move fast on messaging, SEO content, and community presence in remote work forums (Reddit r/digitalnomad, r/remotework, Slack communities like Remote-how). This positioning gap won't stay open forever.
+  
+  ### 2. Partner with the tools remote workers already pay for
+  Notion, Loom, Descript, Superhuman, Linear â€” these companies have email lists full of exactly your buyer. A co-marketing arrangement (their newsletter, your discount code) costs almost nothing to propose and puts Subscription Snack in front of people who have already self-identified as serious remote workers. One-sentence outreach hook: *"Our snack subscribers are your exact customers â€” remote professionals who invest in their setup. Want to do a newsletter swap?"*
+  
+  ### 3. Use quarterly pricing as a marketing angle, not just a billing option
+  Most subscription boxes bury their annual discount. Make "3-month starter box" your primary CTA for cold traffic. It reduces perceived risk, increases average order value on first purchase, and dramatically improves your trial-to-retain funnel because people have three months to fall in love rather than one. Position it as: *"Start with a quarter. Keep going forever."* The monthly option stays available, but quarterly should be the default offer you lead with at the top of the page.
+  
+  ---
+  
+  **Bottom line:** Subscription Snack enters a crowded category with a clear lane nobody is running. The functional, remote-worker-specific positioning is yours to take. The product-market fit argument writes itself: remote workers already spend heavily on tools that improve their output â€” snacks are the cheapest upgrade on the list. Make that case loudly and early.
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~263 user words
+  Generating... done (37.6s, ~664 words)
+
+  # Subscription Snack â€” Landing Page Copy
+  
+  ---
+  
+  ## (1) Hero Section
+  
+  **Headline:**
+  Your brain runs better when it's fed.
+  
+  **Subheadline:**
+  Subscription Snack delivers monthly boxes of brain food, energy snacks, and focus drinks â€” curated for remote workers who can't afford to crash at 2pm.
+  
+  **CTA Button:**
+  Start My Box for $39 â†’
+  
+  ---
+  
+  ## (2) Problem Section
+  
+  **Section headline:** The home office has a snacking problem.
+  
+  You don't take lunch breaks anymore. You eat whatever's close â€” leftover crackers, a third coffee, something you grabbed from the pantry at 6am. By early afternoon your focus is shot and you're making decisions on fumes.
+  
+  The office used to have a snack cabinet. Working from home means you're on your own.
+  
+  Most people solve this with random Amazon orders and gas station runs. Neither one is designed for your brain. Neither one shows up every month without you thinking about it.
+  
+  ---
+  
+  ## (3) Solution â€” Three Proof Points
+  
+  **Section headline:** Monthly fuel, built for focus.
+  
+  - **Curated for cognitive performance.** Every item in the box â€” nootropic drinks, slow-burn energy snacks, brain-supporting nuts and seeds â€” is chosen to keep you sharp through a full workday, not just the first hour.
+  
+  - **Zero effort, zero decision fatigue.** One box, one charge, one delivery. You open it and there's a month of smart snacking ready to go. No scrolling through supplement sites or wondering if the ingredients are junk.
+  
+  - **$39/month or less with a quarterly plan.** Less than a weekly coffee habit. You can pause, skip, or cancel anytime â€” no contracts, no commitment traps.
+  
+  ---
+  
+  ## (4) Social Proof Section
+  
+  **Section headline:** Remote workers are refueling differently.
+  
+  *(Framework for when reviews arrive â€” use verbatim testimonials here once collected.)*
+  
+  Display three testimonials in this format, pulling from real customer language once available:
+  
+  > "I used to crash hard around 2pm every day. The focus drinks in the first box alone were worth the subscription." â€” [Name], [Title or location]
+  
+  > "I've tried building my own snack drawer three times. I always forget to reorder. This just shows up." â€” [Name], [Title or location]
+  
+  > "My productivity didn't improve because of some app. It improved because I stopped eating chips for lunch." â€” [Name], [Title or location]
+  
+  **Pre-launch version of this section:**
+  Use a trust-builder block instead:
+  
+  > Subscription Snack is built on one idea: **what you eat during the workday determines how well that workday goes.** Every box is put together with that in mind â€” not random variety for variety's sake, but a month of snacks that actually support focused, sustained work.
+  
+  ---
+  
+  ## (5) Objection Handling
+  
+  **Section headline:** Good questions. Here are honest answers.
+  
+  **"I can just buy snacks at the grocery store."**
+  You can, and you probably will â€” because you'll forget to plan ahead. The box removes the planning. It shows up, it's ready, and everything in it is actually good for your focus.
+  
+  **"What if I don't like what's in the box?"**
+  If something misses for you, email us and we'll make it right. And we rotate the box monthly, so even if one item isn't your favorite, the next box is already different.
+  
+  **"$39 is a lot for snacks."**
+  It's about $1.30 per workday. Most remote workers spend more than that on afternoon coffee just to get through the slump the right snacks would have prevented. This costs less and works better.
+  
+  ---
+  
+  ## (6) Final CTA
+  
+  **Section headline:** Your next focused week starts with one box.
+  
+  Try Subscription Snack for $39. Monthly delivery, curated for remote work, cancel whenever you want. Your first box ships within 3 business days.
+  
+  **CTA Button:** Send Me My First Box â†’
+  
+  **Below the button (trust line):**
+  No contracts. Pause or cancel anytime. Ships to the US.
+  
+  ---
+  
+  *This copy is publish-ready. Swap in real testimonials when the first 10 customers are in. The objection handling and hero sections should stay stable through Phase 2 unless validation data says otherwise.*
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~227 user words
+  Generating... done (22.2s, ~69 words)
+
+  Your 3pm energy crash just met its match. Brain food, energy snacks, and focus drinksâ€”delivered monthly to remote workers. $39/month. [link]
+  
+  ---
+  
+  **Why this works:**
+  - **Hook** opens with their pain (3pm crash)
+  - **Value prop** is specific and benefit-forward (what you get, not what the product is)
+  - **Audience** is clear (remote workers)
+  - **Price** removes friction  
+  - **CTA** is direct
+  
+  ~145 charactersâ€”leaves room for a real URL.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 152.3s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     34.8s    579 words
+  Market research report                   sonnet     57.6s   1179 words
+  Landing page / homepage draft            sonnet     37.6s    664 words
+  Launch announcement                      haiku      22.2s     69 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773720779.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

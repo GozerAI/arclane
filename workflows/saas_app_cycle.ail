@@ -1,0 +1,19 @@
+# SaaS app business cycle — product, engineering, revenue focus
+# Phase 1: Product and technical assessment
+PAR {
+    @CPO ANALYZE product {context=saas_metrics} -> summary;
+    @CTO ASSESS infrastructure {focus=performance} -> report;
+    @CRO FORECAST revenue {horizon=monthly} -> {mrr: float, churn: float, growth: float}
+}
+
+# Phase 2: Engineering priorities
+@CTO PLAN sprint {context=$prev, scope=next_cycle} -> {tasks: list, priorities: list}
+
+# Phase 3: Growth actions
+PAR {
+    @CMO CREATE content {types=changelog, context=$prev} -> {title: str, body: str};
+    @CSO ANALYZE market {focus=feature_gaps} -> {opportunities: list, threats: list}
+}
+
+# Phase 4: Executive decision
+@CEO DECIDE $prev -> {actions: list, priorities: list, summary: str}

@@ -1,0 +1,47 @@
+<!--
+    PUBLIC STOREFRONT
+
+    NOTE: In production, use a slug, username, or subdomain instead of
+    the raw Stripe account ID in the URL. For example:
+        /store/janes-bakery
+        janes-bakery.arclane.cloud
+    The account ID is used here only for simplicity in this sample.
+-->
+{% extends "base.html" %}
+{% block title %}Store{% endblock %}
+
+{% block content %}
+<h1>Store</h1>
+<p class="subtitle">Browse products and make a purchase.</p>
+
+{% if products %}
+<div class="grid grid-3">
+    {% for product in products %}
+    <div class="card">
+        <h2>{{ product.name }}</h2>
+        {% if product.description %}
+        <p>{{ product.description }}</p>
+        {% endif %}
+        {% if product.default_price and product.default_price.unit_amount %}
+        <p class="price" style="margin-top: 0.75rem; margin-bottom: 1rem;">
+            ${{ "%.2f"|format(product.default_price.unit_amount / 100) }}
+            {{ product.default_price.currency|upper }}
+        </p>
+        <form method="post" action="/storefront/{{ account_id }}/checkout">
+            <input type="hidden" name="product_name" value="{{ product.name }}">
+            <input type="hidden" name="price_amount" value="{{ product.default_price.unit_amount }}">
+            <input type="hidden" name="currency" value="{{ product.default_price.currency }}">
+            <button type="submit" class="btn btn-success" style="width: 100%;">Buy Now</button>
+        </form>
+        {% else %}
+        <p style="color: var(--muted); margin-top: 0.75rem;">Price not set</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="card empty">
+    <p>No products available yet. Check back soon.</p>
+</div>
+{% endif %}
+{% endblock %}

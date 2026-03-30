@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<a href="/accounts/{{ account_id }}" class="back-link">&larr; Account dashboard</a>
+
+<h1>Products</h1>
+<p class="subtitle">Create and manage products for your storefront. Products are owned by the connected account.</p>
+
+<!-- Create Product Form -->
+<div class="section">
+    <div class="section-title">Add Product</div>
+    <div class="card">
+        <form method="post" action="/accounts/{{ account_id }}/products">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" name="name" placeholder="Sourdough Loaf" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price (USD)</label>
+                    <input type="number" id="price" name="price" step="0.01" min="0.50" placeholder="8.00" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" placeholder="Freshly baked daily with organic flour">
+            </div>
+            <input type="hidden" name="currency" value="usd">
+            <button type="submit" class="btn btn-primary">Create Product</button>
+        </form>
+    </div>
+</div>
+
+<!-- Product List -->
+<div class="section">
+    <div class="section-title">Current Products</div>
+    {% if products %}
+    <div class="grid grid-3">
+        {% for product in products %}
+        <div class="card">
+            <h2>{{ product.name }}</h2>
+            {% if product.description %}
+            <p>{{ product.description }}</p>
+            {% endif %}
+            {% if product.default_price and product.default_price.unit_amount %}
+            <p class="price" style="margin-top: 0.75rem;">
+                ${{ "%.2f"|format(product.default_price.unit_amount / 100) }}
+                {{ product.default_price.currency|upper }}
+            </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="card empty">
+        <p>No products yet. Create one above.</p>
+    </div>
+    {% endif %}
+</div>
+
+<div style="margin-top: 1rem;">
+    <a href="/storefront/{{ account_id }}" class="btn btn-outline">View Public Storefront &rarr;</a>
+</div>
+{% endblock %}

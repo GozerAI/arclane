@@ -1,0 +1,38 @@
+{
+  "business_name": "Subscription Snack",
+  "business_type": "new",
+  "description": "A subscription snack box curated for remote workers. Brain food, energy snacks, and focus drinks delivered monthly. 39 dollars per month with a quarterly option.",
+  "website_url": null,
+  "template": "landing-page",
+  "total_time_s": 152.3,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 34.8,
+      "output_words": 579,
+      "output_chars": 3727
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 57.6,
+      "output_words": 1179,
+      "output_chars": 8014
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 37.6,
+      "output_words": 664,
+      "output_chars": 4037
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 22.2,
+      "output_words": 69,
+      "output_chars": 441
+    }
+  }
+}

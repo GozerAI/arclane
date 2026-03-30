@@ -1,0 +1,38 @@
+{
+  "business_name": "Are Building",
+  "business_type": "existing",
+  "description": "We are building an open-source scheduling tool competing with Cal.com. Need help positioning as the developer-friendly alternative, building a community strategy, and a pricing model that converts open-source users to paid.",
+  "website_url": "https://www.cal.com",
+  "template": "saas-app",
+  "total_time_s": 162.8,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 40.6,
+      "output_words": 588,
+      "output_chars": 3747
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 55.0,
+      "output_words": 1166,
+      "output_chars": 7986
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 42.4,
+      "output_words": 7,
+      "output_chars": 51
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 24.7,
+      "output_words": 116,
+      "output_chars": 851
+    }
+  }
+}

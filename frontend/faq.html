@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Arclane</title>
+    <meta name="description" content="Answers to common questions about Arclane — the autonomous AI business incubator that builds and runs businesses for you.">
+    <style>
+        :root {
+            --bg: #07111c; --bg-soft: rgba(14, 24, 38, 0.9); --bg-card: rgba(10, 19, 31, 0.86);
+            --border: rgba(128, 159, 196, 0.18); --border-strong: rgba(127, 171, 226, 0.34);
+            --text: #edf4ff; --muted: #9db2cb; --accent: #4bb2ff; --accent-strong: #1d87ff;
+            --success: #38d39f; --warning: #ffca5a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text); line-height: 1.6;
+            background:
+                radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+        }
+        a { color: inherit; text-decoration: none; }
+        .shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; }
+        .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: var(--muted); padding: 0.65rem 0.95rem; border-radius: 999px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-cta, .btn-primary, .btn-secondary {
+            border-radius: 999px; padding: 0.9rem 1.25rem; display: inline-flex; align-items: center;
+            justify-content: center; font-weight: 700; transition: transform 120ms ease;
+        }
+        .nav-cta, .btn-primary { background: linear-gradient(135deg, var(--accent), #8fe0ff); color: #07111c; }
+        .btn-secondary { border: 1px solid var(--border); background: rgba(13, 25, 40, 0.72); color: var(--text); }
+        .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+
+        /* Page header */
+        .page-header { padding: 3rem 0 1.5rem; text-align: center; }
+        .page-header h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
+        .page-header p { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 42rem; margin-left: auto; margin-right: auto; }
+
+        /* Layout */
+        .faq-layout { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding: 1rem 0 4rem; align-items: start; }
+
+        /* Sticky sidebar nav */
+        .faq-sidebar { position: sticky; top: 1.5rem; }
+        .faq-sidebar nav { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 20px; padding: 1rem; }
+        .faq-sidebar nav p { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 0 0.5rem 0.5rem; }
+        .faq-sidebar nav a {
+            display: block; padding: 0.5rem 0.75rem; border-radius: 10px;
+            color: var(--muted); font-size: 0.88rem; transition: background 100ms ease, color 100ms ease;
+        }
+        .faq-sidebar nav a:hover { color: var(--text); background: rgba(75, 178, 255, 0.08); }
+        .faq-sidebar nav a.active { color: var(--accent); background: rgba(75, 178, 255, 0.1); }
+
+        /* FAQ content */
+        .faq-content { min-width: 0; }
+
+        .faq-category { margin-bottom: 2rem; scroll-margin-top: 1.5rem; }
+        .faq-category-header {
+            display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;
+        }
+        .faq-category-header h2 { font-size: 1.3rem; letter-spacing: -0.02em; }
+        .category-badge {
+            display: inline-flex; align-items: center; padding: 0.2rem 0.5rem; border-radius: 999px;
+            background: rgba(75, 178, 255, 0.1); color: var(--accent); font-size: 0.68rem;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+        }
+
+        /* Individual FAQ item */
+        .faq-group { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            width: 100%; display: flex; justify-content: space-between; align-items: center;
+            gap: 1rem; padding: 1.1rem 1.35rem; background: none; border: none;
+            cursor: pointer; text-align: left; color: var(--text);
+            font-family: inherit; font-size: 0.97rem; font-weight: 600;
+            transition: background 120ms ease;
+        }
+        .faq-question:hover { background: rgba(75, 178, 255, 0.04); }
+        .faq-question[aria-expanded="true"] { background: rgba(75, 178, 255, 0.06); }
+
+        .faq-icon {
+            flex-shrink: 0; width: 1.4rem; height: 1.4rem; border-radius: 50%;
+            background: rgba(75, 178, 255, 0.1); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; font-weight: 400; transition: transform 200ms ease, background 200ms ease;
+            line-height: 1;
+        }
+        .faq-question[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+            background: rgba(75, 178, 255, 0.18);
+        }
+
+        .faq-answer {
+            overflow: hidden; max-height: 0;
+            transition: max-height 260ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-answer-inner {
+            padding: 0 1.35rem 1.2rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-answer-inner a { color: var(--accent); }
+        .faq-answer-inner a:hover { text-decoration: underline; }
+        .faq-answer-inner strong { color: var(--text); }
+
+        /* CTA */
+        .cta { padding: 0 0 3rem; }
+        .cta-box {
+            padding: 2rem; border-radius: 28px; border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(17, 34, 55, 0.96), rgba(8, 20, 31, 0.96));
+            text-align: center;
+        }
+        .cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .cta-box p { margin: 0.8rem auto 1.3rem; max-width: 36rem; color: var(--muted); }
+        .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+        /* Footer */
+        footer { padding: 1.2rem 0 2.4rem; color: var(--muted); text-align: center; font-size: 0.9rem; }
+        .footer-links { margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--text); }
+
+        @media (max-width: 820px) {
+            .faq-layout { grid-template-columns: 1fr; }
+            .faq-sidebar { position: static; }
+        }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 1rem, 1180px); }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .nav-links { width: 100%; }
+            .btn-primary, .btn-secondary, .nav-cta { width: 100%; }
+            .cta-box { padding: 1.35rem; border-radius: 22px; }
+        }
+    </style>
+    <!-- Meta Pixel -->
+    <script src="/static/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="/" class="logo">arclane<span>.</span>cloud</a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <p class="eyebrow">FAQ</p>
+            <h1>Everything you need to know</h1>
+            <p>Questions about how Arclane works, what it costs, and what you get. If something's still unclear, <a href="/contact" style="color:var(--accent);">reach out</a>.</p>
+        </header>
+
+        <div class="faq-layout">
+            <aside class="faq-sidebar">
+                <nav aria-label="FAQ categories">
+                    <p>Jump to</p>
+                    <a href="#getting-started" class="sidebar-link">Getting Started</a>
+                    <a href="#making-money" class="sidebar-link">Making Money</a>
+                    <a href="#cycles-tasks" class="sidebar-link">Cycles &amp; Tasks</a>
+                    <a href="#your-website" class="sidebar-link">Your Website</a>
+                    <a href="#roadmap" class="sidebar-link">90-Day Roadmap</a>
+                    <a href="#ai-content" class="sidebar-link">AI &amp; Content</a>
+                    <a href="#billing" class="sidebar-link">Billing &amp; Pricing</a>
+                    <a href="#security" class="sidebar-link">Security &amp; Privacy</a>
+                    <a href="#support" class="sidebar-link">Support</a>
+                </nav>
+            </aside>
+
+            <div class="faq-content">
+
+                <!-- Getting Started -->
+                <section class="faq-category" id="getting-started">
+                    <div class="faq-category-header">
+                        <h2>Getting Started</h2>
+                        <span class="category-badge">5 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="gs-1">
+                                How do I create a business on Arclane?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="gs-1">
+                                <div class="faq-answer-inner">
+                                    Sign up, hit <strong>Create Business</strong> in your dashboard, and give Arclane either a business idea or an existing website URL. That's the whole intake. Arclane handles everything from there — research, positioning, landing page, and the roadmap that guides the next 90 days. Your first cycle fires automatically and delivers four concrete assets on Day 1.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="gs-2">
+                                What do I need to get started?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="gs-2">
+                                <div class="faq-answer-inner">
+                                    An email address and an idea — or an existing website. No business plan. No brand kit. No technical knowledge. If you have more context (target audience, revenue goals, competitor names), add it and Arclane will use it. If you don't, the first cycle figures it out. Day 1 is completely free — no card required. Your first cycle runs immediately and delivers real output. To continue past Day 1, choose a plan and add a card. You get 48 hours to cancel at no cost.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="gs-3">
+                                Can I connect an existing business?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="gs-3">
+                                <div class="faq-answer-inner">
+                                    Yes. Paste your website URL during intake and Arclane analyzes your existing positioning, competitive landscape, and content gaps. The roadmap then focuses on what you're missing rather than starting from scratch. It's the fastest way to get traction on a business that already exists but isn't moving fast enough.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="gs-4">
+                                How quickly will I see results?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="gs-4">
+                                <div class="faq-answer-inner">
+                                    Day 1. Your first cycle runs immediately after you create a business and delivers a strategy brief, market research report, landing page copy, and a launch tweet — all in one go. By the end of Day 1, you have a live subdomain and four real deliverables. From there, cycles run nightly and build on what came before.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="gs-5">
+                                What happens on Day 1?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="gs-5">
+                                <div class="faq-answer-inner">
+                                    Four things happen in sequence during your first cycle: <strong>(1)</strong> a strategy brief that defines your positioning, target market, and differentiation angle; <strong>(2)</strong> a market research report with competitive analysis and opportunity gaps; <strong>(3)</strong> landing page copy written for your specific audience; <strong>(4)</strong> a launch tweet ready to post. Your subdomain at <code>{slug}.arclane.cloud</code> goes live with the landing page. You get email updates as each piece completes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Making Money -->
+                <section class="faq-category" id="making-money">
+                    <div class="faq-category-header">
+                        <h2>Making Money</h2>
+                        <span class="category-badge">5 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="mm-1">
+                                How do customers pay for my product?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="mm-1">
+                                <div class="faq-answer-inner">
+                                    Arclane integrates payment processing directly into your business. Depending on what you're selling, that means Stripe for SaaS or services, or marketplace distribution for digital products. Your customers pay through a standard checkout — no technical setup required on your end. Revenue tracking, attribution, and reporting all happen automatically in your dashboard.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="mm-2">
+                                How do I get paid?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="mm-2">
+                                <div class="faq-answer-inner">
+                                    Revenue flows into your Arclane balance via Stripe Connect. You can withdraw to your bank account at any time — there's no holding period or payout schedule you have to wait on. The minimum withdrawal is <strong>$25</strong>. Your balance, transaction history, and withdrawal status are all visible in the dashboard.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="mm-3">
+                                Why does Arclane take a fee?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="mm-3">
+                                <div class="faq-answer-inner">
+                                    Arclane takes <strong>15% on direct sales</strong> and <strong>5% on other revenue transactions</strong>. Here's the honest answer for why: Arclane builds your entire business, runs it 24/7, generates your content, manages your AI execution, hosts your website, and handles the growth strategy. Most agencies charge $5,000–$20,000/month and do a fraction of that. If your business is doing well enough that the platform fee becomes a real number worth negotiating, <a href="/contact">reach out</a> — we discuss lower rates for businesses exceeding $10k/month in revenue.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="mm-4">
+                                How do I start getting traffic?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="mm-4">
+                                <div class="faq-answer-inner">
+                                    Arclane builds your growth strategy into every cycle. The roadmap includes content distribution, social posting, and competitive positioning as standard deliverables — not add-ons. Your Day 1 launch tweet is the first distribution push. From there, cycles produce blog content, social posts, and market-specific messaging designed to attract the right audience. The dashboard tracks what's getting traction so future cycles double down on what works.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="mm-5">
+                                Is there a minimum withdrawal amount?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="mm-5">
+                                <div class="faq-answer-inner">
+                                    Yes — the minimum withdrawal is <strong>$25</strong>. Once your balance reaches that threshold, you can initiate a withdrawal at any time from the dashboard. There are no delays, no approval queues, and no limits on how often you withdraw.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cycles & Tasks -->
+                <section class="faq-category" id="cycles-tasks">
+                    <div class="faq-category-header">
+                        <h2>Cycles &amp; Tasks</h2>
+                        <span class="category-badge">4 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ct-1">
+                                What is a "cycle"?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ct-1">
+                                <div class="faq-answer-inner">
+                                    A cycle is one full execution run for your business. It's the unit of work in Arclane — the equivalent of a productive working day. Each cycle picks up where the last one left off, advances your roadmap milestone, and produces concrete deliverables. One cycle equals one working day from your monthly allocation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ct-2">
+                                What happens during a cycle?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ct-2">
+                                <div class="faq-answer-inner">
+                                    Arclane reviews your current roadmap phase, picks the highest-priority milestone, and executes the task queue for that milestone. Depending on where you are in the 90-day program, a cycle might produce market research, a blog post, a competitive analysis, a strategy update, new landing page copy, social content, or a health score review. Everything gets saved to your content library and tagged by phase and milestone so nothing gets lost.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ct-3">
+                                How often do cycles run?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ct-3">
+                                <div class="faq-answer-inner">
+                                    Scheduled cycles run automatically every night at <strong>2 AM</strong>, as long as you have working days remaining. If your plan includes 20 working days per month, a cycle runs each night for roughly 20 days, then pauses until your allocation resets. You can also trigger cycles manually from the dashboard — each manual run uses one working day from your balance.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ct-4">
+                                Can I trigger a cycle manually?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ct-4">
+                                <div class="faq-answer-inner">
+                                    Yes. The dashboard has a <strong>Run Cycle Now</strong> button that fires a cycle immediately. It uses one working day from your balance, just like a scheduled run. This is useful when you've updated your business context, want to accelerate a specific milestone, or just don't want to wait until 2 AM.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Your Website -->
+                <section class="faq-category" id="your-website">
+                    <div class="faq-category-header">
+                        <h2>Your Website</h2>
+                        <span class="category-badge">4 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="yw-1">
+                                Does Arclane build me a website?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="yw-1">
+                                <div class="faq-answer-inner">
+                                    Yes. Your first cycle produces a landing page and deploys it automatically to your Arclane subdomain. Arclane generates the copy, structure, and messaging based on your business intake. As your roadmap advances, the site evolves — updated positioning, new content sections, and conversion copy get added over time. You don't need to touch any code.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="yw-2">
+                                Can I customize my landing page?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="yw-2">
+                                <div class="faq-answer-inner">
+                                    Yes. You can review and edit all content Arclane produces — including landing page copy — from your content library. If something doesn't fit your voice, change it. Arclane learns from your edits over time and adjusts future output accordingly. You're always in control of what gets published.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="yw-3">
+                                How does the signup form work?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="yw-3">
+                                <div class="faq-answer-inner">
+                                    Your landing page includes a lead capture form out of the box. Leads are stored in your Arclane dashboard and can be pushed to your tools via webhook. You can connect Zapier or n8n to route leads into your CRM, email list, or wherever you manage contacts. Conversion data flows back into Arclane so cycles can optimize towards what's actually converting.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="yw-4">
+                                Do I get my own domain?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="yw-4">
+                                <div class="faq-answer-inner">
+                                    Every business gets a subdomain at <strong>{slug}.arclane.cloud</strong> automatically — no setup required. Custom domain support (connecting your own <code>yourbrand.com</code>) is on the roadmap and coming soon. If a custom domain is critical for you right now, <a href="/contact">get in touch</a> and we'll let you know when it's ready for early access.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 90-Day Roadmap -->
+                <section class="faq-category" id="roadmap">
+                    <div class="faq-category-header">
+                        <h2>90-Day Roadmap</h2>
+                        <span class="category-badge">4 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="rm-1">
+                                What is the 90-day incubator program?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="rm-1">
+                                <div class="faq-answer-inner">
+                                    It's a structured program that takes a business from idea to traction in 90 days through daily execution cycles. Every day has a specific milestone tied to one of four phases. The roadmap isn't a generic template — it's initialized based on your specific business intake and adapts as you progress. Graduation from each phase requires meeting real criteria, not just surviving long enough.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="rm-2">
+                                What are the 4 phases?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="rm-2">
+                                <div class="faq-answer-inner">
+                                    <strong>Foundation</strong> — Days 1–22. Core positioning, market research, landing page, and initial content. You end this phase with a live business surface and a validated market angle.<br><br>
+                                    <strong>Validation</strong> — Days 23–45. Lead generation, conversion testing, audience feedback, and early revenue experiments. The goal is proof that people want what you're building.<br><br>
+                                    <strong>Growth</strong> — Days 46–68. Content scaling, distribution expansion, competitive monitoring, and compounding traction. Cycles focus on doubling down on what's working.<br><br>
+                                    <strong>Scale-Ready</strong> — Days 69–90. Operations tightening, revenue optimization, and preparing the business to sustain growth beyond the program. You graduate with a business that runs, not just a business that exists.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="rm-3">
+                                What happens after Day 90?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="rm-3">
+                                <div class="faq-answer-inner">
+                                    Arclane shifts into <strong>Forever Partner mode</strong> — an adaptive optimizer that keeps building indefinitely. Instead of a fixed roadmap, cycles are selected based on your current health score gaps, market signals, and competitive changes. If your content score drops, cycles prioritize content. If a new competitor emerges, cycles respond. The business keeps moving forward without you having to define the next step.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="rm-4">
+                                Can I skip ahead?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="rm-4">
+                                <div class="faq-answer-inner">
+                                    Phases advance when graduation criteria are met — not just when time passes. If your business is moving fast and hitting milestones early, Arclane will recognize that and advance accordingly. You can't manually skip phases, but you can accelerate through them by running more cycles and producing more output. The roadmap responds to velocity, not just the calendar.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI & Content -->
+                <section class="faq-category" id="ai-content">
+                    <div class="faq-category-header">
+                        <h2>AI &amp; Content</h2>
+                        <span class="category-badge">4 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ai-1">
+                                What AI models power Arclane?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ai-1">
+                                <div class="faq-answer-inner">
+                                    Arclane is built on <strong>Claude by Anthropic</strong>. Different tasks use different model tiers: Opus handles high-stakes strategy work where depth matters; Sonnet produces the bulk of content and research; Haiku handles fast, repetitive tasks like summaries and formatting. The routing is automatic — you always get the right model for the job without paying for overkill on simple tasks.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ai-2">
+                                What content does Arclane create?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ai-2">
+                                <div class="faq-answer-inner">
+                                    Arclane produces <strong>strategy briefs, market research reports, landing page copy, social posts, blog articles, email sequences, competitive analyses, and growth recommendations</strong>. Each piece is tagged by type, phase, and milestone so your content library stays organized as it grows. You can also repurpose any piece into 8 formats — Twitter threads, LinkedIn carousels, executive summaries, email variants, and more — directly from the dashboard.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ai-3">
+                                Can I edit what Arclane produces?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ai-3">
+                                <div class="faq-answer-inner">
+                                    Yes, and you should. Arclane produces drafts built around your business context, but your voice and judgment make them better. Everything in the content library is editable. You can also leave notes and feedback that Arclane uses to calibrate future output. The more signal you provide, the tighter the output gets over time.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="ai-4">
+                                Does the AI learn about my business over time?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="ai-4">
+                                <div class="faq-answer-inner">
+                                    Yes. Arclane maintains a knowledge base for your business that grows with every cycle. Each piece of research, every competitive signal, and every outcome feeds into what comes next. By Day 30, cycles are operating with a detailed picture of your market, your positioning, and what's working — which is why output quality compounds over time rather than staying flat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Billing & Pricing -->
+                <section class="faq-category" id="billing">
+                    <div class="faq-category-header">
+                        <h2>Billing &amp; Pricing</h2>
+                        <span class="category-badge">5 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="bp-1">
+                                How much does Arclane cost?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="bp-1">
+                                <div class="faq-answer-inner">
+                                    <strong>Day 1</strong> — Free. First cycle with 4 deliverables, no credit card required. To continue, select a plan with a 48-hour free trial.<br><br>
+                                    <strong>Starter</strong> — $49/month. 10 working days, 1 business.<br><br>
+                                    <strong>Pro</strong> — $99/month. 20 working days, 1 business, priority execution and advanced analytics.<br><br>
+                                    <strong>Growth</strong> — $249/month. 75 working days, 3 businesses, portfolio dashboard.<br><br>
+                                    <strong>Scale</strong> — $499/month. 150 working days, 5 businesses, dedicated support.<br><br>
+                                    One-time day packs are also available from the dashboard if you need extra capacity without changing your plan.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="bp-2">
+                                What's a "working day"?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="bp-2">
+                                <div class="faq-answer-inner">
+                                    One working day equals one cycle execution — either scheduled (nightly at 2 AM) or triggered manually from the dashboard. It's the fundamental unit of work in Arclane. Each cycle does a meaningful amount: it advances your roadmap, produces content, runs analysis, and updates your health score. Working days are not time — they're execution capacity.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="bp-3">
+                                What happens if I run out of working days?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="bp-3">
+                                <div class="faq-answer-inner">
+                                    Cycles pause until your working days reset at the start of your next billing month, or until you purchase a day pack. Your business data, content library, and dashboard remain fully accessible — nothing is hidden or deleted. You just can't run new execution cycles. If you're close to running out and a cycle is critical, buy a day pack from the dashboard to keep momentum going.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="bp-4">
+                                Can I change plans?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="bp-4">
+                                <div class="faq-answer-inner">
+                                    Yes. You can upgrade or downgrade at any time from the billing section of your dashboard. Changes take effect immediately and are prorated — you only pay for what you use. Upgrading gives you access to your new working day allocation right away. Downgrading takes effect at the end of your current billing period.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="bp-5">
+                                When am I charged?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="bp-5">
+                                <div class="faq-answer-inner">
+                                    Billing is monthly, charged on the anniversary of your plan activation date. You'll receive an invoice by email before each charge. If you upgrade mid-cycle, you're billed a prorated amount for the remainder of your current period. Day 1 is always free. When you select a paid plan, we collect your card details but don't charge for 48 hours. Cancel anytime during the trial at no cost.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security & Privacy -->
+                <section class="faq-category" id="security">
+                    <div class="faq-category-header">
+                        <h2>Security &amp; Privacy</h2>
+                        <span class="category-badge">3 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sec-1">
+                                Is my data secure?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sec-1">
+                                <div class="faq-answer-inner">
+                                    Yes. All data is encrypted in transit (TLS) and at rest. Your business information is isolated per account — no cross-contamination with other users' data. Authentication uses JWT tokens with short expiry windows. Arclane enforces strict Content Security Policies, rate limiting on all endpoints, and HMAC-signed webhooks to prevent tampering. We don't sell your data, share it with third parties, or use it to train AI models.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sec-2">
+                                Who owns the content Arclane creates?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sec-2">
+                                <div class="faq-answer-inner">
+                                    <strong>You do. 100%.</strong> Everything Arclane generates for your business — strategy documents, research reports, landing page copy, blog posts, social content — belongs to you the moment it's created. Arclane has no claim on your content, your business, or anything you build using the platform. Use it, publish it, sell it — it's yours.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sec-3">
+                                Can I export my data?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sec-3">
+                                <div class="faq-answer-inner">
+                                    Yes. You can export your full content library, business data, and research history from the dashboard at any time. We don't believe in lock-in — if you want to leave, you take everything with you. Export functionality is available on all plans including the free Day 1 cycle.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Support -->
+                <section class="faq-category" id="support">
+                    <div class="faq-category-header">
+                        <h2>Support</h2>
+                        <span class="category-badge">3 questions</span>
+                    </div>
+                    <div class="faq-group">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sp-1">
+                                How do I get help?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sp-1">
+                                <div class="faq-answer-inner">
+                                    The fastest route is the <a href="/contact">contact page</a> — we respond to every message. Starter and Pro plans include email support with a response target of one business day. Growth and Scale plans get priority support with faster turnaround. If you're stuck on something urgent, say so in your message and it jumps the queue.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sp-2">
+                                How do I report a bug?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sp-2">
+                                <div class="faq-answer-inner">
+                                    Use the <a href="/contact">contact page</a> and describe what you expected to happen versus what actually happened. Include your business slug and the approximate time if you saw an error during a cycle. The more detail you give, the faster it gets resolved. Bugs that affect cycles or billing are treated as critical and addressed immediately.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" data-target="sp-3">
+                                Can I request features?
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-answer" id="sp-3">
+                                <div class="faq-answer-inner">
+                                    Yes, and we read every request. Use the <a href="/contact">contact page</a> and tell us what you're trying to accomplish — not just the feature you want, but the outcome you're after. The best feature requests come from real frustrations, so don't filter yourself. If something's missing that would make Arclane significantly more useful for you, we want to know.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <section class="cta">
+            <div class="cta-box">
+                <p class="eyebrow">Still have questions?</p>
+                <h2>We'll answer them</h2>
+                <p>Can't find what you're looking for? Reach out directly — or just get started and see how it works firsthand.</p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                    <a href="/contact" class="btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/faq.js"></script>
+</body>
+</html>

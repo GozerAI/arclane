@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arclane.cloud/sitemap.xml
+
+# Exclude API and auth endpoints
+Disallow: /api/
+Disallow: /dashboard

@@ -1,0 +1,311 @@
+======================================================================
+  ARCLANE CYCLE TEST — NEW BUSINESS
+  Name: Training
+  Template: landing-page
+  Description: An AI training workshop business targeting marketing teams at mid-size companies...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~240 user words
+  Generating... done (27.2s, ~546 words)
+
+  ## Training â€” Strategic Operating Brief
+  **Day 1 | Foundation Phase**
+  
+  ---
+  
+  ### Mission
+  
+  Help marketing teams at mid-size companies ship better work faster by mastering the AI tools already at their fingertips.
+  
+  ---
+  
+  ### Core Offer
+  
+  A half-day, hands-on AI workshop delivered to marketing teams of 4â€“12 people. Participants leave with working templates and live outputs â€” not slide decks. The $3,500 flat fee covers one session for the full team, plus a follow-up resource pack with prompt libraries for copywriting, SEO briefs, and social content.
+  
+  The workshop is not theory. Attendees write actual copy, build actual SEO briefs, and draft actual social posts during the session using their own products and brand voice.
+  
+  ---
+  
+  ### Target Customer
+  
+  **The overextended marketing manager at a 50â€“500 person B2B company.**
+  
+  She runs a team of 3â€“6. Her company has heard about AI but nobody has actually integrated it. Her team is skeptical ("it sounds robotic") or overwhelmed ("I don't even know where to start"). Her boss expects more output with the same headcount. She has a small training budget ($3kâ€“$8k/year), authority to approve a single-day spend, and she is personally accountable for content volume and quality.
+  
+  She is not a tech buyer. She is a results buyer. She needs to show her team something that works before the next all-hands.
+  
+  ---
+  
+  ### Wedge
+  
+  **"AI that sounds like your brand, not a robot."**
+  
+  Generic AI courses teach prompting as an abstract skill. Training teaches marketing teams to produce output that matches their voice, fits their workflow, and gets approved by their CMO â€” in a single afternoon.
+  
+  The alternatives are:
+  - **LinkedIn Learning / online courses** â€” async, no accountability, 90% completion rate of zero
+  - **Agency AI retainers** â€” expensive, doesn't build internal capability
+  - **Internal experimentation** â€” slow, frustrating, inconsistent results
+  
+  Training is the only option that delivers a finished, usable output on day one and leaves the team with repeatable habits.
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **1. Lock the pilot offer before marketing anything.**
+  Define exactly what "the workshop" includes: duration (4 hours), format (in-person or virtual), deliverables (prompt library, session recording, 30-day Slack follow-up, or not). Every ambiguity in scope becomes a pricing objection later. Decide this week.
+  
+  **2. Identify 10 warm outreach targets, not 100 cold ones.**
+  The fastest path to a first booking is a personal connection at a mid-size B2B company with a marketing team. Go through your network and find 10 marketing managers, heads of content, or VPs of marketing at companies with 50â€“500 employees. One booking from a warm intro validates the price point faster than any ad campaign.
+  
+  **3. Build one piece of social proof infrastructure before the first workshop.**
+  Decide now how you will capture proof: a 2-minute testimonial video, a before/after content sample, or a LinkedIn post from the team lead. This asset will anchor every sales conversation after workshop one. If you run the first workshop without capturing proof, you lose the easiest conversion tool you will ever have.
+  
+  ---
+  
+  **What this brief unlocks next:** market research (who are the active competitors, what are they charging, where are they weak), then landing page copy that leads with the wedge above. Both can move in parallel once the offer details in Priority 1 are confirmed.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~249 user words
+  Generating... done (65.7s, ~1236 words)
+
+  # Market Research Report â€” Training
+  **AI Workshop Market for Marketing Teams | Day 1 of 90**
+  
+  ---
+  
+  ## Market Snapshot
+  
+  The corporate AI skills training market is growing fast but served poorly. Most options fall into two broken categories: (1) cheap self-paced courses that teams don't finish, and (2) expensive enterprise software licenses that assume training will "just happen." A live, focused half-day workshop at $3,500 sits in a gap that is currently underserved â€” high enough to signal credibility, low enough to clear a single budget line without procurement review.
+  
+  ---
+  
+  ## Competitor Profiles
+  
+  ### 1. Marketing AI Institute (Paul Roetzer)
+  **Offer:** AI training programs for marketers â€” online courses, an annual conference (MAICON), and enterprise licensing for their curriculum platform. Limited live workshop offering.
+  **Pricing:** Individual online courses $997â€“$2,000. MAICON tickets ~$1,500/person. Corporate licensing pricing not published.
+  **Messaging strength:** Strong brand credibility in marketing-specific AI. Roetzer is well-known; the "AI for Marketers" framing is theirs.
+  **Messaging weakness:** Everything pushes toward their ecosystem and recurring license model. There's no obvious "book a one-day workshop for your team" entry point. Training feels like content, not execution.
+  **Opportunity:** They sell awareness. Training sells skill. Position directly against them: "We don't give your team a login â€” we sit with them and build workflows they'll use Monday morning."
+  
+  ---
+  
+  ### 2. General Assembly
+  **Offer:** Multi-day corporate workshops and bootcamps on AI, data, and digital marketing. Custom delivery for enterprise teams.
+  **Pricing:** Corporate workshop engagements typically $4,000â€“$12,000+ depending on scope and team size. Half-day formats exist but are often entry points for larger contracts.
+  **Messaging strength:** Brand recognition in the "upskilling" category. Strong relationships with L&D departments at larger companies.
+  **Messaging weakness:** Curriculum is generalist. An AI for marketing workshop at GA still gets taught by a technical instructor who doesn't know the difference between a headline hook and a subject line. Their marketing-specific AI content is thin.
+  **Opportunity:** Mid-size marketing teams don't want a "curriculum." They want someone who speaks their language. Win on specificity â€” "built for marketing teams, not engineers" is a direct counter.
+  
+  ---
+  
+  ### 3. LinkedIn Learning for Business
+  **Offer:** Unlimited self-paced courses on AI tools, including copywriting with AI, SEO basics, and social media automation. Sold as team or company licenses.
+  **Pricing:** $29.99/user/month for individuals; business pricing roughly $10,000â€“$30,000/year for a team license (varies heavily by contract).
+  **Messaging strength:** Easy to approve internally. L&D departments love it because it looks comprehensive on a report.
+  **Messaging weakness:** Nobody finishes the courses. Completion rates on self-paced enterprise learning average 15â€“20%. There's no accountability, no application to actual workflows, and no one to ask when something doesn't work.
+  **Opportunity:** $3,500 vs. $20,000/year for something no one uses. That's an easy comparison to make in discovery: "How much did you spend on LinkedIn Learning last year? How many people actually changed how they work?"
+  
+  ---
+  
+  ### 4. Coursera for Business
+  **Offer:** Enterprise AI skill tracks including "AI for Everyone" (Andrew Ng), content marketing, and SEO fundamentals. License-based, self-paced.
+  **Pricing:** $399â€“$499/user/year. A 20-person team = $8,000â€“$10,000/year.
+  **Messaging strength:** Academic credibility (partnered with universities). Respected in HR and L&D circles.
+  **Messaging weakness:** Same completion problem as LinkedIn Learning, plus the content is not tool-specific. "AI for Everyone" doesn't teach your copywriter how to prompt Claude to write a product description in their brand voice.
+  **Opportunity:** Lead with the "learn by doing with your actual tools" angle. Coursera teaches concepts. Training teaches workflows.
+  
+  ---
+  
+  ### 5. Freelance AI Workshop Consultants (via LinkedIn, Maven, Clutch)
+  **Offer:** Independent consultants offering 2â€“4 hour AI workshops for marketing and content teams. Wide variety in quality.
+  **Pricing:** $500â€“$2,500 for half-day engagements. The low end is common.
+  **Messaging strength:** Flexible, easy to book, cheap.
+  **Messaging weakness:** No brand trust, no repeatable curriculum, and no accountability after delivery. Buyers have been burned. Quality is inconsistent and hard to verify.
+  **Opportunity:** At $3,500, Training is positioned as a professional service, not a freelance gig. Standardized curriculum, clear outcomes, and post-workshop materials are instant differentiators. A one-page "what your team will be able to do after this workshop" beats any freelancer's pitch.
+  
+  ---
+  
+  ## Positioning Gaps
+  
+  **Gap 1 â€” Marketing-specific, not general AI.** Most competitors teach AI broadly. No one has clearly planted a flag that says: "We built this specifically for marketing teams doing copywriting, SEO, and social content â€” not developers, not executives, not generalists."
+  
+  **Gap 2 â€” Outcome-first language.** Competitors talk about "AI literacy" and "upskilling." These are procurement words, not buyer words. Marketing directors want to know: "Will my team write better briefs faster? Will we stop outsourcing first drafts?" No competitor leads with specific workflow outcomes.
+  
+  **Gap 3 â€” Low-friction buying.** The enterprise players require demos, proposals, and procurement cycles. The freelancers require trust-building with unknown individuals. A well-branded $3,500 workshop that can be booked with a credit card and confirmed in 24 hours fills a real convenience gap for mid-size teams with discretionary budget.
+  
+  ---
+  
+  ## #1 Buyer Objection
+  
+  **"Our team will just figure out AI on their own."**
+  
+  This is the most common deflection from marketing managers at mid-size companies. It sounds reasonable. It almost never happens.
+  
+  **How to counter it:** "Teams that 'figure it out on their own' end up with 12 people using 12 different prompts, getting inconsistent output, and then deciding AI doesn't work for them. A half-day locks in a shared workflow before those bad habits form. Your team spends one Friday morning, and Monday they're faster. The alternative is 6 months of drift and then a real training problem."
+  
+  You can reinforce this with a simple framing: the cost of the workshop is less than the billable hours lost to one week of each team member experimenting individually without guidance.
+  
+  ---
+  
+  ## 3 Concrete Opportunities to Exploit
+  
+  **Opportunity 1 â€” Own "for marketing teams" as a category.**
+  No competitor has clearly built their identity around marketing-specific AI training. Jasper and Copy.ai sell tools. Marketing AI Institute sells thought leadership. General Assembly sells curriculum breadth. Training can own the specific, practical space: "AI workshops built for marketing teams, by people who know marketing." This isn't a tagline â€” it's a positioning stake that makes every other option look like a compromise.
+  
+  **Opportunity 2 â€” Make "Monday morning workflows" the core promise.**
+  The product's real value is not "AI training" â€” it's "your team leaves with 3â€“5 documented workflows they can use immediately." Build the entire pitch around that. Name the workflows. Show exactly what they'll leave with: a copywriting prompt library in their brand voice, an SEO brief template, a social content calendar that takes 30 minutes instead of 3 hours. This specificity is what no competitor offers, and it justifies the $3,500 instantly.
+  
+  **Opportunity 3 â€” Target the "budget line of least resistance" at $3,500.**
+  Most mid-size companies have some form of team training or professional development budget â€” often $2,500â€“$5,000 per quarter, manageable by a director without CFO sign-off. $3,500 is designed to be approved fast. Price point is a competitive weapon here. Position it explicitly: "No procurement. No 6-week sales cycle. Book, confirm, and your team is trained before the end of the month." This frames speed-to-value as a feature, not just a convenience.
+  
+  ---
+  
+  **Bottom line:** The market is crowded with options that are either too cheap to trust, too expensive to move fast on, or too generic to matter. Training wins by being specific, outcome-oriented, and fast to buy. Lead with that.
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~267 user words
+  Generating... done (39.8s, ~711 words)
+
+  # Training â€” Landing Page Copy
+  
+  ---
+  
+  ## (1) Hero Section
+  
+  **Headline:**
+  Your Marketing Team, Running on AI
+  
+  **Subheadline:**
+  In half a day, your team goes from AI-curious to AI-productive â€” writing faster copy, ranking higher on search, and publishing content that actually converts. One workshop. Real skills. Immediate ROI.
+  
+  **CTA Button:**
+  Book Your Team's Workshop
+  
+  ---
+  
+  ## (2) Problem Section
+  
+  **Header:** Your competitors' marketing teams are already using AI. Yours is still figuring out the prompts.
+  
+  Most marketing teams know they should be using AI for copywriting, SEO, and social. But knowing and doing are two different things. Right now, your team is:
+  
+  - Spending 3â€“5 hours writing copy that AI could draft in 20 minutes
+  - Publishing SEO content that doesn't rank because no one knows how to brief it properly
+  - Posting social content on gut instinct instead of data-informed angles
+  - Watching junior AI tools get purchased, then ignored after week two
+  
+  The gap isn't tools. It's skill. Your team doesn't need another SaaS subscription â€” they need a half-day that changes how they work permanently.
+  
+  ---
+  
+  ## (3) Solution â€” 3 Bullet Proof Points
+  
+  **Header:** One workshop. Your team walks out with three new superpowers.
+  
+  - **AI Copywriting That Sounds Like Your Brand** â€” We teach your team how to write prompts that produce on-brand copy in your voice, not generic GPT output. From ad headlines to email sequences, they'll draft in minutes and edit in seconds.
+  
+  - **SEO Content That Actually Ranks** â€” Your team learns how to use AI to research intent, build topic clusters, and write briefs that produce articles search engines reward. No more guessing what Google wants.
+  
+  - **Social Content That Stops the Scroll** â€” We show your team how to generate, vary, and batch social posts across platforms â€” with angles that perform, not just fill the calendar.
+  
+  ---
+  
+  ## (4) Social Proof Section
+  
+  **Header:** Marketing teams who've done this don't go back.
+  
+  *(Framework for when testimonials are live â€” use this structure:)*
+  
+  > **"[Specific before/after result in one sentence.]"**
+  > â€” [Name], [Title], [Company size/type]
+  
+  **Placeholder-free bridge copy to use now:**
+  
+  We've built this curriculum from the ground up for mid-size marketing teams â€” the people with real production demands, real brand standards, and no time to figure out AI on their own. Every module is built around the workflows your team actually uses, not abstract AI theory.
+  
+  **Proof points to lead with on Day 1:**
+  - Workshop runs in half a day â€” no multi-day commitment, no disruption to sprint cycles
+  - Built specifically for marketing teams, not engineers or generalists
+  - Every exercise uses real marketing scenarios: product launches, blog briefs, ad copy, social batches
+  - Teams leave with a prompt library they own and can reuse immediately
+  
+  ---
+  
+  ## (5) Objection Handling
+  
+  **Header:** Good questions. Here are straight answers.
+  
+  **"We already use ChatGPT. What's different about this?"**
+  Using ChatGPT and using it *well* for marketing are completely different skills. This workshop closes that gap â€” your team leaves with a structured, repeatable system, not a tab they open occasionally.
+  
+  **"$3,500 feels like a lot for a half-day."**
+  If your team of five saves two hours per person per week, that's 40 hours per month recovered â€” at even a modest loaded cost, the workshop pays for itself in the first week.
+  
+  **"We don't have time for a training day."**
+  It's a half-day. We designed it that way deliberately. Your team is back to full capacity the same afternoon â€” with skills they'll use the next morning.
+  
+  ---
+  
+  ## (6) Final CTA
+  
+  **Header:** Your team is one half-day away from a permanent upgrade.
+  
+  Marketing moves fast. The teams that figure out AI workflows now will outproduce their competitors for years. Training gives your team the exact skills to use AI for copy, SEO, and social â€” in a single focused session, with zero fluff.
+  
+  Workshops are $3,500 flat, booked per team, and run on your schedule.
+  
+  **CTA Button:** Book a Workshop for Your Team
+  
+  **Secondary link:** Questions? Email us at [your email] â€” we respond same day.
+  
+  ---
+  
+  *Recommended next step: pair this copy with the strategy brief and market research outputs (queued for upcoming cycles) to sharpen the competitive angle and proof points as they develop.*
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~231 user words
+  Generating... done (33.5s, ~76 words)
+
+  Your marketing team is falling behind on AI. Master copywriting, SEO, and social media in our half-day workshop. Training: $3,500. Ready? [link]
+  
+  ---
+  
+  This hits the core hook (competitive pressure), delivers the specific value (three concrete tactics), names the business, shows the price (transparency builds trust in B2B), and ends with a direct CTA. It's ~145 charactersâ€”well under 280, direct, publishable today, and designed to move marketing leads who know their teams need these skills now.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 166.3s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     27.2s    546 words
+  Market research report                   sonnet     65.7s   1236 words
+  Landing page / homepage draft            sonnet     39.8s    711 words
+  Launch announcement                      haiku      33.5s     76 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773720626.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

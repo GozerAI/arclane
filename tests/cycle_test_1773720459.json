@@ -1,0 +1,38 @@
+{
+  "business_name": "Fractional Cto",
+  "business_type": "new",
+  "description": "A fractional CTO service for non-technical founders raising their seed round. I do technical due diligence, help hire the first engineer, and build the MVP architecture. 5000 dollars per month retainer.",
+  "website_url": null,
+  "template": "landing-page",
+  "total_time_s": 129.5,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 28.5,
+      "output_words": 566,
+      "output_chars": 3495
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 53.4,
+      "output_words": 997,
+      "output_chars": 7090
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 33.3,
+      "output_words": 730,
+      "output_chars": 4488
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 14.4,
+      "output_words": 102,
+      "output_chars": 673
+    }
+  }
+}

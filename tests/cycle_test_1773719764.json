@@ -1,0 +1,38 @@
+{
+  "business_name": "Ai-powered Meal Planning",
+  "business_type": "new",
+  "description": "AI-powered meal planning for people with dietary restrictions. Generate weekly meal plans, grocery lists, and recipes customized for allergies, keto, vegan, etc. Subscription model with a free tier.",
+  "website_url": null,
+  "template": "content-site",
+  "total_time_s": 145.4,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 28.5,
+      "output_words": 560,
+      "output_chars": 3706
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 52.9,
+      "output_words": 1012,
+      "output_chars": 7068
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 31.0,
+      "output_words": 682,
+      "output_chars": 4197
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 32.9,
+      "output_words": 112,
+      "output_chars": 770
+    }
+  }
+}

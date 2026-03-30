@@ -1,0 +1,38 @@
+{
+  "business_name": "Ai-powered Code",
+  "business_type": "new",
+  "description": "An AI-powered code review tool that explains PRs in plain English for non-technical stakeholders. Integrates with GitHub, generates executive summaries of what changed and why. Team pricing.",
+  "website_url": null,
+  "template": "saas-app",
+  "total_time_s": 130.7,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 29.0,
+      "output_words": 554,
+      "output_chars": 3456
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 56.1,
+      "output_words": 939,
+      "output_chars": 6589
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 29.2,
+      "output_words": 607,
+      "output_chars": 3899
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 16.4,
+      "output_words": 112,
+      "output_chars": 782
+    }
+  }
+}

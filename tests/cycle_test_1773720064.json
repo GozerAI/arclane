@@ -1,0 +1,38 @@
+{
+  "business_name": "Parenting Blog",
+  "business_type": "new",
+  "description": "A parenting blog focused on screen time management for kids aged 5-12. Evidence-based advice, app recommendations, and a community membership with weekly challenges.",
+  "website_url": null,
+  "template": "content-site",
+  "total_time_s": 146.8,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 33.5,
+      "output_words": 697,
+      "output_chars": 4407
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 54.9,
+      "output_words": 1039,
+      "output_chars": 7052
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 35.7,
+      "output_words": 656,
+      "output_chars": 3921
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 22.7,
+      "output_words": 102,
+      "output_chars": 748
+    }
+  }
+}

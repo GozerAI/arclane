@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Connected Accounts</h1>
+<p class="subtitle">Manage your platform's connected accounts. Each account can accept payments and sell products.</p>
+
+<!-- Create Account Form -->
+<div class="section">
+    <div class="section-title">Create New Account</div>
+    <div class="card">
+        <form method="post" action="/accounts">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="display_name">Business Name</label>
+                    <input type="text" id="display_name" name="display_name" placeholder="Jane's Bakery" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Contact Email</label>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Connected Account</button>
+        </form>
+    </div>
+</div>
+
+<!-- Account List -->
+<div class="section">
+    <div class="section-title">Your Accounts</div>
+    {% if accounts %}
+    <div class="grid grid-2">
+        {% for acct in accounts %}
+        <a href="/accounts/{{ acct.stripe_account_id }}" class="card" style="text-decoration: none;">
+            <h2 style="color: var(--text);">{{ acct.display_name }}</h2>
+            <p>{{ acct.email }}</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">
+                <code style="color: var(--muted); font-size: 0.75rem;">{{ acct.stripe_account_id }}</code>
+            </p>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="card empty">
+        <p>No connected accounts yet. Create one above to get started.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

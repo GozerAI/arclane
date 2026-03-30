@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arclane Dashboard</title>
+    <meta
+        name="description"
+        content="Launch a business in minutes. Arclane runs a 90-day incubator program with daily execution cycles."
+    >
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Meta Pixel -->
+    <script src="/static/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <div id="app">
+        <div id="login-view" class="view">
+            <div class="auth-shell">
+                <section class="auth-panel">
+                    <p class="eyebrow">Launch faster</p>
+                    <h1>arclane<span class="dot">.</span>cloud</h1>
+                    <p class="auth-lead">
+                        Describe the business once. Arclane runs a 90-day incubator program —
+                        daily cycles, phase progression, and real deliverables.
+                    </p>
+                    <div class="auth-highlights">
+                        <div class="info-card">
+                            <span class="info-label">Fast start</span>
+                            <strong>Provisioning runs in the background</strong>
+                            <p>Your dashboard opens immediately while setup continues.</p>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">Simple loop</span>
+                            <strong>Queue a task, watch work land, review output</strong>
+                            <p>No agent jargon, no workflow builder, no setup maze.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="auth-card">
+                    <div class="auth-card-header">
+                        <p class="eyebrow">Sign in</p>
+                        <h2>Return to your dashboard</h2>
+                    </div>
+                    <form id="login-form" class="stack-form">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <button type="submit" class="btn-primary">Sign In</button>
+                    </form>
+                    <div id="login-error" class="form-error hidden"></div>
+                    <p class="alt-action"><a href="#" id="show-forgot">Forgot password?</a></p>
+                    <p class="alt-action">New here? <a href="#" id="show-signup">Create an account</a></p>
+                </section>
+            </div>
+        </div>
+
+        <div id="signup-view" class="view hidden">
+            <div class="auth-shell">
+                <section class="auth-panel">
+                    <p class="eyebrow">Start free</p>
+                    <h1>arclane<span class="dot">.</span>cloud</h1>
+                    <p class="auth-lead">
+                        Day 1 is free — no card needed. Your first cycle delivers real work,
+                        then choose a plan with a 48-hour free trial to keep going.
+                    </p>
+                    <div class="auth-highlights">
+                        <div class="info-card">
+                            <span class="info-label">Preview first</span>
+                            <strong>Email signup unlocks your free Day 1 cycle with 4 deliverables</strong>
+                            <p>You can see what the system actually does before entering payment details.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="auth-card">
+                    <div class="auth-card-header">
+                        <p class="eyebrow">Create account</p>
+                        <h2>Open your workspace</h2>
+                    </div>
+                    <div class="oauth-row">
+                        <button type="button" class="oauth-btn" id="oauth-google">Continue with Google</button>
+                        <button type="button" class="oauth-btn" id="oauth-github">Continue with GitHub</button>
+                    </div>
+                    <p class="oauth-note">OAuth opens a secure sign-in window and returns you to your dashboard.</p>
+                    <form id="signup-form" class="stack-form">
+                        <input type="email" id="signup-email" placeholder="Email address" required>
+                        <input
+                            type="password"
+                            id="signup-password"
+                            placeholder="Password (8+ characters)"
+                            required
+                            minlength="8"
+                        >
+                        <button type="submit" class="btn-primary">Create Account</button>
+                    </form>
+                    <div id="signup-error" class="form-error hidden"></div>
+                    <p class="alt-action">Already have an account? <a href="#" id="show-login-from-signup">Sign in</a></p>
+                </section>
+            </div>
+        </div>
+
+        <div id="forgot-view" class="view hidden">
+            <div class="auth-shell">
+                <section class="auth-panel">
+                    <p class="eyebrow">Recovery</p>
+                    <h1>arclane<span class="dot">.</span>cloud</h1>
+                    <p class="auth-lead">
+                        Password resets stay simple. We send the link and keep the account flow clean.
+                    </p>
+                </section>
+                <section class="auth-card">
+                    <div class="auth-card-header">
+                        <p class="eyebrow">Reset password</p>
+                        <h2>Send a fresh sign-in link</h2>
+                    </div>
+                    <form id="forgot-form" class="stack-form">
+                        <input type="email" id="forgot-email" placeholder="Your email address" required>
+                        <button type="submit" class="btn-primary">Send Reset Link</button>
+                    </form>
+                    <p id="forgot-success" class="forgot-success hidden">
+                        Check your inbox. A reset link is on its way.
+                    </p>
+                    <p class="alt-action"><a href="#" id="show-login-from-forgot">Back to sign in</a></p>
+                </section>
+            </div>
+        </div>
+
+        <div id="create-view" class="view hidden">
+            <div class="auth-shell create-shell">
+                <section class="auth-panel">
+                    <p class="eyebrow">Create business</p>
+                    <h1>Start from an idea or an existing site</h1>
+                    <p class="auth-lead">
+                        Give Arclane a plain-language brief, a live website, or both. It will
+                        translate that into setup, optimization, content, research, and a first preview cycle.
+                    </p>
+                    <div class="auth-highlights">
+                        <div class="info-card">
+                            <span class="info-label">Good prompt structure</span>
+                            <strong>Who it serves, what it sells, how it wins</strong>
+                            <p>Example: "A workflow SaaS for dentists that books more appointments."</p>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">Existing business</span>
+                            <strong>Point Arclane at a live site to optimize the current offer</strong>
+                            <p>Useful when you want sharper messaging, conversion improvements, or faster execution.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="auth-card wide-card">
+                    <div class="auth-card-header">
+                        <p class="eyebrow">Business intake</p>
+                        <h2>Launch the first version</h2>
+                        <p class="card-copy">
+                            Preview working days are available immediately. Choose the path that matches your mindset and Arclane will handle naming, subdomain availability, and the first launch cycle.
+                        </p>
+                    </div>
+                    <div class="intake-mode-picker" role="tablist" aria-label="Choose intake path">
+                        <button type="button" class="mode-card active" data-create-mode="idea">
+                            <strong>I'm planning something new</strong>
+                            <span>Describe the business idea in plain language and let Arclane name it.</span>
+                        </button>
+                        <button type="button" class="mode-card" data-create-mode="existing">
+                            <strong>I already have a business</strong>
+                            <span>Enter the website, explain the goal, and let Arclane rebuild the surface from research.</span>
+                        </button>
+                    </div>
+                    <form id="create-form" class="stack-form">
+                        <input type="hidden" id="biz-mode" value="idea">
+                        <div id="idea-path" class="intake-path">
+                            <div class="path-copy">
+                                <h3>Start from a plain-language pitch</h3>
+                                <p>Tell Arclane who the business serves, what it sells, and what makes it compelling. Arclane will generate the business name and reserve the first available subdomain automatically.</p>
+                            </div>
+                            <textarea
+                                id="biz-description"
+                                placeholder="Describe the business you're planning. Example: An automation SaaS for dental practices that books more appointments and reduces front-desk phone work."
+                                rows="6"
+                            ></textarea>
+                            <div class="path-tips">
+                                <div class="info-card">
+                                    <span class="info-label">Good prompt structure</span>
+                                    <strong>Who it serves, what it sells, how it wins</strong>
+                                    <p>That gives Arclane enough context to generate a sharp name, mission, offer, and first launch assets.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="existing-path" class="intake-path hidden">
+                            <div class="path-copy">
+                                <h3>Start from an existing business</h3>
+                                <p>Give Arclane the live site and the outcome you want. It will research the company, generate a usable business name if needed, reserve the subdomain, and build a fresher public surface around what it finds.</p>
+                            </div>
+                            <input type="url" id="biz-website" placeholder="Existing website URL">
+                            <textarea
+                                id="biz-goals"
+                                placeholder="What are you trying to accomplish? Example: Sharpen the offer, modernize the site, generate better positioning, and create launch-ready content."
+                                rows="5"
+                            ></textarea>
+                            <div class="path-tips">
+                                <div class="info-card">
+                                    <span class="info-label">Existing business</span>
+                                    <strong>Best for optimization, repositioning, and faster execution</strong>
+                                    <p>Arclane will read the site first, then convert that research into strategy, copy, and launch work.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-group">
+                            <p class="template-label">Choose the first public surface</p>
+                            <div class="template-options">
+                                <label class="template-card">
+                                    <input type="radio" name="biz-template" value="content-site" checked>
+                                    <span>Content Site</span>
+                                    <small>Best when content and newsletter are the wedge.</small>
+                                </label>
+                                <label class="template-card">
+                                    <input type="radio" name="biz-template" value="saas-app">
+                                    <span>SaaS App</span>
+                                    <small>Best when the product itself is the core offer.</small>
+                                </label>
+                                <label class="template-card">
+                                    <input type="radio" name="biz-template" value="landing-page">
+                                    <span>Landing Page</span>
+                                    <small>Best for validation, waitlists, and lead capture.</small>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="card-copy">Arclane generates the business name and keeps the public URL available.</p>
+                        <button type="submit" class="btn-primary">Launch Business</button>
+                    </form>
+                    <div id="create-error" class="form-error hidden"></div>
+                    <p class="alt-action"><a href="#" id="show-login">Back to login</a></p>
+                </section>
+            </div>
+        </div>
+
+        <div id="dashboard-view" class="view hidden">
+            <header class="dash-header">
+                <div class="dash-header-left">
+                    <h1 id="dash-biz-name" class="dash-biz-name">Loading...</h1>
+                    <span id="dash-health-badge" class="health-badge">--</span>
+                </div>
+                <div class="dash-header-right">
+                    <span id="dash-working-days" class="working-days-pill"></span>
+                    <button id="new-business-btn" class="btn-secondary btn-small">New Business</button>
+                    <button id="dash-run-task" class="btn-run-task">Run Task</button>
+                    <select id="business-switcher" class="business-switcher hidden" aria-label="Switch business"></select>
+                </div>
+            </header>
+
+            <div id="low-working-day-banner" class="low-working-day-banner hidden">
+                Working days are running low. <a href="#" class="low-working-day-link">Move to a higher plan before cycles stall.</a>
+            </div>
+
+            <div id="dash-progress" class="progress-strip hidden">
+                <div class="progress-strip-info">
+                    <span id="progress-phase">Phase 1</span>
+                    <span id="progress-day">Day 1/90</span>
+                </div>
+                <div class="progress-strip-bar">
+                    <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+                </div>
+            </div>
+
+            <nav class="dash-nav">
+                <button class="dash-tab active" data-tab="work">Work</button>
+                <button class="dash-tab" data-tab="plan">Plan</button>
+                <button class="dash-tab" data-tab="account">Account</button>
+            </nav>
+
+            <!-- WORK TAB (default) -->
+            <section id="tab-work" class="dash-section">
+                <div class="section-header">
+                    <h2>Deliverables</h2>
+                    <span id="work-updated" class="updated-label"></span>
+                </div>
+                <div id="deliverables-list" class="deliverables-list">
+                    <div class="loading-state">Running your first cycle...</div>
+                </div>
+            </section>
+
+            <!-- PLAN TAB -->
+            <section id="tab-plan" class="dash-section hidden">
+                <div class="plan-health-row">
+                    <div class="plan-health-score">
+                        <span class="plan-health-label">Health</span>
+                        <span id="plan-health-number" class="plan-health-number">--</span>
+                    </div>
+                    <div id="plan-health-bars" class="plan-health-bars"></div>
+                </div>
+                <div class="plan-phases" id="plan-phases"></div>
+                <h3 class="plan-next-header">Next Up</h3>
+                <div id="plan-next-milestones" class="plan-next-milestones"></div>
+                <div id="plan-notes" class="plan-notes"></div>
+            </section>
+
+            <!-- ACCOUNT TAB -->
+            <section id="tab-account" class="dash-section hidden">
+                <div id="account-billing" class="settings-container"></div>
+                <div id="account-settings" class="settings-container" style="margin-top:1.5rem"></div>
+            </section>
+        </div>
+    </div>
+
+    <div id="task-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content">
+            <h3>Run a Task</h3>
+            <p class="page-copy">Describe the output you want. Short, direct requests work best.</p>
+            <textarea id="task-input" placeholder="What should Arclane work on next?" rows="4"></textarea>
+            <div class="modal-actions">
+                <button id="task-cancel" class="btn-secondary">Cancel</button>
+                <button id="task-submit" class="btn-primary">Run</button>
+            </div>
+            <p id="working-days-display" class="working-days"></p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

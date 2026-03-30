@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: #1a1a2e; background: #fafafa; line-height: 1.6; }
+
+        /* Hero */
+        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #1a1a2e 0%, #2d2b55 100%); color: #fff; }
+        .hero-inner { max-width: 700px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.15; }
+        .hero .subheadline { font-size: 1.2rem; color: #c4c4e0; margin-bottom: 2rem; }
+        .cta { display: inline-block; padding: 1rem 2.5rem; background: #4f46e5; color: white; text-decoration: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; transition: background 0.2s; }
+        .cta:hover { background: #4338ca; }
+
+        /* Sections */
+        section { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+        section h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        section p { color: #444; font-size: 1.05rem; margin-bottom: 1rem; }
+        .section-alt { background: #f0f0f5; }
+        .section-alt section { max-width: 800px; }
+
+        /* Proof points */
+        .proof-list { list-style: none; padding: 0; }
+        .proof-list li { padding: 1rem 0; border-bottom: 1px solid #e5e5ea; }
+        .proof-list li:last-child { border-bottom: none; }
+        .proof-list strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+
+        /* Objections */
+        .objection { margin-bottom: 1.5rem; }
+        .objection strong { color: #1a1a2e; }
+        .objection p { color: #555; margin-top: 0.25rem; }
+
+        /* Final CTA */
+        .final-cta { text-align: center; padding: 4rem 2rem; background: #1a1a2e; color: #fff; }
+        .final-cta h2 { color: #fff; margin-bottom: 1rem; }
+        .final-cta p { color: #aaa; margin-bottom: 2rem; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; color: #999; font-size: 0.875rem; }
+
+        /* AI content (injected from cycle output) */
+        .ai-content { white-space: pre-wrap; }
+        .ai-content h1, .ai-content h2, .ai-content h3 { white-space: normal; }
+    </style>
+</head>
+<body>
+    <!-- Hero — AI-generated headline replaces defaults -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>{{HEADLINE}}</h1>
+            <p class="subheadline">{{SUBHEADLINE}}</p>
+            <a href="mailto:{{BUSINESS_SLUG}}@arclane.cloud" class="cta">{{CTA_TEXT}}</a>
+        </div>
+    </section>
+
+    <!-- Problem section -->
+    <section>
+        <h2>{{PROBLEM_HEADING}}</h2>
+        <p>{{PROBLEM_BODY}}</p>
+    </section>
+
+    <!-- Solution / proof points -->
+    <div class="section-alt">
+        <section>
+            <h2>{{SOLUTION_HEADING}}</h2>
+            <ul class="proof-list">
+                {{PROOF_POINTS}}
+            </ul>
+        </section>
+    </div>
+
+    <!-- Social proof -->
+    <section>
+        <h2>{{PROOF_HEADING}}</h2>
+        <p>{{PROOF_BODY}}</p>
+    </section>
+
+    <!-- Objection handling -->
+    <div class="section-alt">
+        <section>
+            <h2>{{OBJECTIONS_HEADING}}</h2>
+            {{OBJECTIONS_BODY}}
+        </section>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+        <h2>{{FINAL_CTA_HEADING}}</h2>
+        <p>{{FINAL_CTA_BODY}}</p>
+        <a href="mailto:{{BUSINESS_SLUG}}@arclane.cloud" class="cta">{{CTA_TEXT}}</a>
+    </div>
+
+    <footer>&copy; 2026 {{BUSINESS_NAME}}. Powered by <a href="https://arclane.cloud" style="color:#4f46e5;text-decoration:none;">Arclane</a>.</footer>
+</body>
+</html>

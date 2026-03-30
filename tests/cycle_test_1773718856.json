@@ -1,0 +1,38 @@
+{
+  "business_name": "Compete",
+  "business_type": "existing",
+  "description": "We compete in the time tracking space against Toggl. Our product is built but we cannot get traction. Need help with positioning against incumbents, a freemium-to-paid conversion strategy, and content that ranks for time tracking keywords.",
+  "website_url": "https://www.toggl.com/track",
+  "template": "saas-app",
+  "total_time_s": 232.2,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 69.4,
+      "output_words": 972,
+      "output_chars": 6239
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 72.7,
+      "output_words": 1314,
+      "output_chars": 8547
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 44.0,
+      "output_words": 810,
+      "output_chars": 4809
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 46.2,
+      "output_words": 146,
+      "output_chars": 962
+    }
+  }
+}

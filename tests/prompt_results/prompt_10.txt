@@ -1,0 +1,307 @@
+======================================================================
+  ARCLANE CYCLE TEST — NEW BUSINESS
+  Name: Ai-powered Meal Planning
+  Template: content-site
+  Description: AI-powered meal planning for people with dietary restrictions. Generate weekly m...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~244 user words
+  Generating... done (28.5s, ~560 words)
+
+  ## Strategic Operating Brief â€” AI-powered Meal Planning
+  
+  ---
+  
+  ### Mission
+  
+  Help people with dietary restrictions eat well every week without the mental overhead of planning it themselves.
+  
+  ---
+  
+  ### Core Offer
+  
+  A weekly meal plan generated around your specific restrictions â€” allergies, keto, vegan, gluten-free, or any combination â€” delivered with a matching grocery list and full recipes. Plans refresh every week. You adjust preferences once; the system handles the rest.
+  
+  **Free tier:** 1 dietary restriction, 5-meal weekly plan, no grocery list.
+  **Paid tier:** Unlimited restrictions, 7-day full plan, consolidated grocery list, recipe substitutions.
+  
+  ---
+  
+  ### Target Customer
+  
+  **Primary persona: The Restricted Household Manager**
+  
+  A parent or primary cook (25â€“45) managing meals for a household where at least one person has a medical or lifestyle dietary restriction â€” a child with a peanut allergy, a partner going keto, or their own celiac diagnosis. They're not food-obsessed. They're time-starved and anxious about getting it wrong. They've tried generic meal kit services and found them useless because nothing accounts for their specific situation. They search Pinterest for "keto meals without nuts" at 9pm on Sunday and hate that they're still doing this every week.
+  
+  **Secondary persona: The New Diagnosee**
+  
+  Someone recently diagnosed with an allergy, autoimmune condition (Hashimoto's, Crohn's), or starting a medically-advised elimination diet. They're overwhelmed, don't know what they can eat, and need a starting point â€” not a cookbook.
+  
+  ---
+  
+  ### Wedge
+  
+  **Why AI-powered Meal Planning vs. the alternatives:**
+  
+  - **vs. generic meal planners (Mealime, PlateJoy):** They support one restriction at a time, if at all. We handle stacked restrictions (keto + dairy-free + nut allergy) as the default case, not an edge case.
+  - **vs. dietitian consultations:** $150+/session, not weekly, no grocery list. We cost less per month than one hour with a dietitian and refresh automatically.
+  - **vs. searching recipes manually:** 45+ minutes every Sunday, no coherent grocery list, same 10 meals on rotation. We eliminate the weekly planning loop entirely.
+  
+  The wedge is **stacked restriction support** â€” the harder the dietary situation, the more valuable we are. That's the opposite of how most tools work.
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **1. Nail the restriction-combination flow before anything else.**
+  The free tier sign-up must let users select multiple restrictions in one step and generate a believable, appetizing plan immediately. If the first plan looks like diet punishment food, nothing else matters. Test this with 10 real users before launch week ends.
+  
+  **2. Make the grocery list the conversion moment.**
+  The free tier withholds the grocery list on purpose. This is the natural upgrade trigger â€” the plan is useful, but the list is what saves the 30 minutes at the store. Paywall exactly that, nothing else for now. Don't add features; sharpen this one unlock.
+  
+  **3. Position in the restriction community, not the wellness space.**
+  Launch content and outreach should target Reddit communities (r/ketorecipes, r/glutenfree, r/foodallergies) and Facebook groups for specific conditions â€” not general healthy eating audiences. The people who need stacked restriction support are already organized around their diagnosis or diet. Go there first.
+  
+  ---
+  
+  **Decision for tomorrow:** Choose the 3â€“5 dietary restriction combinations that will appear in the demo flow. Pick the ones that represent the largest, most vocal communities (keto, vegan, gluten-free, nut allergy, dairy-free) â€” these become the hero use cases in all copy and the free trial default options.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~253 user words
+  Generating... done (52.9s, ~1012 words)
+
+  ## Market Research Report
+  ### AI-Powered Meal Planning â€” Foundation Phase, Day 1
+  
+  ---
+  
+  ## Competitive Landscape
+  
+  ### Eat This Much
+  **Offer:** Automated weekly meal plans with grocery lists. Supports calories, macros, and dietary preferences (vegan, paleo, gluten-free).
+  **Pricing:** Free tier (limited meals) + $8.99/month premium.
+  **Messaging strength:** "Eat This Much plans your meals automatically" â€” clear value prop, functional copy.
+  **Messaging weakness:** Feels like a calorie-counter that bolted on meal planning. No allergy focus. Recipes feel generic.
+  **Differentiation opportunity:** Their allergy handling is a checkbox, not a feature. A person with a tree nut allergy can't trust a checkbox â€” they need confidence, not just a filter.
+  
+  ---
+  
+  ### PlateJoy
+  **Offer:** Personalized meal plans built around a lifestyle quiz. Covers most dietary restrictions and syncs with Instacart.
+  **Pricing:** $69/year ($5.75/month effective) â€” requires annual commitment upfront.
+  **Messaging strength:** Strong onboarding flow and "built for you" positioning. The quiz creates commitment.
+  **Messaging weakness:** Expensive entry point with no free tier. Feels clinical and corporate. No visible AI emphasis.
+  **Differentiation opportunity:** The annual-only paywall kills casual trial. A free tier converts people PlateJoy can't reach.
+  
+  ---
+  
+  ### Mealime
+  **Offer:** Quick meal planning app focused on busy households. Dietary preference filters (vegan, gluten-free, etc.), grocery list generation.
+  **Pricing:** Free + $5.99/month Pro.
+  **Messaging strength:** Speed and simplicity. "Meal plan in minutes." Popular with families.
+  **Messaging weakness:** Dietary restriction support is shallow â€” it filters recipes but doesn't explain substitutions, cross-contamination risks, or alternatives when a recipe doesn't fit.
+  **Differentiation opportunity:** Mealime's users with real restrictions (celiac, FPIES, multiple allergies) are underserved. They use the app then spend 20 minutes double-checking recipes manually.
+  
+  ---
+  
+  ### Yummly
+  **Offer:** Recipe discovery and meal planning. Dietary and allergy filters, smart shopping list, Whirlpool appliance integration.
+  **Pricing:** Free + $4.99/month premium.
+  **Messaging strength:** Massive recipe library (2M+). Strong brand recognition from years of content SEO.
+  **Messaging weakness:** Not actually an AI meal planner â€” it's a recipe aggregator with planning bolted on. No coherent weekly structure. Allergy filtering is static and has known gaps in the database.
+  **Differentiation opportunity:** Yummly's strength is volume, not precision. A parent managing a child's anaphylactic allergy doesn't want 2 million recipes â€” they want 7 meals they can trust this week.
+  
+  ---
+  
+  ### Cronometer
+  **Offer:** Nutrition tracking with meal logging and planning. Highly detailed macro/micronutrient data. Used by dietitians and serious trackers.
+  **Pricing:** Free + $8.99/month Gold.
+  **Messaging strength:** Extremely precise data. Trusted by health professionals.
+  **Messaging weakness:** Steep learning curve. No AI generation. Requires the user to build every meal manually. Zero personality.
+  **Differentiation opportunity:** Cronometer users who want automation are doing it manually â€” there's no crossover product between "clinically precise" and "just works."
+  
+  ---
+  
+  ## Positioning Gaps
+  
+  **Gap 1 â€” Allergy trust, not just allergy filtering.**
+  Every competitor offers dietary filters. None of them address the psychological burden of eating with a serious allergy: "Can I actually trust this?" No competitor has built confidence into the product â€” cross-contamination callouts, ingredient substitutions with context, or "safe for [your restriction]" labeling that feels like it means something.
+  
+  **Gap 2 â€” Multi-restriction households.**
+  Competitors optimize for one dietary profile. Real households have a keto husband, a gluten-intolerant child, and a vegetarian teenager. None of the five competitors above handle this cleanly. Most users with this situation give up on meal planning apps entirely.
+  
+  **Gap 3 â€” Free tier as a conversion engine.**
+  PlateJoy has no free tier. Eat This Much's free tier is capped so hard it's unusable. The market is underserving the "try before I trust" user â€” especially for dietary restrictions where trust is the whole product.
+  
+  ---
+  
+  ## The #1 Buyer Objection
+  
+  **"I've tried meal planning apps before and they don't actually understand my restrictions."**
+  
+  This is not a feature objection. It's a trust objection. People with celiac disease, anaphylactic allergies, or complex multi-condition restrictions have been burned. An app gave them a "gluten-free" recipe that included soy sauce. A "nut-free" plan used coconut aminos without flagging it as a tree nut derivative depending on the sensitivity level.
+  
+  **How to counter it:**
+  Don't defend the category â€” attack it. Lead with: "Most meal planning apps treat your restriction as a filter. We treat it as a constraint the whole plan is built around." Then prove it in the product: when a user enters celiac, show them what that means â€” hidden gluten sources flagged, dedicated grocery list callouts, recipe notes that explain why each ingredient is safe. Let the first free week do the convincing.
+  
+  ---
+  
+  ## 3 Opportunities to Exploit
+  
+  **1. Own the multi-restriction household.**
+  No competitor has positioned for this explicitly. "One plan for every diet at your table" is a differentiated, highly searchable, emotionally resonant message. The technical lift is not trivial but the positioning gap is wide open. Early marketing should feature this use case prominently â€” it's the scenario where every competitor falls apart and where word-of-mouth is strongest (parents in allergy communities talk to each other constantly).
+  
+  **2. Build trust signals into free-tier onboarding.**
+  The free tier isn't just a user acquisition tool â€” it's a trust demonstration. Design the free week so that users with serious restrictions see, within the first plan, that AI-Powered Meal Planning handles their edge cases better than anything they've used. Specificity sells: "Your plan avoids the 8 most common hidden gluten sources" lands harder than "gluten-free meal plans."
+  
+  **3. Target allergy community channels, not general wellness.**
+  Cronometer, Mealime, and Yummly advertise broadly. The people with the highest switching urgency â€” and lowest current satisfaction â€” are in allergy-specific communities: FARE (Food Allergy Research & Education) forums, r/Celiac, keto subreddits, FPIES support groups, vegan communities. These audiences have already filtered themselves. A focused presence there, with messaging that speaks to their specific pain, will convert at a far higher rate than general "healthy eating" channels where competitors already dominate.
+  
+  ---
+  
+  **Bottom line:** The competitive field is wide, but nobody owns "meal planning you can actually trust with a real dietary restriction." That's the wedge. Every product decision and every message in Foundation phase should pressure-test against that framing.
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~271 user words
+  Generating... done (31.0s, ~682 words)
+
+  # Ai-powered Meal Planning â€” Landing Page Copy
+  
+  ---
+  
+  ## (1) Hero Section
+  
+  **Headline:**
+  Eat Well Every Week. No Matter Your Diet.
+  
+  **Subheadline:**
+  AI-powered meal plans, grocery lists, and recipes built around your exact dietary needs â€” allergies, keto, vegan, gluten-free, and more. Ready in 60 seconds. New every week.
+  
+  **CTA Button:**
+  Get My Free Meal Plan â†’
+  
+  ---
+  
+  ## (2) Problem Section
+  
+  **Section Header:** Eating right shouldn't feel like a part-time job.
+  
+  You know what you can eat. You know what you *should* eat. But every Sunday it's the same story â€” 45 minutes scrolling recipes, cross-referencing ingredients, second-guessing labels, and hoping nothing in the grocery cart triggers a reaction.
+  
+  Finding meals that fit your restrictions is exhausting. Finding meals that fit your restrictions *and* that you actually want to eat? Almost impossible.
+  
+  Most meal planning tools weren't built for you. They were built for people who can eat anything.
+  
+  ---
+  
+  ## (3) Solution â€” 3 Bullet Proof Points
+  
+  **Section Header:** Your restrictions, finally handled.
+  
+  - **Personalized plans in under a minute.** Tell us your allergies, intolerances, and diet style. We generate a full week of meals â€” breakfast, lunch, dinner, snacks â€” that fit you exactly. No substitutions. No "just remove the cheese."
+  
+  - **One grocery list. Zero guesswork.** Every ingredient, every quantity, consolidated into a single list organized by store section. No duplicate items, no forgotten staples, no three separate tabs open at once.
+  
+  - **Recipes that actually work for your life.** Filter by prep time, ingredient count, or budget. Every recipe is tested for your dietary profile before it ever reaches your plan. Keto one week, Mediterranean the next â€” the system adapts when you do.
+  
+  ---
+  
+  ## (4) Social Proof Section
+  
+  **Section Header:** People with real restrictions, finally eating without stress.
+  
+  *Use this framework until testimonials are collected:*
+  
+  > "I have a tree nut allergy and a husband who's going keto. I'd basically given up on cooking together. This gave us a full week of meals we can both eat â€” in the time it used to take me to find one recipe."
+  > â€” Sarah M., allergy mom of two
+  
+  > "I've tried every meal planner out there. They all treat vegan as an afterthought. This one actually knows what it's doing."
+  > â€” Marcus T., plant-based for 4 years
+  
+  > "The grocery list alone is worth it. I used to spend more time at the store than in my kitchen."
+  > â€” Priya K., gluten-free since 2019
+  
+  **Trust bar copy (below testimonials):**
+  Trusted by people managing celiac, Type 2 diabetes, Crohn's, food allergies, and a dozen other dietary realities â€” not just people who want to lose 10 pounds.
+  
+  ---
+  
+  ## (5) Objection Handling
+  
+  **Section Header:** Questions we hear before people sign up.
+  
+  **"Is the free tier actually useful, or is it a trap?"**
+  The free plan gives you one full week of meal plans every month â€” real meals, real grocery list, no credit card required. Upgrade when you want more.
+  
+  **"What if my dietary restrictions are complicated or combined?"**
+  The more specific you are, the better it works. You can stack restrictions â€” keto *and* dairy-free *and* no shellfish â€” and the plan handles all of them simultaneously. It's built for complex cases, not simple ones.
+  
+  **"Can I trust AI to understand my health needs?"**
+  This isn't a chatbot guessing at your diet. It's a structured system built on nutritional data and dietary restriction logic. You control every input, you review every output, and you can swap any meal you don't want. You're in charge.
+  
+  ---
+  
+  ## (6) Final CTA
+  
+  **Section Header:** Your next seven dinners, sorted.
+  
+  Stop spending Sunday nights dreading the week's meals. In 60 seconds, you'll have a full plan, a clean grocery list, and zero guesswork â€” built around what you can actually eat.
+  
+  **Button:** Start Free â€” No Card Needed â†’
+  
+  *Free plan available. Upgrade anytime. Cancel whenever.*
+  
+  ---
+  
+  **Recommended above-fold color hierarchy:** Lead with the restriction-specific credibility ("keto, vegan, gluten-free, allergy-safe") in the subheadline â€” that's the trust signal this audience scans for before reading anything else.
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~235 user words
+  Generating... done (32.9s, ~112 words)
+
+  Your allergies shouldn't complicate what you eat. AI-powered Meal Planning generates personalized weekly meal plans, grocery lists & recipes for keto, vegan, allergies & more. Try free: [link]
+  
+  ---
+  
+  **Why this works:**
+  - **Hook**: Leads with empathy (validates the friction your audience feels every day)
+  - **Value prop**: Concrete outputs (plans, lists, recipes) + specific diets they recognize
+  - **Social proof**: "Personalized" signals AI adapts to them individually
+  - **CTA**: Removes friction with free tier mention and clear action
+  - **Length**: 193 characters â€” tight and scroll-stopping
+  
+  This is publishable now. Post it, monitor replies for objections (cost, integration, customization depth), and use that feedback to refine positioning for the landing page.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 145.4s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     28.5s    560 words
+  Market research report                   sonnet     52.9s   1012 words
+  Landing page / homepage draft            sonnet     31.0s    682 words
+  Launch announcement                      haiku      32.9s    112 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773719764.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

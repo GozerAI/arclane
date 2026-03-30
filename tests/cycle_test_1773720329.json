@@ -1,0 +1,38 @@
+{
+  "business_name": "Bookkeeping Automation",
+  "business_type": "new",
+  "description": "A bookkeeping automation tool for Etsy and Shopify sellers. Auto-imports transactions, categorizes expenses, generates profit and loss reports, and preps quarterly tax estimates.",
+  "website_url": null,
+  "template": "saas-app",
+  "total_time_s": 133.6,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 26.3,
+      "output_words": 542,
+      "output_chars": 3439
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 58.5,
+      "output_words": 1123,
+      "output_chars": 7766
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 28.0,
+      "output_words": 614,
+      "output_chars": 3959
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 20.7,
+      "output_words": 102,
+      "output_chars": 715
+    }
+  }
+}

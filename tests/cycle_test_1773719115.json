@@ -1,0 +1,38 @@
+{
+  "business_name": "Are Building",
+  "business_type": "existing",
+  "description": "We are building a cold outreach platform similar to Lemlist. We have the product but zero distribution. Need a go-to-market plan, email templates we can use for our own outreach, and a content strategy targeting sales teams.",
+  "website_url": "https://www.lemlist.com",
+  "template": "saas-app",
+  "total_time_s": 258.0,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 68.7,
+      "output_words": 878,
+      "output_chars": 5498
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 120.1,
+      "output_words": 5,
+      "output_chars": 29
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 32.3,
+      "output_words": 659,
+      "output_chars": 4002
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 36.8,
+      "output_words": 187,
+      "output_chars": 1234
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "business_name": "Lightweight Crm",
+  "business_type": "new",
+  "description": "A lightweight CRM for solo consultants and freelancers. No bloat, just contacts, deals, follow-up reminders, and a simple pipeline view. 19 dollars per month, no free tier, 14-day trial.",
+  "website_url": null,
+  "template": "saas-app",
+  "total_time_s": 149.8,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 34.2,
+      "output_words": 544,
+      "output_chars": 3261
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 53.3,
+      "output_words": 1148,
+      "output_chars": 7659
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 33.4,
+      "output_words": 597,
+      "output_chars": 3642
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 28.9,
+      "output_words": 107,
+      "output_chars": 715
+    }
+  }
+}

@@ -1,0 +1,329 @@
+======================================================================
+  ARCLANE CYCLE TEST — NEW BUSINESS
+  Name: Fractional Cto
+  Template: landing-page
+  Description: A fractional CTO service for non-technical founders raising their seed round. I ...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~248 user words
+  Generating... done (28.5s, ~566 words)
+
+  ## Strategic Operating Brief â€” Fractional CTO
+  **Day 1 of 90 | Foundation Phase**
+  
+  ---
+  
+  ### Mission
+  
+  We make non-technical founders fundable by turning their biggest technical liability into a credible asset before the term sheet.
+  
+  ---
+  
+  ### Core Offer
+  
+  A $5,000/month retainer that delivers three things most seed-stage founders can't get anywhere else:
+  
+  1. **Technical due diligence prep** â€” We audit your architecture (or lack of one), identify every question a CTO-level investor will ask, and make sure you have a credible answer before it costs you the deal.
+  2. **First engineer hiring** â€” We write the job spec, screen candidates, run the technical interviews, and make the hire recommendation. You don't need to know what a senior full-stack engineer looks like on paper. We do.
+  3. **MVP architecture** â€” We design the system so your first hire can build it without debt that kills you at Series A. Stack decisions, infrastructure choices, and a written architecture doc the next CTO can inherit.
+  
+  This is not advisory. You get a named person doing the work with you, on a monthly clock.
+  
+  ---
+  
+  ### Target Customer
+  
+  **Non-technical solo founder, 6â€“18 months post-idea, raising a $500Kâ€“$2M seed round in the next 90 days.**
+  
+  More specifically: they've validated the problem with customers, they have a deck, and they've started investor conversations â€” but they freeze when anyone asks about tech. They don't have a co-founder, they've never hired an engineer, and they're terrified of building the wrong thing or getting embarrassed in a technical diligence call. They're paying a no-name dev shop $8K/month and hoping it works out.
+  
+  ---
+  
+  ### Wedge
+  
+  **Investors don't fund founders who can't speak to their own tech stack.**
+  
+  The alternatives â€” hiring a full-time CTO (can't afford it, can't compete on equity), dev shops (build it but can't explain it), advisors (one call a month, no accountability) â€” all leave the same gap: the founder still can't represent the technology with confidence.
+  
+  Fractional CTO owns that gap. $5K/month against a $10Kâ€“$30K/month CTO salary is an obvious trade while they're pre-revenue. The deliverable isn't advice â€” it's investor-readiness on the technical side.
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **1. Land one anchor client this month, not five leads.**
+  One signed retainer at $5K/month is the only proof that matters in Week 1â€“4. Every marketing and outreach decision should point at this single conversion. Target founders already in YC/Techstars networks or actively on AngelList with a deck but no technical co-founder.
+  
+  **2. Build the credibility artifact before the sales call.**
+  The #1 objection will be "why should I trust you with my investor pitch?" You need one published piece â€” a case study, a technical diligence checklist, or a short breakdown of what investors actually ask â€” that answers this before the call starts. This is your sales collateral and your top-of-funnel in one.
+  
+  **3. Define what "done" looks like for the engagement.**
+  Before you pitch, you need a clear scope: what the client has at the end of month 1, month 2, and month 3. Without this, $5K/month feels like a retainer with no exit. A one-page engagement roadmap â€” diligence audit â†’ hiring brief â†’ architecture doc â€” turns a vague service into a productized offer investors and founders can evaluate.
+  
+  ---
+  
+  **Next cycle:** Market research â€” who else is selling to this persona, what they charge, and where your wedge is cleanest.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~257 user words
+  Generating... done (53.4s, ~997 words)
+
+  # Market Research Report: Fractional CTO
+  **Day 1 / Foundation Phase**
+  
+  ---
+  
+  ## The Market in One Sentence
+  
+  Non-technical founders raising seed rounds are underserved by generalist fractional CTOs who charge for presence, not outcomes â€” and terrified of hiring a full-time CTO they can't evaluate.
+  
+  ---
+  
+  ## Competitor Profiles
+  
+  ### 1. Toptal Fractional CTO
+  **Offer:** On-demand senior tech talent, including fractional CTO engagements. Generalist â€” no seed-round specialization.
+  **Pricing:** $150â€“$250/hour. Monthly retainer typically $8,000â€“$15,000+ depending on hours.
+  **Messaging strength:** Brand recognition and large talent pool give enterprise buyers confidence.
+  **Messaging weakness:** No language around fundraising, investor readiness, or non-technical founders. Feels corporate and process-heavy. Slow to match (2â€“4 weeks).
+  **Differentiation opportunity:** Toptal sells hours. You sell a seed round outcome. Founders comparing the two are comparing apples and surgery.
+  
+  ---
+  
+  ### 2. Cto.ai (cto.ai)
+  **Offer:** Developer platform with workflow automation â€” not a human fractional CTO service, but markets itself to early-stage startups and occasionally conflates tooling with leadership.
+  **Pricing:** SaaS tiers from free to ~$500/month for teams.
+  **Messaging strength:** Strong on developer productivity and DevOps language.
+  **Messaging weakness:** Not a human. Founders who Google "fractional CTO for startup" land here and bounce when they realize it's software.
+  **Differentiation opportunity:** Own the human-advisory positioning explicitly. "You need a person, not a platform" is a one-line win against this noise.
+  
+  ---
+  
+  ### 3. Fractional CTO Association / Freelance Marketplaces (Clarity.fm, Catalant, Expert360)
+  **Offer:** Directory or marketplace of fractional CTOs. Varies wildly â€” most profiles list "startup advisor" with no pricing, no specialization, no process.
+  **Pricing:** $150â€“$300/hour. No retainer structure. No packaged outcome.
+  **Messaging strength:** Low barrier to browse. Founders feel like they're "shopping."
+  **Messaging weakness:** Zero accountability. No defined deliverable. "We'll figure out what you need" is the implicit pitch. Terrible for seed-stage founders who need to move fast.
+  **Differentiation opportunity:** Packaged outcomes with fixed scope beat hourly ambiguity. "Here's exactly what you get in 90 days" is a different product category.
+  
+  ---
+  
+  ### 4. CTO-as-a-Service (various boutiques: CTO Craft, Committed, Zenerate)
+  **Offer:** Small shops (1â€“5 people) offering fractional CTO retainers to early-stage companies. Positioned around "technical leadership" and "scaling engineering teams."
+  **Pricing:** $4,000â€“$8,000/month depending on hours committed.
+  **Messaging strength:** More credible than freelancers; some have advisory boards.
+  **Messaging weakness:** Focused on post-product companies that already have an engineering team to manage. Nothing about pre-seed architecture, investor DD prep, or first-hire recruiting.
+  **Differentiation opportunity:** None of them are talking to founders *before* the first hire. The gap is the pre-engineer phase â€” that's entirely yours.
+  
+  ---
+  
+  ### 5. YC Group Partners / Advisor Networks
+  **Offer:** Informal fractional CTO relationships through YC alumni or accelerator networks. Equity-based, not cash.
+  **Pricing:** 0.1%â€“0.5% equity, no cash.
+  **Messaging strength:** High trust, warm referral, founder-to-founder credibility.
+  **Messaging weakness:** Not available to most founders. Inaccessible outside the YC/accelerator orbit. No structure, no deliverables, no accountability.
+  **Differentiation opportunity:** You're the accessible version of this. Same outcome, real availability, no equity dilution (which is increasingly a founder concern at seed stage as caps tighten).
+  
+  ---
+  
+  ## Positioning Gaps
+  
+  **Gap 1 â€” Nobody owns "seed round prep" as the explicit use case.**
+  Every competitor positions around "engineering leadership" or "scaling teams." Zero of them say: *I exist to get you through technical due diligence and your first engineering hire.* That is the entire job for a non-technical seed-stage founder.
+  
+  **Gap 2 â€” Hourly billing creates anxiety, not confidence.**
+  When a founder doesn't understand technology, hourly billing is a trap â€” they can't scope the work, they fear the invoice, and they disengage. Your flat $5,000/month retainer removes that friction entirely.
+  
+  **Gap 3 â€” No competitor provides a documented technical DD output.**
+  Investors ask for a tech stack review, architecture diagram, and build-vs-buy rationale. Founders scramble. No fractional CTO in this market produces that as a standard deliverable. It's invisible, assumed, and never shipped.
+  
+  ---
+  
+  ## #1 Buyer Objection (and How to Counter It)
+  
+  **Objection:** *"$5,000/month is a lot for something I'll only need for 3â€“6 months."*
+  
+  This is a budget objection wearing a duration mask. The founder is actually saying: *"I'm not sure the ROI is obvious."*
+  
+  **Counter:** Reframe the math against the alternatives.
+  - A single VC partner spending 2 hours on technical DD that goes badly costs the founder the round. One failed raise = 6â€“12 months of runway lost, not 3 months of retainer.
+  - A bad first engineering hire (salary $120Kâ€“$160K/year + equity) takes 6â€“12 months to unwind. The retainer is cheap insurance.
+  - A full-time CTO costs $180Kâ€“$250K salary plus 1â€“3% equity. At $5K/month, you're $60K/year with zero dilution.
+  
+  The positioning line: **"You're not paying for advice. You're paying to not make the three mistakes that kill seed-stage companies."**
+  
+  ---
+  
+  ## 3 Concrete Opportunities to Exploit
+  
+  **1. Own "Technical Due Diligence as a Deliverable"**
+  No competitor offers a packaged, investor-ready tech DD document as a standard output. Build a one-page "Technical Readiness Report" that you deliver at the end of month one. Name it. Market it. Let founders show it to investors. This becomes your proof-of-work artifact and your strongest referral accelerant â€” investors will start asking other founders if they have one.
+  
+  **2. Target the Fundraising Announcement Window**
+  Non-technical founders announce their fundraise on LinkedIn before and after closing. Both are buying signals. The pre-announcement founder is in active prep. The post-announcement founder needs to execute fast before the money runs out. Run LinkedIn search on "raising seed round" + "non-technical" + "looking for CTO" weekly. These are warm inbound leads hiding in public posts.
+  
+  **3. Partner with Seed-Stage Investors Who Don't Have In-House Technical Resources**
+  Solo GPs and micro-funds ($5Mâ€“$30M) regularly back non-technical founding teams but have no way to provide technical support post-check. A formal partnership where you're their recommended fractional CTO for portfolio companies gives you pre-warmed deal flow and gives them a differentiated value-add to pitch founders. One email to 10 solo GPs this week opens that channel.
+  
+  ---
+  
+  *Report complete. Next recommended output: Strategy brief â€” core positioning statement, wedge offer, and 30-day priority stack.*
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~275 user words
+  Generating... done (33.3s, ~730 words)
+
+  # Fractional CTO â€” Landing Page Copy
+  
+  ---
+  
+  ## (1) HERO
+  
+  **Headline:**
+  Your seed round needs a CTO. Now you have one.
+  
+  **Subheadline:**
+  Non-technical founders lose deals in due diligence â€” or hire the wrong engineer first and burn six months of runway. Fractional CTO gives you senior technical leadership at the exact moment it matters: before you close, while you build.
+  
+  **CTA Button:**
+  Book a Free Technical Audit
+  
+  ---
+  
+  ## (2) PROBLEM SECTION
+  
+  **Header:** Investors ask technical questions you can't answer. That's a problem.
+  
+  You've built the vision. You know the market. But when a VC asks about your architecture, your stack choices, or your first engineering hire â€” you're guessing. And they can tell.
+  
+  Non-technical founders stall at the seed stage for three predictable reasons:
+  
+  - Technical due diligence surfaces red flags (or silence) that kill momentum
+  - The first engineering hire is wrong â€” too junior, too expensive, or misaligned
+  - The MVP gets built in the wrong direction and has to be rebuilt six months later
+  
+  You don't need a full-time CTO. You need the right technical decisions made right now.
+  
+  ---
+  
+  ## (3) SOLUTION â€” 3 PROOF POINTS
+  
+  **Header:** What a Fractional CTO actually does for your raise
+  
+  **â†’ Technical Due Diligence, Done Right**
+  Investors run their own diligence. You should run yours first. We audit your current stack, surface every risk, and build you a technical roadmap that holds up to scrutiny. You walk into your next pitch knowing exactly what you have â€” and what you'll build next.
+  
+  **â†’ Your First Engineering Hire, De-Risked**
+  The wrong engineer at seed stage costs you six months and $80K. We write the job spec, screen candidates on technical merit, run the technical interview, and give you a hire/pass recommendation you can trust. You make the call. We make sure it's the right one.
+  
+  **â†’ MVP Architecture That Scales Past Series A**
+  Most MVPs are rebuilt before Series A. We design the architecture so that doesn't happen to you â€” right stack, right infra decisions, right technical roadmap. Built to show investors you know where you're going, not just where you are.
+  
+  ---
+  
+  ## (4) SOCIAL PROOF SECTION
+  
+  **Header:** Founders who stopped winging the technical conversation
+  
+  *(Framework for when testimonials arrive â€” use this structure:)*
+  
+  > "I had three investor meetings stall on technical questions. After working with Fractional CTO, I knew exactly what to say â€” and closed my $1.2M round two weeks later."
+  > â€” *Founder name, Company, round size*
+  
+  > "We were about to hire a senior engineer at $160K. Fractional CTO flagged that we needed a generalist first. That single call saved us from a six-month mistake."
+  > â€” *Founder name, Company*
+  
+  **In the meantime, use this social proof block:**
+  
+  - Specialized exclusively in seed-stage, non-technical founders
+  - Technical due diligence reviews delivered in 5 business days
+  - First engineering hire process: average 6 weeks from spec to offer
+  - $5,000/month â€” a fraction of a full-time CTO salary ($220K+)
+  
+  ---
+  
+  ## (5) OBJECTION HANDLING
+  
+  **Header:** Straight answers to the obvious questions
+  
+  **"I can't afford a CTO right now."**
+  A full-time CTO costs $180â€“220K plus equity. At $5,000/month, you get senior technical leadership for less than one percent of your raise â€” and you only need it for the months that matter.
+  
+  **"I'll hire a technical co-founder instead."**
+  Technical co-founders take 15â€“25% equity and take months to find. Fractional CTO starts this week, costs cash (not cap table), and hands off cleanly when you're ready to hire full-time.
+  
+  **"My developer can handle the architecture."**
+  Your developer is building, not advising. Architecture decisions, due diligence prep, and hiring evaluation are different skills â€” and the wrong call at this stage gets rebuilt later at five times the cost.
+  
+  ---
+  
+  ## (6) FINAL CTA
+  
+  **Header:** You're 30 days from a cleaner raise.
+  
+  The technical conversation isn't going away. Investors will ask. Engineers will cost you equity. Decisions made now will ship â€” or get thrown out â€” in six months.
+  
+  One call. We'll tell you exactly where you stand technically and what needs to happen before your next investor meeting.
+  
+  **CTA Button:** Book Your Free Technical Audit â†’
+  
+  *No commitment. 45 minutes. Walk away with a clear picture of your technical risk.*
+  
+  ---
+  
+  **Secondary CTA (below the fold / footer):**
+  Already in due diligence? [Email directly] â€” we turn audits around in 5 business days.
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~239 user words
+  Generating... done (14.4s, ~102 words)
+
+  **Launch Announcement â€” Fractional CTO**
+  
+  ---
+  
+  Dreading tech due diligence on your seed round? Get a fractional CTOâ€”I audit your architecture, hire your first engineer, answer investor questions. $5k/mo. [link]
+  
+  ---
+  
+  **Why this works:**
+  - **Hook**: Leads with the founder's actual anxiety (due diligence), not the product
+  - **Value prop**: Lists three concrete services (audit, hire, Q&A) â€” shows you do real work, not just advise
+  - **Social proof**: Price point signals legitimacy (specific, not vague)
+  - **CTA**: Direct and clear
+  
+  **Ship it today.** This is your Day 1 announcementâ€”it establishes the offer, the audience, and the hook for everything that follows.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 129.5s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     28.5s    566 words
+  Market research report                   sonnet     53.4s    997 words
+  Landing page / homepage draft            sonnet     33.3s    730 words
+  Launch announcement                      haiku      14.4s    102 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773720459.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

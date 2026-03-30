@@ -1,0 +1,101 @@
+{
+  "total_time_s": 2761.2,
+  "results": [
+    {
+      "id": 1,
+      "elapsed": 189.5,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_01.txt"
+    },
+    {
+      "id": 2,
+      "elapsed": 238.4,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_02.txt"
+    },
+    {
+      "id": 3,
+      "elapsed": 177.6,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_03.txt"
+    },
+    {
+      "id": 4,
+      "elapsed": 233.1,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_04.txt"
+    },
+    {
+      "id": 5,
+      "elapsed": 258.6,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_05.txt"
+    },
+    {
+      "id": 6,
+      "elapsed": 163.4,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_06.txt"
+    },
+    {
+      "id": 8,
+      "elapsed": 142.1,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_08.txt"
+    },
+    {
+      "id": 9,
+      "elapsed": 198.0,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_09.txt"
+    },
+    {
+      "id": 10,
+      "elapsed": 145.8,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_10.txt"
+    },
+    {
+      "id": 11,
+      "elapsed": 145.7,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_11.txt"
+    },
+    {
+      "id": 12,
+      "elapsed": 153.6,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_12.txt"
+    },
+    {
+      "id": 14,
+      "elapsed": 131.3,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_14.txt"
+    },
+    {
+      "id": 15,
+      "elapsed": 134.1,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_15.txt"
+    },
+    {
+      "id": 16,
+      "elapsed": 130.0,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_16.txt"
+    },
+    {
+      "id": 17,
+      "elapsed": 166.7,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_17.txt"
+    },
+    {
+      "id": 18,
+      "elapsed": 153.2,
+      "exit_code": 0,
+      "output_file": "F:\\Projects\\arclane\\tests\\prompt_results\\prompt_18.txt"
+    }
+  ]
+}

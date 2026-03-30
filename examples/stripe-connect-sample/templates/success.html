@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Success{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 4rem 1rem;">
+    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--success);">&#10003;</div>
+    <h1>Payment Successful</h1>
+    <p class="subtitle" style="margin-bottom: 2rem;">Your transaction has been completed.</p>
+    {% if session_id %}
+    <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem;">
+        Session: <code>{{ session_id }}</code>
+    </p>
+    {% endif %}
+    <a href="/" class="btn btn-outline">&larr; Back to Dashboard</a>
+</div>
+{% endblock %}

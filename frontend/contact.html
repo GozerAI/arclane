@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Arclane</title>
+    <meta name="description" content="Get in touch with the Arclane team. We're here to help with questions about your account, features, or anything else.">
+    <style>
+        :root {
+            --bg: #07111c; --bg-soft: rgba(14, 24, 38, 0.9); --border: rgba(128, 159, 196, 0.18);
+            --text: #edf4ff; --muted: #9db2cb; --accent: #4bb2ff; --success: #38d39f;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text); line-height: 1.6;
+            background: radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+        }
+        a { color: inherit; text-decoration: none; }
+        .shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; }
+        .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: var(--muted); padding: 0.65rem 0.95rem; border-radius: 999px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-cta, .btn-primary {
+            border-radius: 999px; padding: 0.9rem 1.25rem; display: inline-flex; align-items: center;
+            justify-content: center; font-weight: 700; transition: transform 120ms ease;
+            background: linear-gradient(135deg, var(--accent), #8fe0ff); color: #07111c;
+        }
+        .nav-cta:hover, .btn-primary:hover { transform: translateY(-1px); }
+        .page-header { padding: 3rem 0 1.5rem; }
+        .page-header h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
+        .page-header p { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 42rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 1rem 0 2rem; }
+        .section-card {
+            padding: 1.5rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+        .section-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .section-card p { color: var(--muted); }
+        .section-card a { color: var(--accent); }
+        .section-card a:hover { text-decoration: underline; }
+        .contact-form {
+            padding: 2rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28); max-width: 600px;
+        }
+        .contact-form h2 { font-size: 1.4rem; margin-bottom: 1.2rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 600; font-size: 0.9rem; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid var(--border);
+            background: rgba(8, 15, 24, 0.76); color: var(--text); font-family: inherit; font-size: 1rem;
+            outline: none; transition: border-color 120ms ease;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-note { margin-top: 1rem; color: var(--muted); font-size: 0.88rem; }
+        footer { padding: 1.2rem 0 2.4rem; color: var(--muted); text-align: center; font-size: 0.9rem; }
+        .footer-links { margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 980px) { .grid-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 1rem, 1180px); }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .section-card, .contact-form { padding: 1.35rem; border-radius: 22px; }
+            .nav-links { width: 100%; }
+            .btn-primary, .nav-cta { width: 100%; }
+        }
+    </style>
+    <!-- Meta Pixel -->
+    <script src="/static/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="/" class="logo">arclane<span>.</span>cloud</a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/faq">FAQ</a>
+                <a href="/about">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <p class="eyebrow">Contact</p>
+            <h1>We'd love to hear from you</h1>
+            <p>Have a question, need help with your account, or want to learn more? Reach out and we'll get back to you.</p>
+        </header>
+
+        <div class="grid-2">
+            <article class="section-card">
+                <h3>Email support</h3>
+                <p>For account questions, technical issues, or general inquiries.</p>
+                <p style="margin-top: 0.8rem;"><a href="mailto:support@arclane.cloud">support@arclane.cloud</a></p>
+            </article>
+            <article class="section-card">
+                <h3>Response time</h3>
+                <p>We aim to respond to all inquiries within 24 hours during business days. Pro, Growth, and Scale customers receive priority support.</p>
+            </article>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send us a message</h2>
+            <form action="/api/contact" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <p class="form-note">We'll respond via email within one business day.</p>
+            </form>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/faq">FAQ</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

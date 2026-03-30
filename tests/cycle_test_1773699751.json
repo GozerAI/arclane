@@ -1,0 +1,38 @@
+{
+  "business_name": "Launching",
+  "business_type": "existing",
+  "description": "I am launching a boutique strategy consultancy targeting mid-market SaaS companies. Think McKinsey but for Series A-C startups. Need positioning, a landing page that books discovery calls, and thought leadership content.",
+  "website_url": "https://www.mckinsey.com",
+  "template": "landing-page",
+  "total_time_s": 197.2,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 46.7,
+      "output_words": 706,
+      "output_chars": 4338
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 77.8,
+      "output_words": 1358,
+      "output_chars": 9309
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 35.2,
+      "output_words": 636,
+      "output_chars": 4036
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 37.5,
+      "output_words": 97,
+      "output_chars": 694
+    }
+  }
+}

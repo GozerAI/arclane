@@ -1,0 +1,38 @@
+{
+  "business_name": "Run Zen",
+  "business_type": "existing",
+  "description": "I run Zen Habits, a minimalist living and productivity blog. We have steady traffic but almost no monetization. I want to explore coaching, a small course, and a tighter email funnel without losing the minimalist brand.",
+  "website_url": "https://zenhabits.net",
+  "template": "content-site",
+  "total_time_s": 177.0,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 38.6,
+      "output_words": 670,
+      "output_chars": 3907
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 76.9,
+      "output_words": 1163,
+      "output_chars": 7973
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 34.9,
+      "output_words": 691,
+      "output_chars": 4186
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 26.6,
+      "output_words": 123,
+      "output_chars": 817
+    }
+  }
+}

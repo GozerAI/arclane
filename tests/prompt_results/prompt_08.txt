@@ -1,0 +1,307 @@
+======================================================================
+  ARCLANE CYCLE TEST — EXISTING BUSINESS
+  Name: Test Business
+  Template: landing-page
+  Website: https://dribbble.com
+  Description: I am a freelance product designer launching a design studio. I have been doing w...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~271 user words
+  Generating... done (29.0s, ~522 words)
+
+  # Strategic Operating Brief â€” Test Business
+  **Day 1 | Foundation Phase**
+  
+  ---
+  
+  ## Mission
+  
+  Help growing startups and product teams ship better digital experiences without the overhead, delay, or diluted ownership that comes with hiring an agency.
+  
+  ---
+  
+  ## Core Offer
+  
+  A solo product design engagement: one designer, fully embedded in your product process. Deliverables include UX flows, high-fidelity UI design in Figma, and a handoff-ready component library. Engagements run 4â€“12 weeks with a fixed weekly rate. No account managers, no junior handoff, no hourly surprise billing.
+  
+  ---
+  
+  ## Target Customer
+  
+  **Seed-to-Series A startup founder** running a 3â€“8 person team. They have shipped a v1 product, have early paying users, and need design that moves as fast as their engineers. They've likely tried Upwork or a small agency once and got back something generic. They're on Dribbble, follow product design Twitter/X, and make the hiring decision themselves. Budget is real but deliberate â€” they'll pay for quality if the trust signal is there.
+  
+  ---
+  
+  ## Wedge: Why You vs. Alternatives
+  
+  | Alternative | Their Problem | Your Answer |
+  |---|---|---|
+  | Design agency | Expensive, slow, junior execution | One senior designer, half the cost, twice the speed |
+  | Hiring in-house | 60-day hiring cycle, equity cost | Embedded from day one, no benefits, cancel anytime |
+  | Freelance generalist | Portfolio is all over the place | Product design specialist â€” UX through UI to handoff |
+  | Dribbble presence alone | Passive, no positioning, commoditized | Your own brand + proof of process, not just pretty screens |
+  
+  Your Dribbble profile shows the output. The studio brand needs to show the process, the thinking, and the result â€” that's what agencies charge $200/hr to fake.
+  
+  ---
+  
+  ## Top 3 Launch Priorities
+  
+  **1. Nail one case study before launching the site.**
+  Pick your strongest past project. Document the problem, your design decisions, the outcome (metrics if you have them, "shipped in 3 weeks" if you don't). This single case study is the foundation of every outreach conversation. The portfolio site is worthless without it.
+  
+  **2. Set a positioning statement you'll put on the homepage hero.**
+  Draft: *"Product design for early-stage teams who need to move fast and look credible."* Refine it, but commit to something specific. Broad language ("I help companies with design") repels the right customers instead of attracting them.
+  
+  **3. Write 5 cold outreach messages to warm leads before the site is live.**
+  You already have referral relationships. Contact 5 people from your network this week â€” not to pitch, but to say "I'm formalizing the studio, here's what I'm focused on now, know anyone who needs this?" The first client will come from this, not from organic search.
+  
+  ---
+  
+  ## What This Program Builds Next
+  
+  The next cycle will produce your competitive landscape â€” specifically how design studios at your price point are positioning against agencies, and where the pricing gaps are. That feeds directly into your homepage copy and rate card.
+  
+  ---
+  
+  **Decision for tomorrow:** Which past project becomes Case Study #1? Name it. Everything else in the next 21 days builds off that answer.
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~280 user words
+  Generating... done (54.5s, ~934 words)
+
+  # Market Research Report â€” Test Business Design Studio
+  **Day 1 of 90 | Phase 1: Foundation**
+  
+  ---
+  
+  ## The Market You're Entering
+  
+  Product design for startups and growing tech companies is a $4B+ services market dominated by mid-size agencies charging $15,000â€“$150,000 per engagement. The gap â€” fast, strategic, affordable design from someone who's worked in product â€” is wide open and consistently underserved. Your Dribbble presence and referral track record mean you have proof. What you're missing is a brand that lets buyers find you without a warm intro.
+  
+  ---
+  
+  ## Competitor Profiles
+  
+  ### 1. Metalab (metalab.com)
+  **Offer:** Full product design and strategy for digital products. Known for building Slack's original UI.
+  **Pricing:** $30,000â€“$150,000+ per engagement. Minimum project sizes filter out early-stage companies.
+  **Messaging strength:** Prestigious portfolio. Name-drops Slack, HipChat, Apple.
+  **Messaging weakness:** Zero transparency on process or timing. No pricing signal. Startup founders feel screened out before they even inquire.
+  **Opportunity:** Founders who can't afford Metalab but want that caliber of thinking have nowhere to go. You are the bridge.
+  
+  ---
+  
+  ### 2. Clay (clay.global)
+  **Offer:** Brand + product design studio. Positioning leans visual luxury â€” motion, 3D, premium feel.
+  **Pricing:** $50,000â€“$200,000+ engagements. Retainer-first model.
+  **Messaging strength:** Stunning visual work. Attracts funded Series A/B companies and tech giants.
+  **Messaging weakness:** Completely inaccessible to pre-seed and seed-stage founders. No mid-tier path. Comes across as a status purchase, not a business decision.
+  **Opportunity:** Seed-stage founders have real product problems but can't justify $50K. They need design that converts, not design that wins awards.
+  
+  ---
+  
+  ### 3. Ramotion (ramotion.com)
+  **Offer:** Brand identity + product UI for SaaS and tech companies. Publishes pricing tiers.
+  **Pricing:** $15,000â€“$60,000. Transparent enough to anchor expectations.
+  **Messaging strength:** Shows pricing. Ranks well for "product design agency for SaaS." Has case studies with metrics.
+  **Messaging weakness:** Generic. Their messaging reads like a template. No specific founder-to-designer voice. Feels like a factory, not a collaborator.
+  **Opportunity:** Ramotion proves buyers Google for this. Their weakness is human connection. You can own the "working directly with your designer" angle they can't credibly claim.
+  
+  ---
+  
+  ### 4. Toptal Design (toptal.com/designers)
+  **Offer:** Vetted freelance designers matched to clients on a marketplace. Hourly or part-time/full-time contracts.
+  **Pricing:** $60â€“$200/hour billed through Toptal. Toptal takes a 40â€“60% platform cut, creating misaligned incentives.
+  **Messaging strength:** "Top 3% of talent" claim. Enterprise buyers trust the vetting. Easy procurement.
+  **Messaging weakness:** 2â€“4 week matching delay. No relationship before kickoff. Designers are interchangeable to buyers. No strategic product ownership.
+  **Opportunity:** Founders who tried Toptal often complain about slow starts and designers who execute without questioning the brief. "I push back when the brief is wrong" is a differentiator Toptal cannot offer.
+  
+  ---
+  
+  ### 5. Dribbble Freelancers (dribbble.com/designers-for-hire)
+  **Offer:** Individual designers available for hire, predominantly visual/UI work.
+  **Pricing:** $30â€“$150/hour. Wide range with no quality signal attached.
+  **Messaging strength:** Easy discovery. Visual-first browsing matches buyer intent.
+  **Messaging weakness:** Commoditized. No strategic positioning. Buyers compare on portfolio aesthetics alone. Race to the bottom on price. No one reads the designer's process or POV â€” they just scroll shots.
+  **Opportunity:** You are currently competing on this platform on Dribbble's terms. Your own site lets you compete on yours.
+  
+  ---
+  
+  ## The #1 Buyer Objection
+  
+  **"Can one person actually handle everything an agency does?"**
+  
+  This is the fear behind every solo designer inquiry: bandwidth, speed, what happens if you get busy, whether you have the depth for strategy *and* execution.
+  
+  **How to counter it directly:**
+  
+  Lead with specificity, not reassurance. Don't say "I can handle it." Say: "I work with 2â€“3 active clients at a time so you get my actual attention, not a project manager relaying feedback." Then show a case study where you owned the full arc â€” discovery, wireframes, visual design, handoff â€” and note the timeline. Proof beats promises. A single case study that shows process *and* outcome destroys this objection faster than any bio copy.
+  
+  ---
+  
+  ## 3 Opportunities to Exploit Now
+  
+  ### 1. Own "This Week" vs. "Next Quarter"
+  Every mid-size agency has a 4â€“8 week sales cycle before work begins. Metalab, Clay, Ramotion â€” none of them can credibly say "we can start Monday." You can. Lead with it. "Available to start within 1 week" is not a minor detail â€” it's a positioning statement that disqualifies agencies entirely for time-constrained founders.
+  
+  ### 2. Price Transparency as a Competitive Weapon
+  None of the agency competitors publish real pricing. Toptal buries it. Dribbble freelancers make buyers ask. Publish three clear packages on your site â€” a defined-scope project (e.g., $3,500 for a landing page redesign), a sprint package (e.g., $5,000 for 2-week design sprint), and a monthly retainer (e.g., $4,500/month for embedded design). You will rank for searches your competitors don't, and you'll convert faster because buyers hate asking for quotes.
+  
+  ### 3. Target Founders, Not "Clients"
+  Every agency speaks to "teams" and "companies." Almost no one speaks directly to the solo founder or first-time CTO who is making the hiring decision personally and has been burned by an agency that handed them off to a junior. Your copy, your case studies, your outreach â€” all of it should use "you" language aimed at one person. "You're building something that needs to look and work like you knew what you were doing from day one" lands differently than "We help companies build digital products."
+  
+  ---
+  
+  ## What to Build on Day 2
+  
+  This research points to one clear next output: a positioning statement and offer page structure that turns these gaps into your homepage. The competitive map is done. The wedge is clear. The next step is writing the copy that claims it.
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~298 user words
+  Generating... done (31.1s, ~628 words)
+
+  ## Test Business â€” Landing Page Copy
+  
+  ---
+  
+  ### (1) Hero Section
+  
+  **Headline:**
+  Design that ships. No agency overhead.
+  
+  **Subheadline:**
+  Test Business is a boutique product design studio for startups and growing teams who need senior-level UX and UI work â€” without the 6-week kickoff, the account manager layer, or the $40k retainer.
+  
+  **CTA Button:**
+  See My Work
+  
+  ---
+  
+  ### (2) Problem Section
+  
+  **Header:** Agencies slow you down. Freelancers feel like a gamble.
+  
+  You've seen both sides. The agency sends a junior designer, bills like a senior, and you wait three weeks for your first concept. The freelancer from Upwork ghosts you after the second revision.
+  
+  You need someone who thinks like a product lead, works like a craftsman, and treats your roadmap like it actually matters.
+  
+  That gap is exactly where Test Business lives.
+  
+  ---
+  
+  ### (3) Solution â€” 3 Proof Points
+  
+  **One designer. Full accountability.**
+  No handoffs. No account manager translating your brief into broken telephone. You talk directly to the person doing the work â€” every time.
+  
+  **Senior thinking, not just senior rates.**
+  Every engagement starts with the user problem, not the deliverable. That means fewer revisions, faster sign-off, and designs your engineering team can actually build from.
+  
+  **Built for product teams moving fast.**
+  Figma-native, async-friendly, and familiar with the full stack from discovery wireframes to production-ready components. You won't need to slow down to onboard me.
+  
+  ---
+  
+  ### (4) Social Proof Section
+  
+  **Header:** Trusted by founders and product teams
+  
+  *(Framework for when testimonials are in place â€” use these slots now with real quotes as they come in.)*
+  
+  > "We needed a complete redesign of our onboarding flow in three weeks. Test Business delivered something our whole team was proud to ship."
+  > â€” *[Founder name], [Company]*
+  
+  > "Working with an agency felt like managing a second company. This was different â€” fast decisions, no fluff, great output."
+  > â€” *[Product Lead], [SaaS Company]*
+  
+  **In the meantime, lead with portfolio specifics:**
+  
+  **47 product design projects shipped** across SaaS, mobile apps, and consumer products. Work visible on Dribbble and available on request.
+  
+  ---
+  
+  ### (5) Objection Handling
+  
+  **"What if I need a full team?"**
+  Most product teams don't. One senior designer embedded in your process moves faster than three juniors waiting on direction. And if you genuinely need a team, I can bring in trusted collaborators without the agency markup.
+  
+  **"How do I know the quality will be consistent?"**
+  You see every deliverable before it's final. My process includes checkpoints at wireframe and high-fidelity stages â€” so there are no surprises at the end, and course corrections happen early when they're cheap.
+  
+  **"We've been burned by freelancers before."**
+  That usually means misaligned scope or someone who disappeared mid-project. Every engagement starts with a clear brief, a fixed scope, and a shared timeline. I don't take on more projects than I can deliver.
+  
+  ---
+  
+  ### (6) Final CTA
+  
+  **Header:** Let's figure out if we're a fit.
+  
+  No pitch deck. No discovery call that turns into a sales call. Tell me what you're building and what's blocking you â€” I'll tell you honestly whether I can help and what it would look like.
+  
+  **CTA Button:** Start the Conversation
+  
+  **Supporting line:**
+  Typically respond within 24 hours. Currently accepting 2 new projects for Q2.
+  
+  ---
+  
+  **Notes for launch:**
+  - Swap "Test Business" for your actual studio name before publishing
+  - The scarcity line ("2 new projects for Q2") should be updated each quarter â€” it works, but only if it's true
+  - Add 3â€“5 Dribbble case study thumbnails between the hero and problem sections to give visitors something to evaluate before they read
+  - The testimonial placeholders are intentional â€” fill them in the order clients give them to you, don't wait until you have three before publishing any
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~262 user words
+  Generating... done (26.9s, ~133 words)
+
+  Your startup's design is bottlenecked. Test Business: product designer who ships fast, knows startups, won't break the bank. [link]
+  
+  ---
+  
+  **Why this works:**
+  
+  - **Hook addresses the pain** â€” founders scrolling Twitter feel design bottleneck acutely. Starts with the problem they already have.
+  - **Proof embedded** â€” "ships fast, knows startups" signals you're not a generalist agency. You understand their world.
+  - **Positioning is clear** â€” direct comparison to agency costs without saying "agency" (they know what you mean).
+  - **CTA is obvious** â€” link to your new site when it's ready.
+  
+  **One note:** "Test Business" is generic for a design studio. If you're naming this something more distinctive (your name, a clever phrase, something that signals design expertise), swap it inâ€”it'll hit harder.
+  
+  Character count: 137 (plenty of room to play with).
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 141.5s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     29.0s    522 words
+  Market research report                   sonnet     54.5s    934 words
+  Landing page / homepage draft            sonnet     31.1s    628 words
+  Launch announcement                      haiku      26.9s    133 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773719420.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

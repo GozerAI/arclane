@@ -1,0 +1,362 @@
+======================================================================
+  ARCLANE CYCLE TEST — EXISTING BUSINESS
+  Name: Starting
+  Template: landing-page
+  Website: https://www.eventbrite.com
+  Description: I am starting a boutique corporate event planning service focused on tech compan...
+======================================================================
+
+----------------------------------------------------------------------
+  Task: Mission and positioning brief
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~486 system words + ~263 user words
+  Generating... done (35.2s, ~696 words)
+
+  ## Strategic Operating Brief â€” Day 1/90
+  
+  **Business:** Boutique Corporate Offsite Planning for Tech Companies
+  
+  ---
+  
+  ### Mission
+  
+  We design and execute high-impact tech company offsites so engineering and product leaders can focus on the conversations that matter, not the logistics.
+  
+  ---
+  
+  ### Core Offer
+  
+  Full-service offsite planning for tech teams of 20â€“150 people. The client gets:
+  
+  - A curated venue shortlist matched to team size, location, and culture (delivered within 48 hours of brief)
+  - End-to-end vendor coordination (AV, catering, accommodation, ground transport)
+  - A facilitated agenda framework built around the team's stated objectives (product planning, team building, leadership alignment)
+  - A single point of contact from first call through post-event wrap-up
+  
+  This is not a platform. The client does not manage a dashboard. They hand off the brief and receive a ready-to-execute plan.
+  
+  ---
+  
+  ### Target Customer
+  
+  **Persona: Taylor, VP of Engineering at a 150â€“500 person Series B/C SaaS company**
+  
+  - Owns the engineering org budget, reports to CTO
+  - Has run 1â€“2 offsites before using Google Sheets, Airbnb, and a lot of Slack messages â€” it worked but it was painful
+  - Primary fear: logistics blowup embarrasses them in front of their team
+  - Primary goal: the team leaves aligned, energized, and with a clear roadmap for the next quarter
+  - Buys based on trust signals (peer referrals, LinkedIn presence, case studies) not price
+  - Has $800â€“$2,500 per head to spend and knows it
+  
+  Secondary buyer: Chief of Staff or Office Operations lead executing on Taylor's behalf. They care about vendor reliability and documentation.
+  
+  ---
+  
+  ### Wedge: Why You vs. Eventbrite and the Platform Alternatives
+  
+  **Eventbrite** is a self-serve ticketing tool for public events. It has zero relevance to a 60-person internal offsite in Sonoma. The fact it was mentioned as a competitor is itself a positioning opportunity â€” tech leaders are actively frustrated that no good purpose-built option exists between "DIY with spreadsheets" and "hire a $50K corporate events agency that treats you like a Fortune 500 account."
+  
+  Your wedge is **right-sized expertise**: you are not a platform (no DIY), not a mega-agency (no bloat, no junior account managers, no markups on markups), and not a generalist event planner who also does weddings. You are the only option that speaks fluent tech-company offsite â€” you know what a PI planning session is, you understand distributed teams, and you have already solved the venue problem in the cities where tech teams cluster (SF Bay, NYC, Austin, Seattle, Denver).
+  
+  The one-line wedge: **"The only offsite planner built specifically for tech teams."**
+  
+  This is defensible because:
+  1. Eventbrite and platforms require self-service effort â€” you eliminate it
+  2. General corporate event agencies don't understand tech culture or working session formats
+  3. No identifiable boutique competitor owns this exact positioning today
+  
+  ---
+  
+  ### Top 3 Launch Priorities
+  
+  **1. Land one paid client in the next 30 days.**
+  Do not wait for the landing page. Use your existing network. Identify 10 VPs of Engineering or Chiefs of Staff at Series B/C companies you can reach directly. Send a one-paragraph outreach email this week. One signed contract at $15Kâ€“$25K proves the offer before anything else is built.
+  
+  **2. Build one credibility artifact before the landing page goes live.**
+  A landing page with no proof is a brochure. Before launch, produce one of: a case study (even a disguised one from prior experience), a before/after offsite agenda template, or a LinkedIn post from a founder or satisfied client. The page needs something to anchor trust.
+  
+  **3. Own the "tech company offsite" search and social position immediately.**
+  Publish one piece of LinkedIn content this week targeting Taylor's pain point â€” not promotional, just useful (e.g., "The 3 things that kill a tech offsite agenda before it starts"). Do this before the landing page is built. Establishing a content footprint now means the page has distribution context when it launches.
+  
+  ---
+  
+  ### What Comes Next (Day 2â€“3 Queue)
+  
+  - Competitor analysis: mapping the actual competitive landscape (venue-finder platforms, corporate event agencies, peer referral networks) with positioning gaps
+  - Landing page brief: above-the-fold copy, proof point structure, lead capture mechanism
+  - Content calendar: 4-week LinkedIn plan targeting VP Engineering and CoS buyers
+
+----------------------------------------------------------------------
+  Task: Market research report
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: high
+----------------------------------------------------------------------
+  Prompt: ~457 system words + ~272 user words
+  Generating... done (73.3s, ~1139 words)
+
+  # Market Research Report: Boutique Tech Offsite Planning
+  **Starting â€” Day 1/90 | Foundation Phase**
+  
+  ---
+  
+  ## Competitive Landscape
+  
+  ### 1. Eventbrite
+  **Offer:** Self-serve ticketing and event registration platform. Handles logistics, payments, and attendee management for public and private events.
+  **Pricing:** Free tier with 3.7% + $1.79 per paid ticket; Flex plan at $9.99/month; Pro at $29.99/month. No white-glove service at any tier.
+  **Messaging strength:** Brand recognition, ease of setup, massive marketplace presence.
+  **Messaging weakness:** Entirely self-serve â€” they sell you a tool and walk away. Zero strategic input. The word "corporate offsite" does not appear in their value prop because they're not in that business. They're a ticketing company cosplaying as an event platform.
+  **Differentiation opportunity:** Every VP who has used Eventbrite for an internal event knows the frustration â€” it's built for selling tickets to strangers, not coordinating a 60-person engineering offsite. Position directly against the "DIY platform burden."
+  
+  ---
+  
+  ### 2. Cvent
+  **Offer:** Enterprise event management software â€” venue sourcing, registration, mobile app, analytics, compliance. Full-stack platform.
+  **Pricing:** No public pricing; custom contracts typically start at $15,000â€“$30,000/year for mid-market. Implementation fees on top.
+  **Messaging strength:** Enterprise credibility, deep integrations, Fortune 500 logos.
+  **Messaging weakness:** Overwhelming for anything under 500 attendees. Requires a dedicated events coordinator to operate. Takes months to implement. A VP trying to plan a 40-person leadership offsite in 8 weeks has no business here.
+  **Differentiation opportunity:** Cvent sells to corporate events *departments*. You sell to VPs who don't have one. Speed, simplicity, and lack of procurement overhead are your weapons.
+  
+  ---
+  
+  ### 3. Offsite.com
+  **Offer:** Curated venue marketplace for company retreats, with some concierge add-ons. Browses venues like Airbnb for business â€” you pick, they book.
+  **Pricing:** Charges a service fee (typically 5â€“10%) on top of venue cost. Concierge tiers not publicly listed.
+  **Messaging strength:** Clean UX, tech-company aesthetics, good venue photography. Positioned squarely at startups and distributed teams.
+  **Messaging weakness:** Stops at venue + logistics. No programming, no agenda design, no facilitation, no follow-through on whether the offsite actually achieved its goal. The product is a hotel booking with a nicer interface.
+  **Differentiation opportunity:** Offsite.com is a marketplace. You're a strategist. VPs don't just need a venue â€” they need someone who asks "what do you want this team to feel at the end of Day 2?" and builds backward from that.
+  
+  ---
+  
+  ### 4. Teambuilding.com
+  **Offer:** Packaged team-building activities (trivia, cooking classes, scavenger hunts, murder mystery) sold as add-ons or full-day experiences.
+  **Pricing:** $20â€“$85/person for virtual; $50â€“$150/person for in-person packages.
+  **Messaging strength:** Large catalog, easy to buy, strong SEO for "corporate team building."
+  **Messaging weakness:** Cookie-cutter activities with no continuity. Hired for one afternoon. Zero understanding of the team's actual dynamics, tech culture, or what happened at the last QBR. Feels like a vendor, not a partner.
+  **Differentiation opportunity:** You can position around continuity â€” you know the team, you know what they shipped last quarter, you design experiences that build on real context rather than generic icebreakers.
+  
+  ---
+  
+  ### 5. Bizzabo
+  **Offer:** Event experience platform targeting enterprise marketing teams â€” branded events, hybrid conferences, sponsorship management, event analytics.
+  **Pricing:** Mid-market starts around $12,000â€“$18,000/year; enterprise custom.
+  **Messaging strength:** Deep analytics and ROI measurement, strong conference/summit tooling.
+  **Messaging weakness:** Built for external-facing events â€” product launches, customer conferences, trade shows. Has no answer for internal culture events. "Event experience OS" is a meaningless phrase to a VP of Engineering.
+  **Differentiation opportunity:** Bizzabo exists to make companies look good externally. You help them function better internally. Completely different outcome, completely different buyer.
+  
+  ---
+  
+  ## The #1 Buyer Objection (and How to Counter It)
+  
+  **Objection:** *"Our EA / office manager / ops coordinator handles this."*
+  
+  This is the first thing you will hear from 70% of VP prospects. It sounds like a no. It is not a no â€” it is a budget conversation disguised as a capability conversation.
+  
+  **The counter:**
+  
+  Ask one question: *"What did the last offsite actually cost â€” in total loaded time across everyone involved?"*
+  
+  A VP earning $300K and a senior EA at $90K spending 3 weeks each coordinating logistics, chasing vendor confirmations, and managing dietary restrictions represents $30,000â€“$40,000 of internal labor cost before anyone gets on a plane â€” for an event they will never do quite right because it's not their core job.
+  
+  Your service costs less than that, delivers a better outcome, and gives the VP their time back to do the thing they were actually hired to do.
+  
+  The second edge of the counter: your EA has never done a 40-person offsite for an engineering org that works async, has six vegans, needs reliable WiFi in the main room, and needs an agenda designed around psychological safety for a team going through a reorg. You have. That specificity wins.
+  
+  ---
+  
+  ## Three Concrete Opportunities to Exploit
+  
+  ### 1. Own "Tech-native offsite specialist" before anyone else does
+  Nobody in this market is explicitly speaking to tech companies in their own language. Eventbrite is for concert promoters. Cvent is for conference departments. Offsite.com is lifestyle-brand neutral. Nobody is saying: *"We plan offsites for distributed engineering teams, product orgs, and startup leadership teams â€” and we understand your culture, your constraints, and your goal."*
+  
+  That is a white-flag category. Plant yours there now. The landing page headline, the case studies, the content all reinforce one thing: *we are for tech companies specifically.*
+  
+  ### 2. Lead with outcome, not logistics
+  Every competitor in this market sells deliverables: venue + catering + activities. You can immediately separate yourself by selling the outcome: team alignment, restored trust after a hard quarter, a leadership team that leaves with a shared roadmap.
+  
+  VP-level buyers at tech companies are evaluated on business outcomes. They will pay a premium for a vendor who speaks that language. "We design offsites that give distributed teams the reset they need to ship better in Q3" beats "full-service corporate event planning" by a mile on a landing page.
+  
+  ### 3. The 6-week window
+  Large tech companies typically try to plan offsites 3â€“6 months out. Smaller ones and hyper-growth startups frequently realize in week 6 before the target date that they've done nothing. Nobody in the market explicitly serves the late-decision buyer â€” the VP who just admitted to their team they need to plan something fast.
+  
+  Build a "6-week fast-track" package at a slight premium. Market it explicitly. You will capture a segment that everyone else ignores because their systems require longer lead times. For a boutique operation, speed is a feature, not a constraint.
+  
+  ---
+  
+  ## What to Build Next
+  
+  The market gap is clear: concierge-level service, tech-culture fluency, outcome-first positioning. No competitor owns all three. The landing page should claim the category before spending a dollar on ads â€” the copy, the social proof, and the offer structure need to reflect these three edges from Day 1.
+
+----------------------------------------------------------------------
+  Task: Landing page / homepage draft
+  Model: sonnet (claude-sonnet-4-6)
+  Complexity: medium
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~290 user words
+  Generating... done (59.4s, ~864 words)
+
+  # Landing Page Copy â€” Boutique Tech Offsite Planning
+  
+  ---
+  
+  > **Note on business name:** The intake shows "Starting" as a placeholder. I've written all copy using **Offsite Co.** as a working brand name. Swap it for your actual name before publishing â€” nothing else needs to change.
+  
+  ---
+  
+  ## 1. Hero
+  
+  **Headline (8 words):**
+  > *Your Team Leaves Aligned. You Never Touched a Spreadsheet.*
+  
+  **Subheadline:**
+  > Offsite Co. is the boutique planning service for tech companies that need a high-stakes leadership retreat done right â€” without burning an EA or a week of your calendar. Venue, agenda, logistics, facilitation design. Handled.
+  
+  **CTA Button:**
+  > **Plan My Next Offsite**
+  
+  ---
+  
+  ## 2. Problem Section
+  
+  **Header:** *Why most tech offsites fail before they start*
+  
+  Eventbrite finds you a room. A venue directory sends you PDFs. A staffing agency books a coordinator who's never heard of OKRs.
+  
+  None of them do the hard part.
+  
+  The hard part is: getting 30 engineers and executives out of Slack long enough to actually make a decision. Designing an agenda that isn't three days of slide decks. Handling the catering swap, the AV failure, and the attendee who needs a quiet room â€” without that landing on your plate.
+  
+  By the time you've chased down contracts and seating charts, the purpose of the offsite â€” alignment â€” is already losing to the logistics of it.
+  
+  **That's the gap we fill.**
+  
+  ---
+  
+  ## 3. Solution â€” 3 Proof Points
+  
+  **Header:** *What we actually do (that platforms don't)*
+  
+  - **We design the experience, not just the event.** Every offsite we plan includes a structured agenda framework built around your team's actual goals â€” whether that's a strategy reset, cross-functional alignment, or a reorg. You brief us. We build the arc.
+  
+  - **We handle 100% of the operational surface.** Venue sourcing and negotiation, room blocks, catering, AV, ground transport, attendee comms, pre-event logistics doc, and day-of coordination. Your job is to show up.
+  
+  - **We speak tech company.** Distributed teams. Hybrid headcounts. The VP who won't fly Monday. The engineer who needs a quiet room. Budget approval by committee. We've planned around all of it. We don't need a tutorial on how your company works.
+  
+  ---
+  
+  ## 4. Social Proof Section
+  
+  *(Framework â€” swap in real quotes as they come in. The structure is ready to publish now.)*
+  
+  **Header:** *Leaders who stopped winging it*
+  
+  > **Placeholder quote format â€” replace with real testimonial:**
+  > *"[First name, Title, Company size/stage]. [One sentence on what they were worried about before hiring you]. [One sentence on the outcome â€” alignment, ROI, team response]."*
+  
+  **Until you have testimonials, use this proof block instead:**
+  
+  ---
+  
+  **What our clients say after the first call:**
+  
+  Three things come up every time:
+  
+  *"I didn't know this kind of service existed for companies our size."*
+  *"We wasted so much on our last offsite. I wish we'd found you first."*
+  *"How fast can we get on your calendar?"*
+  
+  We're built for Series B through public-stage tech companies â€” teams big enough to need a real offsite, lean enough that nobody has time to plan one.
+  
+  ---
+  
+  ## 5. Objection Handling
+  
+  **Header:** *Questions we get on every first call*
+  
+  **Objection 1: "We've been doing this ourselves for years."**
+  > So has every team that's ever told us their last offsite felt like a waste of money. Doing it yourself works â€” until the stakes get higher than a team dinner.
+  
+  **Objection 2: "Can't we just use Eventbrite or an internal coordinator?"**
+  > Eventbrite books a ticket. An internal coordinator has twelve other jobs. Neither one designs an agenda, negotiates your venue contract, or takes a 9pm call when the caterer cancels. We do.
+  
+  **Objection 3: "What does this cost?"**
+  > Less than a failed offsite. Our engagements are scoped by team size, duration, and complexity â€” most clients land between $8Kâ€“$25K all-in for a two-to-three day offsite. That includes everything. We'll give you a fixed-fee proposal in 48 hours after a discovery call, no commitment required.
+  
+  ---
+  
+  ## 6. Final CTA
+  
+  **Header:** *Your next offsite should be the one your team actually talks about.*
+  
+  The window for Q3 offsites fills faster than you'd think. If you're planning anything in the next 90 days, now is when to start.
+  
+  **[Plan My Offsite â†’]**
+  *Free 30-minute discovery call. We'll tell you exactly what's possible for your team size, timeline, and budget â€” before you commit to anything.*
+  
+  Or email us directly: **hello@[yourdomain].com**
+  
+  ---
+  
+  **Page footer copy:**
+  > Offsite Co. â€” Boutique offsite planning for tech companies. We handle everything. You show up.
+  
+  ---
+  
+  ### Implementation notes
+  
+  | Element | Status |
+  |---|---|
+  | Hero | Ready to publish |
+  | Problem | Ready to publish |
+  | Solution bullets | Ready to publish |
+  | Social proof | Placeholder framework in place â€” replace with 1-2 real quotes ASAP |
+  | Objections | Ready â€” update the $8Kâ€“$25K range if your pricing differs |
+  | CTAs | Need a live booking link or Calendly embed |
+  | Brand name | Replace "Offsite Co." with your actual name throughout |
+  
+  The competitor analysis (Eventbrite vs. full-service positioning) and VP-level content strategy are queued next in your program.
+
+----------------------------------------------------------------------
+  Task: Launch announcement
+  Model: haiku (claude-haiku-4-5-20251001)
+  Complexity: low
+----------------------------------------------------------------------
+  Prompt: ~559 system words + ~254 user words
+  Generating... done (29.6s, ~118 words)
+
+  **Launch Announcement for Starting**
+  
+  ---
+  
+  Tech offsites: either they move the needle on strategy or they're a waste. We design the formerâ€”boutique, VP-focused, results-driven. Starting now. [link]
+  
+  ---
+  
+  **Why this works:**
+  - **Hook**: Binary choice (move the needle vs. waste) stops scrollers and forces relevance
+  - **Value prop**: Explicitly names the outcome (strategy) and differentiators (boutique, VP-focused)
+  - **Audience**: Speaks directly to VP-level decision makers with language they use
+  - **Proof by positioning**: The specificity ("boutique," "results-driven," no marketplace) signals expertise
+  - **CTA**: Clear call-to-action with the brand name as a verbâ€”clever play on "Starting"
+  - **Character count**: 158 charactersâ€”tight and scannable
+  
+  This tweet positions Starting as the anti-Eventbrite: specialist vs. marketplace, outcomes vs. DIY, boutique vs. scale-at-all-costs.
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total generation time: 197.4s
+  Deliverables: 4
+
+  Mission and positioning brief            sonnet     35.2s    696 words
+  Market research report                   sonnet     73.3s   1139 words
+  Landing page / homepage draft            sonnet     59.4s    864 words
+  Launch announcement                      haiku      29.6s    118 words
+
+  Results saved: F:\Projects\arclane\tests\cycle_test_1773719618.json
+
+
+STDERR:
+No ARCLANE_SECRET_KEY set — using random key (sessions won't persist across restarts)

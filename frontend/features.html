@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Arclane</title>
+    <meta name="description" content="A 90-day AI incubator program with daily execution cycles, health scoring, competitive monitoring, content repurposing, and structured phase progression.">
+    <style>
+        :root {
+            --bg: #07111c;
+            --bg-soft: rgba(14, 24, 38, 0.9);
+            --bg-card: rgba(10, 19, 31, 0.86);
+            --border: rgba(128, 159, 196, 0.18);
+            --border-strong: rgba(127, 171, 226, 0.34);
+            --text: #edf4ff;
+            --muted: #9db2cb;
+            --accent: #4bb2ff;
+            --accent-strong: #1d87ff;
+            --success: #38d39f;
+            --warning: #ffca5a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(75, 178, 255, 0.2), transparent 28%),
+                radial-gradient(circle at right, rgba(56, 211, 159, 0.08), transparent 24%),
+                linear-gradient(180deg, #08131f 0%, #07111c 52%, #091522 100%);
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        .shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; }
+        .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; }
+        .logo span, .eyebrow { color: var(--accent); }
+        .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { color: var(--muted); padding: 0.65rem 0.95rem; border-radius: 999px; }
+        .nav-links a:hover { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-links a.active { color: var(--text); background: rgba(18, 35, 56, 0.7); }
+        .nav-cta, .btn-primary, .btn-secondary {
+            border-radius: 999px; padding: 0.9rem 1.25rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 700; transition: transform 120ms ease, background 120ms ease;
+        }
+        .nav-cta, .btn-primary { background: linear-gradient(135deg, var(--accent), #8fe0ff); color: #07111c; }
+        .btn-secondary { border: 1px solid var(--border); background: rgba(13, 25, 40, 0.72); color: var(--text); }
+        .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+        .page-header { padding: 3rem 0 1.5rem; }
+        .page-header h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 1; }
+        .page-header p { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 42rem; }
+        .section { padding: 1.5rem 0 0; }
+        .section-heading { margin-bottom: 1rem; }
+        .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .section-heading p { color: var(--muted); margin-top: 0.5rem; max-width: 38rem; }
+        .grid-3, .grid-2 { display: grid; gap: 1rem; }
+        .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .section-card {
+            padding: 1.35rem; background: var(--bg-soft); border: 1px solid var(--border);
+            border-radius: 28px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+        .section-card h3 { margin-top: 0.85rem; font-size: 1.1rem; }
+        .section-card p, .section-card li { margin-top: 0.5rem; color: var(--muted); }
+        .section-card ul { list-style: none; margin-top: 0.7rem; }
+        .section-card li::before { content: "+"; color: var(--success); font-weight: 800; margin-right: 0.45rem; }
+        .icon-circle {
+            display: inline-flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center;
+            border-radius: 999px; background: rgba(75, 178, 255, 0.16); color: var(--accent); font-size: 1.2rem;
+        }
+        .step-number {
+            display: inline-flex; width: 2rem; height: 2rem; align-items: center; justify-content: center;
+            border-radius: 999px; background: rgba(75, 178, 255, 0.16); color: var(--accent); font-weight: 800;
+        }
+        .highlight {
+            margin-top: 1.5rem; padding: 1rem 1.1rem; border-radius: 20px;
+            background: rgba(12, 22, 36, 0.82); border: 1px solid var(--border);
+        }
+        .highlight strong { color: var(--accent); }
+        .cta { padding: 1.5rem 0 3rem; }
+        .cta-box {
+            padding: 2rem; border-radius: 28px; border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(17, 34, 55, 0.96), rgba(8, 20, 31, 0.96));
+            text-align: center;
+        }
+        .cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; }
+        .cta-box p { margin: 0.8rem auto 1.3rem; max-width: 36rem; color: var(--muted); }
+        .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        footer { padding: 1.2rem 0 2.4rem; color: var(--muted); text-align: center; font-size: 0.9rem; }
+        .footer-links { margin-top: 0.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 980px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 1rem, 1180px); }
+            .nav { flex-direction: column; align-items: flex-start; }
+            .section-card, .cta-box { padding: 1.35rem; border-radius: 22px; }
+            .nav-links { width: 100%; }
+            .btn-primary, .btn-secondary, .nav-cta { width: 100%; }
+        }
+    </style>
+    <!-- Meta Pixel -->
+    <script src="/static/pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <div class="shell">
+        <nav class="nav">
+            <a href="/" class="logo">arclane<span>.</span>cloud</a>
+            <div class="nav-links">
+                <a href="/features" class="active">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/faq">FAQ</a>
+                <a href="/about">About</a>
+                <a href="/live">Live</a>
+                <a href="/dashboard" class="nav-cta">Open Dashboard</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <p class="eyebrow">Features</p>
+            <h1>A structured incubator, not another AI tool</h1>
+            <p>Arclane runs a 90-day program that moves your business through four phases — Foundation, Validation, Growth, and Scale-Ready — with daily milestones and real deliverables.</p>
+        </header>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>The 90-day program</h2>
+            </div>
+            <div class="grid-2">
+                <article class="section-card">
+                    <div class="icon-circle">1</div>
+                    <h3>Foundation (Days 1-20)</h3>
+                    <p>Strategy brief, market research, competitive landscape, landing page, first content, and business provisioning — all delivered through daily cycles.</p>
+                    <ul>
+                        <li>Day 1 instant-value pack: strategy, research, landing page, launch tweet</li>
+                        <li>Subdomain, email, and web presence provisioned automatically</li>
+                        <li>Go-to-market positioning and offer framing</li>
+                    </ul>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">2</div>
+                    <h3>Validation (Days 21-45)</h3>
+                    <p>Content production ramps up, competitive monitoring kicks in, and early revenue signals get tracked.</p>
+                    <ul>
+                        <li>Content repurposed into 8 formats automatically</li>
+                        <li>Revenue tracking with source attribution</li>
+                        <li>Health scoring across five business dimensions</li>
+                    </ul>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">3</div>
+                    <h3>Growth (Days 46-75)</h3>
+                    <p>Advisory system identifies gaps, competitive intelligence deepens, and content performance drives optimization.</p>
+                    <ul>
+                        <li>Competitive monitoring with market signal analysis</li>
+                        <li>Content analytics: views, clicks, and conversion tracking</li>
+                        <li>Benchmarking against businesses at the same stage</li>
+                    </ul>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">4</div>
+                    <h3>Scale-Ready (Days 76-90)</h3>
+                    <p>Final push toward graduation. Revenue forecasting, growth experiments, and readiness assessment.</p>
+                    <ul>
+                        <li>Graduation criteria checked automatically each cycle</li>
+                        <li>Velocity tracking, ETA estimation, bottleneck detection</li>
+                        <li>Phase advancement based on measurable progress</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="highlight">
+                <strong>After Day 90:</strong> Graduated businesses enter the adaptive optimizer — ongoing cycles driven by health score gaps, market signals, and growth opportunities. No fixed curriculum, just intelligent maintenance.
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>What every cycle delivers</h2>
+            </div>
+            <div class="grid-3">
+                <article class="section-card">
+                    <div class="icon-circle">&#9998;</div>
+                    <h3>Launch assets</h3>
+                    <p>Business naming, positioning, homepage copy, landing pages, and social content — all generated from your business context.</p>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">&#128270;</div>
+                    <h3>Market research</h3>
+                    <p>Competitor analysis, market signals, opportunity identification, and deeper research paths when the data warrants it.</p>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">&#127919;</div>
+                    <h3>Strategy and advisory</h3>
+                    <p>Go-to-market recommendations, health-based alerts, milestone celebrations, and phase-aware guidance tied to where you are in the program.</p>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">&#127760;</div>
+                    <h3>Business provisioning</h3>
+                    <p>Custom subdomain, starter web presence from templates, automatic SSL, and business email address — set up as the program progresses.</p>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">&#128200;</div>
+                    <h3>Analytics and intelligence</h3>
+                    <p>Health trends, content ROI, cycle efficiency, growth metrics, engagement heatmaps, and cohort benchmarking (Pro plans and above).</p>
+                </article>
+                <article class="section-card">
+                    <div class="icon-circle">&#128172;</div>
+                    <h3>Plain-language control</h3>
+                    <p>Queue tasks in natural language. Recommendations surface in context. Full history of everything the program has produced.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>How it works</h2>
+                <p>From first sign-up to visible daily progress in three steps.</p>
+            </div>
+            <div class="grid-3">
+                <article class="section-card">
+                    <span class="step-number">1</span>
+                    <h3>Choose new or existing</h3>
+                    <p>Start with a business idea or an existing website, then give Arclane enough context to understand the goal.</p>
+                </article>
+                <article class="section-card">
+                    <span class="step-number">2</span>
+                    <h3>Arclane builds the queue</h3>
+                    <p>Research, launch assets, provisioning work, and recommendations are organized into a structured execution program.</p>
+                </article>
+                <article class="section-card">
+                    <span class="step-number">3</span>
+                    <h3>Review and pull forward</h3>
+                    <p>Read the finished output, watch the next items, and only buy deeper work when it fits the moment.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>Your dashboard</h2>
+                <p>Designed to show where you are in the program and what's happening next.</p>
+            </div>
+            <div class="grid-2">
+                <article class="section-card">
+                    <h3>Roadmap and milestones</h3>
+                    <p>See your current phase, upcoming milestones, graduation readiness, and daily progress through the 90-day program.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Health and advisory</h3>
+                    <p>Five-dimension health score with trend graphs, advisory alerts, and weekly digest emails that summarize what matters.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Content library</h3>
+                    <p>Every piece of content organized by type, phase, and milestone. Repurpose into threads, carousels, email variants, and more.</p>
+                </article>
+                <article class="section-card">
+                    <h3>Portfolio view</h3>
+                    <p>Growth and Scale plans get a cross-business dashboard — aggregate health, revenue, content, and cycle status across your portfolio.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-box">
+                <p class="eyebrow">Ready to try it?</p>
+                <h2>Day 1 is free</h2>
+                <p>Day 1 is free — no card required. Give Arclane an idea or a website, see your first deliverables land, then choose a plan to keep building.</p>
+                <div class="hero-actions" style="justify-content:center;">
+                    <a href="/dashboard#create" class="btn-primary">Get Started Free</a>
+                    <a href="/pricing" class="btn-secondary">View Pricing</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Arclane. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/faq">FAQ</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

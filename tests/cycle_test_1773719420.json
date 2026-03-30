@@ -1,0 +1,38 @@
+{
+  "business_name": "Test Business",
+  "business_type": "existing",
+  "description": "I am a freelance product designer launching a design studio. I have been doing work through Dribbble and referrals but need my own brand. Need a portfolio site, positioning against agencies, and an outreach strategy.",
+  "website_url": "https://dribbble.com",
+  "template": "landing-page",
+  "total_time_s": 141.5,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 29.0,
+      "output_words": 522,
+      "output_chars": 3211
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 54.5,
+      "output_words": 934,
+      "output_chars": 6339
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 31.1,
+      "output_words": 628,
+      "output_chars": 3924
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 26.9,
+      "output_words": 133,
+      "output_chars": 863
+    }
+  }
+}

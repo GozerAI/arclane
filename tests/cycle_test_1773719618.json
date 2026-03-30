@@ -1,0 +1,38 @@
+{
+  "business_name": "Starting",
+  "business_type": "existing",
+  "description": "I am starting a boutique corporate event planning service focused on tech company offsites. Need a landing page, competitor analysis vs Eventbrite and platforms, and a content strategy targeting VP-level decision makers.",
+  "website_url": "https://www.eventbrite.com",
+  "template": "landing-page",
+  "total_time_s": 197.4,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 35.2,
+      "output_words": 696,
+      "output_chars": 4461
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 73.3,
+      "output_words": 1139,
+      "output_chars": 7714
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 59.4,
+      "output_words": 864,
+      "output_chars": 5223
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 29.6,
+      "output_words": 118,
+      "output_chars": 893
+    }
+  }
+}

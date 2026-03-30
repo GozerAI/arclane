@@ -1,0 +1,40 @@
+name: Security
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  schedule:
+    - cron: '0 9 * * 1'  # Weekly Monday 9am UTC
+
+jobs:
+  dependency-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: |
+          pip install pip-audit safety
+          pip install -e ".[dev]" 2>/dev/null || pip install -e "." 2>/dev/null || true
+      - name: Pip audit
+        run: pip-audit --strict --desc || true
+        continue-on-error: true
+      - name: Safety check
+        run: safety check || true
+        continue-on-error: true
+
+  code-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install bandit
+        run: pip install bandit
+      - name: Run bandit
+        run: bandit -r src/ -ll -ii || bandit -r . -ll -ii --exclude ./tests,./venv,./.venv || true

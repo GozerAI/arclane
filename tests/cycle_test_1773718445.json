@@ -1,0 +1,38 @@
+{
+  "business_name": "Run Copyblogger,",
+  "business_type": "existing",
+  "description": "We run Copyblogger, a content marketing education platform. Growth has stalled. Need fresh positioning, a content calendar that drives email list growth, and a strategy to sell our courses and community memberships.",
+  "website_url": "https://copyblogger.com",
+  "template": "content-site",
+  "total_time_s": 237.8,
+  "results": {
+    "strategy": {
+      "title": "Mission and positioning brief",
+      "model": "sonnet",
+      "elapsed_s": 50.0,
+      "output_words": 805,
+      "output_chars": 5263
+    },
+    "market_research": {
+      "title": "Market research report",
+      "model": "sonnet",
+      "elapsed_s": 120.1,
+      "output_words": 5,
+      "output_chars": 29
+    },
+    "content": {
+      "title": "Landing page / homepage draft",
+      "model": "sonnet",
+      "elapsed_s": 34.1,
+      "output_words": 719,
+      "output_chars": 4592
+    },
+    "launch_tweet": {
+      "title": "Launch announcement",
+      "model": "haiku",
+      "elapsed_s": 33.7,
+      "output_words": 181,
+      "output_chars": 1228
+    }
+  }
+}
